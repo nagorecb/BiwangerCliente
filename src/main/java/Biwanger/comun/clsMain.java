@@ -1,5 +1,6 @@
-package COMUN;
-import Controller.*;
+package main.java.Biwanger.comun;
+
+import main.java.Biwanger.controladores.clsController;
 
 final class clsMain {
 

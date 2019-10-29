@@ -1,4 +1,4 @@
-package Swing;
+package main.java.Biwanger.vistas;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -26,7 +26,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
-import Controller.clsController;
+import main.java.Biwanger.controladores.*;
 import java.awt.Font;
 
 
@@ -55,14 +55,14 @@ public class frmInicioSesion extends JFrame implements ActionListener
 
 
     /**
-     * Constructor de la ventana de registro o inicio de sesiÃ³n
+     * Constructor de la ventana de registro o inicio de sesiÃƒÂ³n
      */
     public frmInicioSesion (clsController controller)
     {
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        //Definimos el tamaÃ±o y la localizaciÃ³n central en la pantalla
+        //Definimos el tamaÃƒÂ±o y la localizaciÃƒÂ³n central en la pantalla
         this.setSize(anchura, altura);
         this.setLocation(x, y);
         setResizable(false);
@@ -85,7 +85,7 @@ public class frmInicioSesion extends JFrame implements ActionListener
         panelUsuario.add(tfEmail);
         tfEmail.setColumns(10);
 
-        lbpassword = new JLabel("Contraseña:");
+        lbpassword = new JLabel("ContraseÃ±a:");
         lbpassword.setBounds(15, 112, 122, 28);
         lbpassword.setFont(new Font("Tahoma", Font.PLAIN, 20));
         panelUsuario.add(lbpassword);
@@ -103,7 +103,7 @@ public class frmInicioSesion extends JFrame implements ActionListener
         panelBotonera.setLayout(null);
         panelBotonera.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-        lbRegistrarse = new JLabel("¿No tienes cuenta? Regístrate haciendo click sobre este texto");
+        lbRegistrarse = new JLabel("Â¿No tienes cuenta? RegÃ­strate haciendo click sobre este texto");
         lbRegistrarse.setForeground(Color.BLUE);
         lbRegistrarse.setFont(new Font("Tahoma", Font.PLAIN, 20));
         panelBotonera.add(lbRegistrarse);
@@ -155,7 +155,7 @@ public class frmInicioSesion extends JFrame implements ActionListener
                     if (password.equals(""))
                     {
                         JOptionPane.showMessageDialog(this,
-                                "Por favor, introduce tu contraseña",
+                                "Por favor, introduce tu contraseÃ±a",
                                 "Rellena todos los campos",
                                 JOptionPane.WARNING_MESSAGE);
                         tfpassword.setBorder((Border) new LineBorder(Color.red));
@@ -164,7 +164,7 @@ public class frmInicioSesion extends JFrame implements ActionListener
                 else
                 {
                     String inicio = "";
-                    inicio = controller.inicioSesion(email, password);
+                    //inicio = controller.inicioSesion(email, password);
                     // Ventana principal ventana.setVisible(true);
                     if(inicio.equals("ADMIN"))
                     {
@@ -178,7 +178,7 @@ public class frmInicioSesion extends JFrame implements ActionListener
                     else
                     {
                         JOptionPane.showMessageDialog(this,
-                                "Credenciales incorrectas, por favor, inténtalo de nuevo",
+                                "Credenciales incorrectas, por favor, intÃ©ntalo de nuevo",
                                 "Credenciales incorrectas",
                                 JOptionPane.WARNING_MESSAGE);
                     }

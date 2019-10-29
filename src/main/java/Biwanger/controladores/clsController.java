@@ -1,6 +1,14 @@
-package Controller;
-import Swing.*;
-import Remote.*;
+package main.java.Biwanger.controladores;
+import main.java.Biwanger.vistas.*;
+import main.java.Biwanger.Remote.*;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 public class clsController
 {
@@ -9,7 +17,9 @@ public class clsController
     public clsController() //throws RemoteException
     {
         sl = new clsServiceLocator();
-        sl.setService();
+        String hostname ="";
+        String port = "";
+        sl.setService(hostname, port);
 
         //Habra que poner la ventana principal cuando este lista
         //frmInicio GUI = new frmInicio(this);
@@ -17,14 +27,16 @@ public class clsController
         GUI.setVisible(true);
     }
 
-    public String inicioSesion(email, password)
+    public String inicioSesion(String email, String password)
     {
         WebTarget postRequestController = sl.getService().path("resource/LoginRequest");
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
 
         Response response = invocationBuilder.post(Entity.entity(email, password, MediaType.APPLICATION_JSON));
 
-        if (response.getStatus() != Status.OK.getStatusCode())
+        String resultado = "";
+
+        if(response.getStatus() != Status.OK.getStatusCode())
         {
             System.out.println("Todo no OK");
             throw new Exception("no OK");
@@ -32,7 +44,7 @@ public class clsController
         else
         {
             System.out.println("Todo OK");
-            String resultado = response.readEntity(String.class);
+            resultado = response.readEntity(String.class);
         }
         return resultado;
     }
