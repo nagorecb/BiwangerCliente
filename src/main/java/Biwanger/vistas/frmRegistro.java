@@ -49,8 +49,8 @@ public class frmRegistro extends JFrame implements ActionListener
     private JPanel panelBotonera;
 
 
-    private int altura = 300;
-    private int anchura = 600;
+    private int altura = 361;
+    private int anchura = 603;
     private int x = 100;
     private int y = 100;
 
@@ -71,7 +71,7 @@ public class frmRegistro extends JFrame implements ActionListener
 
         //Panel de usuario
         panelUsuario = new JPanel();
-        panelUsuario.setBounds(0, 0, 609, 162);
+        panelUsuario.setBounds(0, 0, 609, 219);
         panelUsuario.setLayout(null);
 
         lbEmail = new JLabel("Email:");
@@ -98,20 +98,19 @@ public class frmRegistro extends JFrame implements ActionListener
         panelUsuario.add(tfPassword);
 
         lbPasswordConfirm = new JLabel("Confirma contraseña:");
-        lbPasswordConfirm.setBounds(15, 176, 182, 28);
+        lbPasswordConfirm.setBounds(15, 176, 207, 28);
         lbPasswordConfirm.setFont(new Font("Tahoma", Font.PLAIN, 20));
         panelUsuario.add(lbPasswordConfirm);
 
         tfPasswordConfirm = new JPasswordField();
-        tfPasswordConfirm.setLocation(209, 173);
+        tfPasswordConfirm.setLocation(218, 175);
         tfPassword.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        tfPasswordConfirm.setSize(391, 34);
+        tfPasswordConfirm.setSize(337, 34);
         panelUsuario.add(tfPasswordConfirm);
 
         //Panel botonera
         panelBotonera = new JPanel();
-        panelBotonera.setBounds(0, 160, 609, 117);
-        panelBotonera.setLayout(null);
+        panelBotonera.setBounds(0, 221, 594, 100);
         panelBotonera.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
         btnRegistro = new JButton("Registrarse");
