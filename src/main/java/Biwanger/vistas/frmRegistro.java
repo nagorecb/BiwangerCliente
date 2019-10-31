@@ -30,19 +30,20 @@ import main.java.Biwanger.controladores.*;
 import java.awt.Font;
 
 
-public class frmInicioSesion extends JFrame implements ActionListener
+public class frmRegistro extends JFrame implements ActionListener
 {
-    private static Logger logger = Logger.getLogger(frmInicioSesion.class.getName());
+    private static Logger logger = Logger.getLogger(frmRegistro.class.getName());
     private static Handler handlerPantalla;
     private static Handler handlerArchivo;
 
     private JTextField tfEmail;
-    private JPasswordField tfpassword;
+    private JPasswordField tfPassword;
+    private JPasswordField tfPasswordConfirm;
     private JLabel lbEmail;
-    private JLabel lbpassword;
-    private JLabel lbRegistrarse;
+    private JLabel lbPassword;
+    private JLabel lbPasswordConfirm;
 
-    private JButton btnIniciarSesion;
+    private JButton btnRegistro;
 
     private JPanel panelUsuario;
     private JPanel panelBotonera;
@@ -55,21 +56,21 @@ public class frmInicioSesion extends JFrame implements ActionListener
 
 
     /**
-     * Constructor de la ventana de registro o inicio de sesiÃƒÂ³n
+     * Constructor de la ventana de registro
      */
-    public frmInicioSesion (clsController controller)
+    public frmRegistro (clsController controller)
     {
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        //Definimos el tamaÃƒÂ±o y la localizaciÃƒÂ³n central en la pantalla
+        //Definimos el tamaño y la localización central en la pantalla
         this.setSize(anchura, altura);
         this.setLocation(x, y);
         setResizable(false);
-        setTitle("Biwanger Fantasy - Inicio de sesión");
+        setTitle("Biwanger Fantasy - Registro");
 
-        //Panel usuario
-        panelUsuario= new JPanel();
+        //Panel de usuario
+        panelUsuario = new JPanel();
         panelUsuario.setBounds(0, 0, 609, 162);
         panelUsuario.setLayout(null);
 
@@ -85,17 +86,27 @@ public class frmInicioSesion extends JFrame implements ActionListener
         panelUsuario.add(tfEmail);
         tfEmail.setColumns(10);
 
-        lbpassword = new JLabel("ContraseÃ±a:");
-        lbpassword.setBounds(15, 112, 122, 28);
-        lbpassword.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        panelUsuario.add(lbpassword);
+        lbPassword = new JLabel("Contraseña:");
+        lbPassword.setBounds(15, 112, 122, 28);
+        lbPassword.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        panelUsuario.add(lbPassword);
 
-        tfpassword= new JPasswordField();
-        tfpassword.setLocation(164, 109);
-        tfpassword.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        tfpassword.setSize(391, 34);
-        panelUsuario.add(tfpassword);
+        tfPassword = new JPasswordField();
+        tfPassword.setLocation(164, 109);
+        tfPassword.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        tfPassword.setSize(391, 34);
+        panelUsuario.add(tfPassword);
 
+        lbPasswordConfirm = new JLabel("Confirma contraseña:");
+        lbPasswordConfirm.setBounds(15, 176, 182, 28);
+        lbPasswordConfirm.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        panelUsuario.add(lbPasswordConfirm);
+
+        tfPasswordConfirm = new JPasswordField();
+        tfPasswordConfirm.setLocation(209, 173);
+        tfPassword.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        tfPasswordConfirm.setSize(391, 34);
+        panelUsuario.add(tfPasswordConfirm);
 
         //Panel botonera
         panelBotonera = new JPanel();
@@ -103,29 +114,12 @@ public class frmInicioSesion extends JFrame implements ActionListener
         panelBotonera.setLayout(null);
         panelBotonera.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-        lbRegistrarse = new JLabel("Â¿No tienes cuenta? RegÃ­strate haciendo click sobre este texto");
-        lbRegistrarse.setForeground(Color.BLUE);
-        lbRegistrarse.setFont(new Font("Tahoma", Font.PLAIN, 20));
-        panelBotonera.add(lbRegistrarse);
+        btnRegistro = new JButton("Registrarse");
+        btnRegistro.setFont(new Font("Tahoma", Font.PLAIN, 23));
+        panelBotonera.add(btnRegistro);
 
-        btnIniciarSesion = new JButton("Iniciar Sesion");
-        btnIniciarSesion.setFont(new Font("Tahoma", Font.PLAIN, 23));
-        panelBotonera.add(btnIniciarSesion);
-
-
-        lbRegistrarse.addMouseListener(new MouseAdapter()
-        {
-            public void mouseClicked(MouseEvent e)
-            {
-                frmRegistro registro = new frmRegstro(controller);
-                Component component = (Component) e.getSource();
-                JFrame frame = (JFrame)SwingUtilities.getRoot(component);
-                frame.setVisible(false);
-                registro.setVisible(true);
-            }
-        });
-        btnIniciarSesion.setActionCommand("INICIO");
-        btnIniciarSesion.addActionListener(this);
+        btnRegistro.setActionCommand("REGISTRO");
+        btnRegistro.addActionListener(this);
         getContentPane().setLayout(null);
 
         this.getContentPane().add(panelUsuario);
@@ -137,12 +131,13 @@ public class frmInicioSesion extends JFrame implements ActionListener
     {
         switch(e.getActionCommand())
         {
-            case "INICIO":
+            case "REGISTRO":
             {
                 String email = tfEmail.getText();
-                String password = tfpassword.getText();
+                String password = tfPassword.getText();
+                String passwordConfirm = tfPasswordConfirm.getText();
 
-                if(email.equals("")||password.equals(""))
+                if(email.equals("")||password.equals("")||passwordConfirm.equals(""))
                 {
                     if (email.equals(""))
                     {
@@ -156,31 +151,41 @@ public class frmInicioSesion extends JFrame implements ActionListener
                     if (password.equals(""))
                     {
                         JOptionPane.showMessageDialog(this,
-                                "Por favor, introduce tu contraseÃ±a",
+                                "Por favor, introduce tu contraseña",
                                 "Rellena todos los campos",
                                 JOptionPane.WARNING_MESSAGE);
-                        tfpassword.setBorder((Border) new LineBorder(Color.red));
+                        tfPassword.setBorder((Border) new LineBorder(Color.red));
                     }
+                    if (passwordConfirm.equals(""))
+                    {
+                        JOptionPane.showMessageDialog(this,
+                                "Por favor, introduce la confirmación de tu contraseña",
+                                "Rellena todos los campos",
+                                JOptionPane.WARNING_MESSAGE);
+                        tfPassword.setBorder((Border) new LineBorder(Color.red));
+                    }
+                }
+                else if (!password.equals(passwordConfirm))
+                {
+                    JOptionPane.showMessageDialog(this,
+                            "Las contraseñas no coinciden",
+                            "Por favor, cambia las contraseñas para que coincidan",
+                            JOptionPane.WARNING_MESSAGE);
+                    tfPassword.setBorder((Border) new LineBorder(Color.red));
                 }
                 else
                 {
-                    String inicio = "";
-                    //inicio = controller.inicioSesion(email, password);
+                    boolean okay = controller.registro(email, password);
                     // Ventana principal ventana.setVisible(true);
-                    if(inicio.equals("ADMIN"))
+                    if(okay)
                     {
-                        this.setVisible(false);
-                        //Abrir ventana de Admin
-                    }
-                    else if(inicio.equals("USUARIO"))
-                    {
-                        //Abrir ventana de ese usuario
+                        //Abrir ventana de usuario
                     }
                     else
                     {
                         JOptionPane.showMessageDialog(this,
-                                "Credenciales incorrectas, por favor, intÃ©ntalo de nuevo",
-                                "Credenciales incorrectas",
+                                "Este email ya está registrado",
+                                "Por favor, inicia sesión",
                                 JOptionPane.WARNING_MESSAGE);
                     }
                 }

@@ -38,7 +38,7 @@ public class clsController
 
         if(response.getStatus() != Status.OK.getStatusCode())
         {
-            System.out.println("Todo no OK");
+            System.out.println("No OK");
             throw new Exception("no OK");
         }
         else
@@ -49,4 +49,23 @@ public class clsController
         return resultado;
     }
 
+    public boolean registro(email, password)
+    {
+        WebTarget postRequestController = sl.getService().path("resource/RegistroRequest");
+        Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
+
+        boolean response = invocationBuilder.post(Entity.entity(email, password, MediaType.APPLICATION_JSON));
+
+        if (response)
+        {
+            System.out.println("Todo OK");
+        }
+        else
+        {
+            System.out.println("No OK");
+            throw new Exception("no OK");
+        }
+
+        return resultado;
+    }
 }
