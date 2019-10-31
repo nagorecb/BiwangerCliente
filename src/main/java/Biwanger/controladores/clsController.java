@@ -1,6 +1,10 @@
-package main.java.Biwanger.controladores;
-import main.java.Biwanger.vistas.*;
-import main.java.Biwanger.Remote.*;
+package Biwanger.controladores;
+import Biwanger.vistas.*;
+import Biwanger.Remote.clsServiceLocator;
+import Biwanger.objetosDominio.clsUsuario;
+
+import java.util.ArrayList;
+
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -67,5 +71,13 @@ public class clsController
         }
 
         return resultado;
+    }
+    public ArrayList<clsUsuario> PremiarTresMejores()
+    {
+        WebTarget postRequestController = sl.getService().path("resource/PremiarTresMejores");
+        Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
+
+        //no se como va
+
     }
 }
