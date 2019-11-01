@@ -12,6 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Handler;
 import java.util.logging.Logger;
 
@@ -86,7 +87,9 @@ public class frmPanelAdmin extends JFrame implements ActionListener
                 //metodo PREMIAR
                 table.setVisible(false);
                 tableModel.setRowCount(0);
-                for (int i =0; i<listaUsuarios.size();i++)
+                List<clsUsuario>listaUsuarios = new ArrayList<clsUsuario>();
+                
+				for (int i =0; i<listaUsuarios.size();i++)
                 {
                     String user = listaUsuarios.get(i).getEmail();
                     int puntos = listaUsuarios.get(i).getPuntuacion();

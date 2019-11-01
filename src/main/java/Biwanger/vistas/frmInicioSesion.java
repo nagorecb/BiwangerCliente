@@ -1,4 +1,4 @@
-package main.java.Biwanger.vistas;
+package Biwanger.vistas;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -26,7 +26,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
-import main.java.Biwanger.controladores.*;
+import Biwanger.controladores.clsController;
+import Biwanger.controladores.*;
 import java.awt.Font;
 
 
@@ -117,7 +118,7 @@ public class frmInicioSesion extends JFrame implements ActionListener
         {
             public void mouseClicked(MouseEvent e)
             {
-                frmRegistro registro = new frmRegstro(controller);
+                frmRegistro registro = new frmRegistro(controller);
                 Component component = (Component) e.getSource();
                 JFrame frame = (JFrame)SwingUtilities.getRoot(component);
                 frame.setVisible(false);

@@ -1,4 +1,4 @@
-package main.java.Biwanger.vistas;
+package Biwanger.vistas;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -26,7 +26,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
-import main.java.Biwanger.controladores.*;
+import Biwanger.controladores.*;
 import java.awt.Font;
 
 
@@ -54,13 +54,15 @@ public class frmRegistro extends JFrame implements ActionListener
     private int x = 100;
     private int y = 100;
 
+    private clsController controller;
 
     /**
      * Constructor de la ventana de registro
      */
     public frmRegistro (clsController controller)
     {
-
+    	this.controller=controller;
+    	
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         //Definimos el tamaño y la localización central en la pantalla
