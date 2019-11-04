@@ -33,6 +33,10 @@ public class clsController
 
     public String inicioSesion(String email, String password)
     {
+        clsUsuario usuario = new clsUsuario ();
+        usuario.setEmail(email);
+        usuario.setPassword(password);
+
         WebTarget postRequestController = sl.getservice().path("resource/login");
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
         Response response = invocationBuilder.post(Entity.entity( usuario, MediaType.APPLICATION_JSON));
@@ -53,9 +57,12 @@ public class clsController
 
     public boolean registro(String email, String password)
     {
+        clsUsuario usuario = new clsUsuario ();
+        usuario.setPassword(password);
+        usuario.setEmail(email);
         WebTarget postRequestController = sl.getservice().path("resource/registroRequest");
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
-        boolean response = invocationBuilder.post(Entity.entity(email, password, MediaType.APPLICATION_JSON));
+        boolean response = invocationBuilder.post(Entity.entity(usuario, MediaType.APPLICATION_JSON));
 
         if (response)
         {
@@ -70,11 +77,11 @@ public class clsController
 		return response;
     }
     
-    public ArrayList<clsUsuario> PremiarTresMejores()
+    public Response PremiarTresMejores()
     {
         WebTarget postRequestController = sl.getservice().path("resource/premiarTresMejores");
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
-        boolean response = invocationBuilder.post(Entity.entity(puntos, MediaType.APPLICATION_JSON));
+        Response response = invocationBuilder.get();
 
         return response;
     }
