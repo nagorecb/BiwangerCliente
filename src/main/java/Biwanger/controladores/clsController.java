@@ -45,7 +45,6 @@ public class clsController
         if(response.getStatus() != Status.OK.getStatusCode())
         {
             System.out.println("No OK");
-            throw new Exception("no OK");
         }
         else
         {
@@ -62,19 +61,20 @@ public class clsController
         usuario.setEmail(email);
         WebTarget postRequestController = sl.getservice().path("resource/registroRequest");
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
-        boolean response = invocationBuilder.post(Entity.entity(usuario, MediaType.APPLICATION_JSON));
+        Response response = invocationBuilder.post(Entity.entity(usuario, MediaType.APPLICATION_JSON));
 
-        if (response)
+        if (response.getStatus() != Status.OK.getStatusCode())
         {
             System.out.println("Todo OK");
+            
+            return true;
         }
         else
         {
             System.out.println("No OK");
-            throw new Exception("no OK");
-        }
 
-		return response;
+            return false;
+        }
     }
     
     public Response PremiarTresMejores()

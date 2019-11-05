@@ -58,7 +58,7 @@ public class frmInicioSesion extends JFrame implements ActionListener
     /**
      * Constructor de la ventana de registro o inicio de sesiÃƒÂ³n
      */
-    public frmInicioSesion (clsController controller)
+    public frmInicioSesion (final clsController controller)
     {
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
