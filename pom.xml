@@ -7,7 +7,7 @@
   <groupId>Biwanger</groupId>
   <artifactId>BiwangerCliente</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
 
   <name>BiwangerCliente</name>
@@ -109,7 +109,7 @@
 
   <profiles>
     <profile>
-      <!-- run as 'mvn exec:java -client' -->
+      <!-- run as 'mvn exec:java -Pclient' -->
       <id>client</id>
       <build>
         <plugins>

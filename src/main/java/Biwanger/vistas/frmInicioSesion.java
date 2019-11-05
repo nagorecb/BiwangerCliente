@@ -86,7 +86,7 @@ public class frmInicioSesion extends JFrame implements ActionListener
         panelUsuario.add(tfEmail);
         tfEmail.setColumns(10);
 
-        lbpassword = new JLabel("ContraseÃ±a:");
+        lbpassword = new JLabel("Contraseña");
         lbpassword.setBounds(15, 112, 122, 28);
         lbpassword.setFont(new Font("Tahoma", Font.PLAIN, 20));
         panelUsuario.add(lbpassword);
@@ -104,12 +104,12 @@ public class frmInicioSesion extends JFrame implements ActionListener
         panelBotonera.setLayout(null);
         panelBotonera.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-        lbRegistrarse = new JLabel("Â¿No tienes cuenta? RegÃ­strate haciendo click sobre este texto");
+        lbRegistrarse = new JLabel("¿No tienes cuenta? Regístrate haciendo click sobre este texto");
         lbRegistrarse.setForeground(Color.BLUE);
         lbRegistrarse.setFont(new Font("Tahoma", Font.PLAIN, 20));
         panelBotonera.add(lbRegistrarse);
 
-        btnIniciarSesion = new JButton("Iniciar Sesion");
+        btnIniciarSesion = new JButton("Iniciar Sesión");
         btnIniciarSesion.setFont(new Font("Tahoma", Font.PLAIN, 23));
         panelBotonera.add(btnIniciarSesion);
 

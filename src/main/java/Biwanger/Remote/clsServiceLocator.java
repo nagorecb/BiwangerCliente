@@ -17,6 +17,7 @@ public class clsServiceLocator
     {
         client = ClientBuilder.newClient();
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
+        System.out.println("Conectado");
     }
 
     public WebTarget getservice()
