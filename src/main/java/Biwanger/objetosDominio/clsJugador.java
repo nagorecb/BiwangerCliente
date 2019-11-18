@@ -1,5 +1,4 @@
 package Biwanger.objetosDominio;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -67,199 +66,140 @@ public class clsJugador implements Serializable
 		this.pujasRealizadas = pujasRealizadas;
 	}
 
-
-
 	public int getId() {
 		return id;
 	}
-
-
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-
-
 	public String getNombre() {
 		return nombre;
 	}
-
-
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-
-
 	public int getPuntos() {
 		return puntos;
 	}
-
-
 
 	public void setPuntos(int puntos) {
 		this.puntos = puntos;
 	}
 
-
-
 	public String getPosicion() {
 		return posicion;
 	}
-
-
 
 	public void setPosicion(String posicion) {
 		this.posicion = posicion;
 	}
 
-
-
 	public double getPrecio() {
 		return precio;
 	}
-
-
 
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 
-
-
 	public String getEquipo() {
 		return equipo;
 	}
-
-
 
 	public void setEquipo(String equipo) {
 		this.equipo = equipo;
 	}
 
-
-
 	public boolean isAlineado() {
 		return alineado;
 	}
-
-
 
 	public void setAlineado(boolean alineado) {
 		this.alineado = alineado;
 	}
 
-
-
 	public int getNumGoles() {
 		return numGoles;
 	}
-
-
 
 	public void setNumGoles(int numGoles) {
 		this.numGoles = numGoles;
 	}
 
-
-
 	public int getNumAsistencias() {
 		return numAsistencias;
 	}
-
-
 
 	public void setNumAsistencias(int numAsistencias) {
 		this.numAsistencias = numAsistencias;
 	}
 
-
-
 	public int getNumTarjetasAmarillas() {
 		return numTarjetasAmarillas;
 	}
-
-
 
 	public void setNumTarjetasAmarillas(int numTarjetasAmarillas) {
 		this.numTarjetasAmarillas = numTarjetasAmarillas;
 	}
 
-
-
 	public int getNumTarjetasRojas() {
 		return numTarjetasRojas;
 	}
-
-
 
 	public void setNumTarjetasRojas(int numTarjetasRojas) {
 		this.numTarjetasRojas = numTarjetasRojas;
 	}
 
-
-
 	public int getNumPartidosJugados() {
 		return numPartidosJugados;
 	}
-
-
 
 	public void setNumPartidosJugados(int numPartidosJugados) {
 		this.numPartidosJugados = numPartidosJugados;
 	}
 
-
-
 	public String getEstado() {
 		return estado;
 	}
-
-
 
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 
-
-
 	public boolean isEnVenta() {
 		return enVenta;
 	}
-
-
 
 	public void setEnVenta(boolean enVenta) {
 		this.enVenta = enVenta;
 	}
 
-
-
 	public clsUsuario getUsuarioDueno() {
 		return usuarioDueno;
 	}
-
-
 
 	public void setUsuarioDueno(clsUsuario usuarioDueno) {
 		this.usuarioDueno = usuarioDueno;
 	}
 
-
-
 	public List<clsPuja> getPujasRealizadas() {
 		return pujasRealizadas;
 	}
-
-
 
 	public void setPujasRealizadas(List<clsPuja> pujasRealizadas) {
 		this.pujasRealizadas = pujasRealizadas;
 	}
 
 
+	@Override
+	public String toString()
+	{
+		return this.nombre;
+	}
 
 	@Override
 	public int hashCode() {

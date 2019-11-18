@@ -12,6 +12,7 @@ public class clsUsuario implements Serializable
     private String password;
     private int puntuacion;
     private double fondos;
+    private String formacion;
     
     private List <clsJugador> plantilla;
     private List <clsPuja> pujas;
@@ -21,16 +22,18 @@ public class clsUsuario implements Serializable
         this.password =  null;
         this.fondos = 0.0;
         this.plantilla = new ArrayList <clsJugador>();
+        this.formacion = null;
         puntuacion = 0;
 	}
 
-	public clsUsuario(String email, String password, int puntuacion, double fondos, List<clsJugador> plantilla) {
+	public clsUsuario(String email, String password, int puntuacion, double fondos, List<clsJugador> plantilla, String formacion) {
 		super();
 		this.email = email;
 		this.password = password;
 		this.puntuacion = puntuacion;
 		this.fondos = fondos;
 		this.plantilla = plantilla;
+		this.formacion=formacion;
 	}
 
 	public String getEmail() {
@@ -71,6 +74,25 @@ public class clsUsuario implements Serializable
 
 	public void setPlantilla(List<clsJugador> plantilla) {
 		this.plantilla = plantilla;
+	}
+
+	public String getFormacion() {
+		return formacion;
+	}
+
+	public void setFormacion(String formacion) {
+		this.formacion = formacion;
+	}
+
+	public ArrayList<clsJugador> getPosicion(String posicion)
+	{
+		ArrayList <clsJugador> lPosicion = new ArrayList <clsJugador>();
+		for (int i=0;i<plantilla.size();i++)
+		{
+			if (plantilla.get(i).getPosicion()==posicion)
+				lPosicion.add(plantilla.get(i));
+		}
+		return lPosicion;
 	}
 
 	//HashCode e equals

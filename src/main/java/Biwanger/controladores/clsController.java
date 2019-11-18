@@ -77,12 +77,59 @@ public class clsController
         }
     }
     
-    public Response PremiarTresMejores()
+    public ArrayList<clsUsuario> premiarTresMejores()
     {
+        ArrayList<clsUsuario> usuarios;
+
         WebTarget postRequestController = sl.getservice().path("resource/premiarTresMejores");
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
-        Response response = invocationBuilder.get();
+        Response response = invocationBuilder.post(Entity.entity(null,MediaType.APPLICATION_JSON));
+        //que meto si no quiero meter nada???
+        //dudaaaaa
+        usuarios = response.readEntity(ArrayList.class);
 
-        return response;
+        if(response.getStatus() != Status.OK.getStatusCode())
+        {
+            System.out.println("No OK");
+        }
+        else
+        {
+            System.out.println("Todo OK");
+        }
+        return usuarios;
     }
+
+    public void modificarAlineacion(clsUsuario usuario)
+    {
+        WebTarget postRequestController = sl.getservice().path("resource/modificarAlineacion");
+        Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
+        Response response = invocationBuilder.post(Entity.entity(usuario, MediaType.APPLICATION_JSON));
+
+        if(response.getStatus() != Status.OK.getStatusCode())
+        {
+            System.out.println("No OK");
+        }
+        else
+        {
+            System.out.println("Todo OK");
+        }
+    }
+
+
+    public void modificarFormacion (clsUsuario usuario)
+    {
+        WebTarget postRequestController = sl.getservice().path("resource/modificarFormacion");
+        Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
+        Response response = invocationBuilder.post(Entity.entity( usuario, MediaType.APPLICATION_JSON));
+
+        if(response.getStatus() != Status.OK.getStatusCode())
+        {
+            System.out.println("No OK");
+        }
+        else
+        {
+            System.out.println("Todo OK");
+        }
+    }
+
 }

@@ -16,94 +16,76 @@ import java.util.List;
 import java.util.logging.Handler;
 import java.util.logging.Logger;
 
-public class frmPanelAdmin extends JFrame implements ActionListener
+public class frmPanelAdmin extends JFrame
 {
     private static Logger logger = Logger.getLogger(frmPanelAdmin.class.getName());
     private static Handler handlerPantalla;
     private static Handler handlerArchivo;
 
-    private JButton btnPremiar;
-    private JPanel contentPane;
-    private JTableHeader header;
-    private JTable table;
-    private DefaultTableModel tableModel;
+    private static final long serialVersionUID = 1L;
+    private JPanel pPrincipal;
+    private PanelConFondo pFoto;
+    private JMenuBar menuBar;
+    private JMenu mnMenu;
+    private JMenuItem mntmPremiarTresMejores,mntmIntroducirPuntuacionJornada, mntmGestionDeMercado;
+    private ArrayList<clsUsuario> listaUsuarios;
 
-    private int altura = 300;
-    private int anchura = 600;
-    private int x = 100;
-    private int y = 100;
-
+    clsController controller;
 
     /**
      * Constructor de la ventana de premiar tres mejores
      */
-    public frmPanelAdmin(clsController controller, ArrayList <clsUsuario> listaUsuarios)
+    public frmPanelAdmin(final clsController controller, ArrayList <clsUsuario> listaUsuarios)
     {
-
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-        this.setSize(anchura, altura);
-        this.setLocation(x, y);
+        setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
+        setSize(1066, 800);
         setResizable(false);
-        setTitle("Premiar Tres Mejores");
 
-        contentPane= new JPanel();
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-        contentPane.setLayout(new BorderLayout(0, 0));
+        this.controller=controller;
 
-        String[] col = {"Usuario","Puntuacion","Fondos"};
-        DefaultTableModel tableModel = new DefaultTableModel(col,0);
-        table = new JTable(tableModel);
-        for (int i =0; i<listaUsuarios.size();i++)
-        {
-            String user = listaUsuarios.get(i).getEmail();
-            int puntos = listaUsuarios.get(i).getPuntuacion();
-            double fondos = listaUsuarios.get(i).getFondos();
+        pPrincipal = new JPanel();
+        getContentPane().add(pPrincipal, BorderLayout.CENTER);
+        pPrincipal.setLayout(new BorderLayout(0, 0));
 
-            Object [] data = {user,puntos,fondos};
-            tableModel.addRow(data);
-        }
-        header = table.getTableHeader();
-        contentPane.add(header, BorderLayout.NORTH);
-        contentPane.add(table, BorderLayout.CENTER);
+        pFoto = new PanelConFondo ("/img/foto.jpg");
+        pPrincipal.add(pFoto);
 
-        JButton btnPremiar = new JButton("Premiar");
-        contentPane.add(btnPremiar, BorderLayout.SOUTH);
+        this.listaUsuarios=listaUsuarios;
 
-
-        btnPremiar.setActionCommand("PREMIAR");
-        btnPremiar.addActionListener(this);
-        getContentPane().setLayout(null);
-
+        menuBar = menu();
+        setJMenuBar(menuBar);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e)
+    private JMenuBar menu ()
     {
-        switch(e.getActionCommand())
-        {
-            case "PREMIAR":
-            {
-                //metodo PREMIAR
-                table.setVisible(false);
-                tableModel.setRowCount(0);
-                List<clsUsuario>listaUsuarios = new ArrayList<clsUsuario>();
-                
-				for (int i =0; i<listaUsuarios.size();i++)
-                {
-                    String user = listaUsuarios.get(i).getEmail();
-                    int puntos = listaUsuarios.get(i).getPuntuacion();
-                    double fondos = listaUsuarios.get(i).getFondos();
-                    Object [] data = {user,puntos,fondos};
-                    tableModel.addRow(data);
-                }
-                table.setModel(tableModel);
-                tableModel.fireTableDataChanged();
-                table.setVisible(true);
-            }
+        //MENU
+        JMenuBar menuBar = new JMenuBar();
 
-            default:
-                break;
-        }
+        mnMenu = new JMenu("Menu");
+        menuBar.add(mnMenu);
+
+        mntmPremiarTresMejores = new JMenuItem("Premiar tres mejores");
+        mnMenu.add(mntmPremiarTresMejores);
+
+        mntmIntroducirPuntuacionJornada = new JMenuItem("Introducir puntuacion jornada");
+        mnMenu.add(mntmIntroducirPuntuacionJornada);
+
+        mntmGestionDeMercado = new JMenuItem("Gestion de mercado");
+        mnMenu.add(mntmGestionDeMercado);
+
+
+        //Escuchadores de botones
+        mntmPremiarTresMejores.addActionListener( new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                frPremiar ventana = new frPremiar (controller,listaUsuarios);
+                ventana.setVisible(true);
+                dispose();
+            }
+        });
+
+        return menuBar;
     }
 }
