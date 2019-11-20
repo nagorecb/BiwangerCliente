@@ -1,5 +1,6 @@
 package Biwanger.controladores;
 import Biwanger.objetosDominio.clsJugador;
+import Biwanger.objetosDominio.clsPuja;
 import Biwanger.vistas.*;
 import Biwanger.Remote.clsServiceLocator;
 import Biwanger.objetosDominio.clsUsuario;
@@ -152,6 +153,26 @@ public class clsController
         }
 
         return lJugadores;
+    }
+
+    public boolean Pujar(clsPuja puja)
+    {
+        WebTarget postRequestController = sl.getservice().path("resource/pujar");
+        Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
+        Response response = invocationBuilder.post(Entity.entity(puja, MediaType.APPLICATION_JSON));
+
+        if (response.getStatus() == Status.OK.getStatusCode())
+        {
+            System.out.println("Todo OK");
+
+            return true;
+        }
+        else
+        {
+            System.out.println("No OK");
+
+            return false;
+        }
     }
 
 }
