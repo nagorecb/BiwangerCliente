@@ -1,4 +1,5 @@
 package Biwanger.controladores;
+import Biwanger.objetosDominio.clsJugador;
 import Biwanger.vistas.*;
 import Biwanger.Remote.clsServiceLocator;
 import Biwanger.objetosDominio.clsUsuario;
@@ -130,6 +131,27 @@ public class clsController
         {
             System.out.println("Todo OK");
         }
+    }
+
+    public ArrayList<clsJugador> MostrarMercado()
+    {
+        WebTarget postRequestController = sl.getservice().path("resource/MostrarMercado");
+        Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
+        Response response = invocationBuilder.get();
+
+        ArrayList<clsJugador> lJugadores = null;
+
+        if (response.getStatus() == Status.OK.getStatusCode())
+        {
+            System.out.println("Todo OK");
+        }
+        else
+        {
+            System.out.println("No OK");
+            lJugadores = response.readEntity(ArrayList.class);
+        }
+
+        return lJugadores;
     }
 
 }
