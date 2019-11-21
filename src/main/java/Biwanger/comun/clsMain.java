@@ -7,6 +7,5 @@ final class clsMain {
     public static void main(String[] args) //throws RemoteException
     {
         clsController controller = new clsController();
-
     }
 }

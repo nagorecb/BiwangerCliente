@@ -65,7 +65,7 @@ public class clsController
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
         Response response = invocationBuilder.post(Entity.entity(usuario, MediaType.APPLICATION_JSON));
 
-        if (response.getStatus() != Status.OK.getStatusCode())
+        if (response.getStatus() == Status.OK.getStatusCode())
         {
             System.out.println("Todo OK");
             
