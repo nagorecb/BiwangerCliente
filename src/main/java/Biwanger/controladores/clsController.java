@@ -33,7 +33,7 @@ public class clsController
         GUI.setVisible(true);
     }
 
-    public String inicioSesion(String email, String password)
+    public clsUsuario inicioSesion(String email, String password)
     {
         clsUsuario usuario = new clsUsuario ();
         usuario.setEmail(email);
@@ -42,7 +42,8 @@ public class clsController
         WebTarget postRequestController = sl.getservice().path("resource/login");
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
         Response response = invocationBuilder.post(Entity.entity( usuario, MediaType.APPLICATION_JSON));
-        String resultado = "";
+
+        clsUsuario resultado = response.readEntity(clsUsuario.class);
 
         if(response.getStatus() != Status.OK.getStatusCode())
         {
@@ -51,7 +52,6 @@ public class clsController
         else
         {
             System.out.println("Todo OK");
-            resultado = response.readEntity(String.class);
         }
         return resultado;
     }

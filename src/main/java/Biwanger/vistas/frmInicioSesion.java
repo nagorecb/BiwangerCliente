@@ -27,6 +27,7 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
 import Biwanger.controladores.clsController;
+import Biwanger.objetosDominio.clsUsuario;
 import Biwanger.controladores.*;
 import java.awt.Font;
 
@@ -54,13 +55,13 @@ public class frmInicioSesion extends JFrame implements ActionListener
     private int x = 100;
     private int y = 100;
 
-
+    clsController controller;
     /**
      * Constructor de la ventana de registro o inicio de sesiÃƒÂ³n
      */
     public frmInicioSesion (final clsController controller)
     {
-
+    	this.controller = controller;
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         //Definimos el tamaÃƒÂ±o y la localizaciÃƒÂ³n central en la pantalla
@@ -165,25 +166,29 @@ public class frmInicioSesion extends JFrame implements ActionListener
                 }
                 else
                 {
-                    String inicio = "";
-                    //inicio = controller.inicioSesion(email, password);
+                    clsUsuario usuarioIniciado;
+                    usuarioIniciado = controller.inicioSesion(email, password);
                     // Ventana principal ventana.setVisible(true);
-                    if(inicio.equals("ADMIN"))
+                    
+                    if(usuarioIniciado==null)
                     {
-                        this.setVisible(false);
-                        //Abrir ventana de Admin
-                    }
-                    else if(inicio.equals("USUARIO"))
-                    {
-                        //Abrir ventana de ese usuario
-                    }
-                    else
-                    {
-                        JOptionPane.showMessageDialog(this,
-                                "Credenciales incorrectas, por favor, intÃ©ntalo de nuevo",
+                    	JOptionPane.showMessageDialog(this,
+                                "Credenciales incorrectas, por favor, intentalo de nuevo",
                                 "Credenciales incorrectas",
                                 JOptionPane.WARNING_MESSAGE);
                     }
+                    else if(usuarioIniciado.getEmail().equals("ADMIN"))
+                    {
+                        this.setVisible(false);
+                        //frmPrincipal.usuario = null;
+                        //Abrir ventana de Admin
+                    }
+                    else 
+                    {
+                        //Abrir ventana de ese usuario
+                    	//frmPrincipal.usuario = usuarioIniciado
+                    }
+                    
                 }
             }
 
