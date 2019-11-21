@@ -175,4 +175,21 @@ public class clsController
         }
     }
 
+    public void venderJugador(double precio, clsJugador jugadorVenta)
+    {
+
+        WebTarget postRequestController = sl.getservice().path("resource/VenderJugador");
+        Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
+        Response response = invocationBuilder.get();
+        if (response.getStatus() == Status.OK.getStatusCode())
+        {
+            System.out.println("Todo OK");
+        }
+        else
+        {
+            System.out.println("No OK");
+        }
+    }
+
+
 }
