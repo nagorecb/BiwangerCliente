@@ -1,6 +1,6 @@
 package Biwanger.objetosDominio;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class clsPuja {
 
@@ -9,7 +9,7 @@ public class clsPuja {
 	private clsJugador jugadorPuja;
 	
 	private double oferta; //dinero pujado
-	private LocalDate fecha;	
+	private LocalDateTime fecha;
 	
 	public clsPuja() {
 		super();
@@ -20,12 +20,12 @@ public class clsPuja {
 	}
 	
 	
-	public clsPuja(clsUsuario usuarioPuja, clsJugador jugadorPuja, double oferta, LocalDate fecha) {
+	public clsPuja(clsUsuario usuarioPuja, clsJugador jugadorPuja, double oferta, LocalDateTime fecha) {
 		super();
 		this.usuarioPuja = usuarioPuja;
 		this.jugadorPuja = jugadorPuja;
 		this.oferta = oferta;
-		this.fecha = fecha;
+		this.fecha = LocalDateTime.now();
 	}
 	
 	
@@ -47,10 +47,10 @@ public class clsPuja {
 	public void setOferta(double oferta) {
 		this.oferta = oferta;
 	}
-	public LocalDate getFecha() {
+	public LocalDateTime getFecha() {
 		return fecha;
 	}
-	public void setFecha(LocalDate fecha) {
+	public void setFecha(LocalDateTime fecha) {
 		this.fecha = fecha;
 	}
 	
