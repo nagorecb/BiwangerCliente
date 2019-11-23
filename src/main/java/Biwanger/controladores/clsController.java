@@ -1,18 +1,22 @@
 package Biwanger.controladores;
 import Biwanger.objetosDominio.clsJugador;
 import Biwanger.objetosDominio.clsPuja;
+import Biwanger.objetosDominio.clsUsuario;
 import Biwanger.vistas.*;
 import Biwanger.Remote.clsServiceLocator;
-import Biwanger.objetosDominio.clsUsuario;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedHashMap;
+import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
@@ -29,7 +33,21 @@ public class clsController
 
         //Habra que poner la ventana principal cuando este lista
         //frmInicio GUI = new frmInicio(this);
-        frmInicioSesion GUI = new frmInicioSesion(this);
+        //frmInicioSesion GUI = new frmInicioSesion(this);
+        
+        //Llamar al dao de cliente, cómo se hace??? creo lista manual de mientras
+        clsJugador j1 = new clsJugador();
+        clsJugador j2 = new clsJugador();
+
+        j1.setNombre("j1");
+        j2.setNombre("j2");
+        
+        List<clsJugador> listaj = new ArrayList<clsJugador>();
+        listaj.add(j1);
+        listaj.add(j2);
+        
+//        frmAnadirPuntos GUI = new frmAnadirPuntos(this, listaj);
+        frmCrearJugador GUI = new frmCrearJugador(this);
         GUI.setVisible(true);
     }
 
@@ -190,6 +208,39 @@ public class clsController
             System.out.println("No OK");
         }
     }
+    
+    public void anadirPuntos(clsJugador jugador, int puntos)
+    {
+    	WebTarget postRequestController = sl.getservice().path("resource/anadirPuntos");
+//		Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
+    	//si no funciona: tupla <clsJugador, Integer>
+		MultivaluedMap <String, String> formData = new MultivaluedHashMap<String, String>();
+	    formData.add("idJugador", String.valueOf(jugador.getId()));
+	    formData.add("puntos", String.valueOf(puntos));
+		Response response = postRequestController.request().post(Entity.form(formData));
+		
+		if (response.getStatus() != Status.OK.getStatusCode()) {
+			System.out.println("Error connecting with the server. Code: " + response.getStatus());
+		} else {
+			System.out.println("ok");
+		}
+    }
+
+	public void guardarNuevoJugador(clsJugador nuevoJugador) 
+	{
+        WebTarget postRequestController = sl.getservice().path("resource/crearJugador");
+        Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
+        Response response = invocationBuilder.post(Entity.entity(nuevoJugador, MediaType.APPLICATION_JSON));
+
+        if (response.getStatus() != Status.OK.getStatusCode())
+        {
+            System.out.println("Todo OK");    
+        }
+        else
+        {
+            System.out.println("No OK");
+        }
+	}
 
 
 }
