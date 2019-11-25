@@ -1,41 +1,26 @@
 package Biwanger.vistas;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-
 import Biwanger.controladores.clsController;
-import Biwanger.objetosDominio.clsUsuario;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Handler;
-import java.util.logging.Logger;
 
 public class frmPanelAdmin extends JFrame
 {
-    private static Logger logger = Logger.getLogger(frmPanelAdmin.class.getName());
-    private static Handler handlerPantalla;
-    private static Handler handlerArchivo;
-
     private static final long serialVersionUID = 1L;
     private JPanel pPrincipal;
     private PanelConFondo pFoto;
     private JMenuBar menuBar;
     private JMenu mnMenu;
     private JMenuItem mntmPremiarTresMejores,mntmIntroducirPuntuacionJornada, mntmGestionDeMercado;
-    private ArrayList<clsUsuario> listaUsuarios;
 
     clsController controller;
 
     /**
      * Constructor de la ventana de premiar tres mejores
      */
-    public frmPanelAdmin(final clsController controller, ArrayList <clsUsuario> listaUsuarios)
+    public frmPanelAdmin(final clsController controller)
     {
         setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
         setSize(1066, 800);
@@ -49,8 +34,6 @@ public class frmPanelAdmin extends JFrame
 
         pFoto = new PanelConFondo ("/img/foto.jpg");
         pPrincipal.add(pFoto);
-
-        this.listaUsuarios=listaUsuarios;
 
         menuBar = menu();
         setJMenuBar(menuBar);
@@ -80,7 +63,7 @@ public class frmPanelAdmin extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                frPremiar ventana = new frPremiar (controller,listaUsuarios);
+                frPremiar ventana = new frPremiar (controller);
                 ventana.setVisible(true);
                 dispose();
             }

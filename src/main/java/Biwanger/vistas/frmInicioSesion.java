@@ -1,6 +1,5 @@
 package Biwanger.vistas;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
@@ -8,13 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Handler;
-import java.util.logging.Logger;
-
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -25,18 +17,13 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
-
 import Biwanger.controladores.clsController;
 import Biwanger.objetosDominio.clsUsuario;
-import Biwanger.controladores.*;
 import java.awt.Font;
 
 
 public class frmInicioSesion extends JFrame implements ActionListener
 {
-    private static Logger logger = Logger.getLogger(frmInicioSesion.class.getName());
-    private static Handler handlerPantalla;
-    private static Handler handlerArchivo;
 
     private JTextField tfEmail;
     private JPasswordField tfpassword;
@@ -57,14 +44,14 @@ public class frmInicioSesion extends JFrame implements ActionListener
 
     clsController controller;
     /**
-     * Constructor de la ventana de registro o inicio de sesiÃƒÂ³n
+     * Constructor de la ventana de registro o inicio de sesion
      */
     public frmInicioSesion (final clsController controller)
     {
     	this.controller = controller;
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        //Definimos el tamaÃƒÂ±o y la localizaciÃƒÂ³n central en la pantalla
+        //Definimos el tamano y la localizacion central en la pantalla
         this.setSize(anchura, altura);
         this.setLocation(x, y);
         setResizable(false);
@@ -119,9 +106,9 @@ public class frmInicioSesion extends JFrame implements ActionListener
         {
             public void mouseClicked(MouseEvent e)
             {
-                frmRegistro registro = new frmRegistro(controller);
                 Component component = (Component) e.getSource();
                 JFrame frame = (JFrame)SwingUtilities.getRoot(component);
+                frmRegistro registro = new frmRegistro(frame, controller);
                 frame.setVisible(false);
                 registro.setVisible(true);
             }
@@ -168,9 +155,8 @@ public class frmInicioSesion extends JFrame implements ActionListener
                 {
                     clsUsuario usuarioIniciado;
                     usuarioIniciado = controller.inicioSesion(email, password);
-                    // Ventana principal ventana.setVisible(true);
                     
-                    if(usuarioIniciado==null)
+                    if(usuarioIniciado == null)
                     {
                     	JOptionPane.showMessageDialog(this,
                                 "Credenciales incorrectas, por favor, intentalo de nuevo",
@@ -180,13 +166,13 @@ public class frmInicioSesion extends JFrame implements ActionListener
                     else if(usuarioIniciado.getEmail().equals("ADMIN"))
                     {
                         this.setVisible(false);
-                        //frmPrincipal.usuario = null;
-                        //Abrir ventana de Admin
+                        frmPanelAdmin ventanaAdmin = new frmPanelAdmin(controller);
+                        ventanaAdmin.setVisible(true);
                     }
                     else 
                     {
-                        //Abrir ventana de ese usuario
-                    	//frmPrincipal.usuario = usuarioIniciado
+                        frmPanelUsuario ventanaUsuario = new frmPanelUsuario(controller, usuarioIniciado);
+                        ventanaUsuario.setVisible(true);
                     }
                     
                 }

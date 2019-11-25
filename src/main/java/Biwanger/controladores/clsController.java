@@ -8,12 +8,9 @@ import Biwanger.Remote.clsServiceLocator;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.MultivaluedMap;
@@ -31,24 +28,7 @@ public class clsController
         String port = "";
         sl.setService(hostname, port);
 
-        //Habra que poner la ventana principal cuando este lista
-        //frmInicio GUI = new frmInicio(this);
-        //frmInicioSesion GUI = new frmInicioSesion(this);
-        
-        //Llamar al dao de cliente, cómo se hace??? creo lista manual de mientras
-        clsJugador j1 = new clsJugador();
-        clsJugador j2 = new clsJugador();
-
-        j1.setNombre("j1");
-        j2.setNombre("j2");
-        
-        List<clsJugador> listaj = new ArrayList<clsJugador>();
-        listaj.add(j1);
-        listaj.add(j2);
-        
-//        frmAnadirPuntos GUI = new frmAnadirPuntos(this, listaj);
-        frmCrearJugador GUI = new frmCrearJugador(this);
-        GUI.setVisible(true);
+        frmInicioSesion GUI = new frmInicioSesion(this);
     }
 
     public clsUsuario inicioSesion(String email, String password)
@@ -103,9 +83,8 @@ public class clsController
 
         WebTarget postRequestController = sl.getservice().path("resource/premiarTresMejores");
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
-        Response response = invocationBuilder.post(Entity.entity(null,MediaType.APPLICATION_JSON));
-        //que meto si no quiero meter nada???
-        //dudaaaaa
+        Response response = invocationBuilder.get();
+
         usuarios = response.readEntity(ArrayList.class);
 
         if(response.getStatus() != Status.OK.getStatusCode())
@@ -242,5 +221,25 @@ public class clsController
         }
 	}
 
+	public ArrayList<clsUsuario> obtenerTodosUsuarios()
+    {
+        WebTarget postRequestController = sl.getservice().path("resource/obtenerTodosUsuarios");
+        Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
+        Response response = invocationBuilder.get();
+
+        ArrayList<clsUsuario> lUsuarios = null;
+
+        if (response.getStatus() == Status.OK.getStatusCode())
+        {
+            System.out.println("Todo OK");
+        }
+        else
+        {
+            System.out.println("No OK");
+            lUsuarios = response.readEntity(ArrayList.class);
+        }
+
+        return lUsuarios;
+    }
 
 }

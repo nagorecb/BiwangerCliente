@@ -20,7 +20,7 @@ public class clsPuja {
 	}
 	
 	
-	public clsPuja(clsUsuario usuarioPuja, clsJugador jugadorPuja, double oferta, LocalDateTime fecha) {
+	public clsPuja(clsUsuario usuarioPuja, clsJugador jugadorPuja, double oferta) {
 		super();
 		this.usuarioPuja = usuarioPuja;
 		this.jugadorPuja = jugadorPuja;

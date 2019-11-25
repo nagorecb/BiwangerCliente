@@ -55,13 +55,15 @@ public class frmRegistro extends JFrame implements ActionListener
     private int y = 100;
 
     private clsController controller;
+    private JFrame ventanaInicio;
 
     /**
      * Constructor de la ventana de registro
      */
-    public frmRegistro (clsController controller)
+    public frmRegistro (JFrame frame, clsController controller)
     {
-    	this.controller=controller;
+    	this.controller = controller;
+    	ventanaInicio = frame;
     	
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -177,10 +179,11 @@ public class frmRegistro extends JFrame implements ActionListener
                 else
                 {
                     boolean okay = controller.registro(email, password);
-                    // Ventana principal ventana.setVisible(true);
+
                     if(okay)
                     {
-                        //Abrir ventana de usuario
+                        ventanaInicio.setVisible(true);
+                        this.dispose();
                     }
                     else
                     {

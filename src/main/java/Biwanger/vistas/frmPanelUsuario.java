@@ -34,7 +34,7 @@ public class frmPanelUsuario extends JFrame
     clsController controller;
 
     /**
-     * Constructor de la ventana de registro o inicio de sesiÃƒÂ³n
+     * Constructor de la ventana de registro o inicio de sesion
      */
     public frmPanelUsuario(final clsController controller, clsUsuario usuario)
     {

@@ -37,7 +37,7 @@ public class frPremiar extends JFrame implements ActionListener
 
     private ArrayList<clsUsuario> listaUsuarios;
     
-	public frPremiar(final clsController controller, ArrayList <clsUsuario> listaUsuarios)
+	public frPremiar(final clsController controller)
 	{
 		setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
 		setSize(1066, 800);
@@ -52,7 +52,7 @@ public class frPremiar extends JFrame implements ActionListener
         
         pPrincipal.setLayout(new BorderLayout(0, 0));
 
-        this.listaUsuarios=listaUsuarios;
+        this.listaUsuarios = controller.obtenerTodosUsuarios();
         
     	pTabla = new PanelConFondo ("/img/foto.jpg");
     	pTabla.setBorder(new EmptyBorder(40, 40, 40, 40));
