@@ -23,9 +23,9 @@ import java.awt.Color;
 public class frConsultarAlineacion extends JFrame implements ActionListener
 {	
 	private static final long serialVersionUID = 1L;
-	private JPanel pCampo,pDefensa,pPortero,pFormacion,pMedio,pDelantero;
+	private JPanel panel,pCampo,pDefensa,pPortero,pFormacion,pMedio,pDelantero;
 	
-	private JButton btnModificar;
+	private JButton btnModificar, btnVolver;
 	private JComboBox<clsJugador> comboBox;
 	private FlowLayout flowLayout;
 
@@ -80,14 +80,20 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 		btnModificar.setActionCommand("MODIFICAR");
 		btnModificar.addActionListener(this);
 		getContentPane().add(btnModificar, BorderLayout.SOUTH);
-	
+
+		panel = new JPanel();
+		getContentPane().add(panel, BorderLayout.NORTH);
+		panel.setLayout(new BorderLayout(0, 0));
+
+		btnVolver = new JButton("Volver");
+		btnVolver.setActionCommand("VOLVER");
+		btnVolver.addActionListener(this);
+		panel.add(btnVolver, BorderLayout.WEST);
+
 		if (usuario.getFormacion()!=null)
 		{
 			formar(usuario.getFormacion());
 		}
-		
-		JMenuBar menuBar = menu();
-		setJMenuBar(menuBar);		
 	}
 
 
@@ -100,6 +106,13 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 			{
 				frModificarAlineacion ventana = new frModificarAlineacion (controller, usuario);
 				ventana.setVisible(true);
+				dispose();
+				break;
+			}
+
+			case "VOLVER":
+			{
+				super.setVisible(true);
 				dispose();
 				break;
 			}
@@ -151,71 +164,4 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 		pFormacion.revalidate();
 		pFormacion.repaint();	
 	}
-	
-	private JMenuBar menu ()
-	{
-		//MENU
-		JMenuBar menuBar = new JMenuBar();
-		
-		JMenu mnClasificacin = new JMenu("Clasificacion");
-		menuBar.add(mnClasificacin);
-		JMenuItem mntmTotal = new JMenuItem("Total");
-		mnClasificacin.add(mntmTotal);
-		JMenuItem mntmMiEquipo_1 = new JMenuItem("Mi equipo");
-		mnClasificacin.add(mntmMiEquipo_1);
-		JMenu mnAlineacin = new JMenu("Alineacion");
-		menuBar.add(mnAlineacin);
-		JMenuItem mntmConsultar = new JMenuItem("Consultar");
-		mnAlineacin.add(mntmConsultar);
-		JMenuItem mntmModificar = new JMenuItem("Modificar");
-		mnAlineacin.add(mntmModificar);
-		JMenu mnEstadsticas = new JMenu("Estadisticas");
-		menuBar.add(mnEstadsticas);
-		JMenuItem mntmMiEquipo = new JMenuItem("Mi equipo");
-		mnEstadsticas.add(mntmMiEquipo);
-		JMenu mnMercado = new JMenu("Mercado");
-		menuBar.add(mnMercado);
-		JMenuItem mntmComprar = new JMenuItem("Comprar");
-		mnMercado.add(mntmComprar);
-		JMenuItem mntmVender = new JMenuItem("Vender");
-		mnMercado.add(mntmVender);
-		
-		//Escuchadores de botones
-		
-		mntmConsultar.addActionListener( new ActionListener() 
-		{
-			@Override
-			public void actionPerformed(ActionEvent e) 
-			{
-				frConsultarAlineacion ventana = new frConsultarAlineacion (controller,usuario);
-				ventana.setVisible(true);
-				dispose();
-			}
-		});
-						
-		mntmModificar.addActionListener( new ActionListener() 
-		{
-			@Override
-			public void actionPerformed(ActionEvent e) 
-			{
-				frModificarAlineacion ventana = new frModificarAlineacion (controller,usuario);
-				ventana.setVisible(true);
-				dispose();
-			}
-		});
-				
-		mntmMiEquipo.addActionListener( new ActionListener() 
-		{
-			@Override
-			public void actionPerformed(ActionEvent e) 
-			{
-				frEstadisticas ventana = new frEstadisticas (controller,usuario);
-				ventana.setVisible(true);
-				dispose();
-			}	
-		});
-				
-		return menuBar;
-	}
-		
 }

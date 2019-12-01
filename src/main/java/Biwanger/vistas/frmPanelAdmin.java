@@ -65,7 +65,7 @@ public class frmPanelAdmin extends JFrame
             {
                 frPremiar ventana = new frPremiar (controller);
                 ventana.setVisible(true);
-                dispose();
+                setVisible(false);
             }
         });
 

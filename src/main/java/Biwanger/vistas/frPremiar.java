@@ -27,8 +27,8 @@ public class frPremiar extends JFrame implements ActionListener
 
 	private static final long serialVersionUID = 1L;
 
-    private JButton btnPremiar;
-    private JPanel pPrincipal, pTabla;
+    private JButton btnPremiar,btnVolver;
+    private JPanel panel,pPrincipal, pTabla;
     private JTableHeader header;
     private JTable tabla;
     private DefaultTableModel tableModel;
@@ -39,7 +39,8 @@ public class frPremiar extends JFrame implements ActionListener
     
 	public frPremiar(final clsController controller)
 	{
-		setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
+		setUndecorated(true);
+//		setDefaultCloseOperation(Frame.NORMAL);
 		setSize(1066, 800);
 		setResizable(false);
 
@@ -81,15 +82,20 @@ public class frPremiar extends JFrame implements ActionListener
         pPrincipal.add(pTabla, BorderLayout.CENTER);
         pTabla.add(header, BorderLayout.NORTH);
         pTabla.add(tabla, BorderLayout.CENTER);
-        
-    	JMenuBar menuBar = menu();
-		setJMenuBar(menuBar);
 		
 		btnPremiar = new JButton("Premiar");
 		pPrincipal.add(btnPremiar, BorderLayout.SOUTH);
-		
 	    btnPremiar.setActionCommand("PREMIAR");
 	    btnPremiar.addActionListener(this);
+
+		panel = new JPanel();
+		getContentPane().add(panel, BorderLayout.NORTH);
+		panel.setLayout(new BorderLayout(0, 0));
+
+		btnVolver = new JButton("Volver");
+		btnVolver.setActionCommand("VOLVER");
+		btnVolver.addActionListener(this);
+		panel.add(btnVolver, BorderLayout.WEST);
 	}
 
 	@Override
@@ -119,43 +125,17 @@ public class frPremiar extends JFrame implements ActionListener
 	                tableModel.fireTableDataChanged();
 	                tabla.setVisible(true);
 	            }
+				break;
+
+				case "VOLVER":
+				{
+					super.setVisible(true);
+					dispose();
+				}
+				break;
 
 	            default:
 	                break;
 	        }
 	    }
-	    
-		
-		private JMenuBar menu ()
-		{
-			//MENU
-			JMenuBar menuBar = new JMenuBar();
-			
-			JMenu mnMenu = new JMenu("Menu");
-			menuBar.add(mnMenu);
-			
-			JMenuItem mntmPremiarTresMejores = new JMenuItem("Premiar tres mejores");
-			mnMenu.add(mntmPremiarTresMejores);
-			
-			JMenuItem mntmIntroducirPuntuacionJornada = new JMenuItem("Introducir puntuacion jornada");
-			mnMenu.add(mntmIntroducirPuntuacionJornada);
-			
-			JMenuItem mntmGestionDeMercado = new JMenuItem("Gestion de mercado");
-			mnMenu.add(mntmGestionDeMercado);
-			
-			
-			//Escuchadores de botones
-			mntmPremiarTresMejores.addActionListener( new ActionListener() 
-			{
-				@Override
-				public void actionPerformed(ActionEvent e) 
-				{
-					frPremiar ventana = new frPremiar (controller, listaUsuarios);
-					ventana.setVisible(true);
-					dispose();
-				}
-			});		
-							
-			return menuBar;
-		}
 }

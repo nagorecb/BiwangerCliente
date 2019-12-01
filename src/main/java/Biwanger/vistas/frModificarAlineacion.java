@@ -5,11 +5,7 @@ import Biwanger.objetosDominio.clsUsuario;
 import Biwanger.objetosDominio.clsJugador;
 
 import java.awt.BorderLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -25,10 +21,10 @@ import java.awt.Color;
 public class frModificarAlineacion extends JFrame implements ActionListener
 {	
 	private static final long serialVersionUID = 1L;
-	private JPanel panel,pCampo,pDefensa,pPortero,pFormacion,pMedio,pDelantero;
+	private JPanel panel,superior,pCampo,pDefensa,pPortero,pFormacion,pMedio,pDelantero;
 	private JLabel lblSistemaDeJuego;
 	
-	private JButton btnGuardar,b1,b2,b3,b4;
+	private JButton btnGuardar,btnVolver,b1,b2,b3,b4;
 	
 	private JComboBox<clsJugador> comboBox;
 	private ArrayList<JComboBox> combos = new ArrayList();
@@ -43,14 +39,57 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 	public frModificarAlineacion(final clsController controller, clsUsuario usuario)
 	{
 		this.usuario = usuario;
-		
-		setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
+
+		setUndecorated(true);
+//		setDefaultCloseOperation(Frame.NORMAL);
 		setSize(1066, 800);
 		setResizable(false);
-		
+
+		pCampo = new PanelConFondo("/img/cesped.jpg");
+		pCampo.setForeground(new Color(0, 128, 0));
+		pCampo.setBorder(null);
+		getContentPane().add(pCampo, BorderLayout.CENTER);
+
+		pFormacion = new JPanel();
+		flowLayout = (FlowLayout) pFormacion.getLayout();
+		flowLayout.setHgap(150);
+		pFormacion.setOpaque(false);
+		pCampo.add(pFormacion);
+
+		pPortero = new JPanel();
+		pPortero.setOpaque(false);
+		pFormacion.add(pPortero);
+
+		pDefensa = new JPanel();
+		pDefensa.setOpaque(false);
+		pFormacion.add(pDefensa);
+
+		pMedio = new JPanel();
+		pMedio.setOpaque(false);
+		pFormacion.add(pMedio);
+
+		pDelantero = new JPanel();
+		pDelantero.setOpaque(false);
+		pFormacion.add(pDelantero);
+
+		superior = new JPanel();
+		getContentPane().add(superior, BorderLayout.NORTH);
+		superior.setLayout(new BorderLayout(0, 0));
+
 		panel = new JPanel();
-		getContentPane().add(panel, BorderLayout.NORTH);
-		
+		superior.add(panel);
+
+		porteros = usuario.getPosicion("PORTERO");
+		defensas = usuario.getPosicion("DEFENSA");
+		medios = usuario.getPosicion("MEDIO");
+		delanteros = usuario.getPosicion("DELANTERO");
+
+		btnGuardar = new JButton("Guardar");
+		getContentPane().add(btnGuardar, BorderLayout.SOUTH);
+
+		btnVolver = new JButton("Volver");
+		superior.add(btnVolver, BorderLayout.WEST);
+
 		lblSistemaDeJuego = new JLabel("Sistema de Juego");
 		panel.add(lblSistemaDeJuego);
 
@@ -62,7 +101,7 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		panel.add(b3);
 		b4 = new JButton("3-5-2");
 		panel.add(b4);
-		
+
 		b1.setActionCommand("4-3-3");
 		b1.addActionListener(this);
 		b2.setActionCommand("4-4-2");
@@ -71,50 +110,14 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		b3.addActionListener(this);
 		b4.setActionCommand("3-5-2");
 		b4.addActionListener(this);
-		
-		pCampo = new PanelConFondo("/img/cesped.jpg");
-		pCampo.setForeground(new Color(0, 128, 0));
-		pCampo.setBorder(null);
-		getContentPane().add(pCampo, BorderLayout.CENTER);
-		
-		pFormacion = new JPanel();
-		flowLayout = (FlowLayout) pFormacion.getLayout();
-		flowLayout.setHgap(150);
-		pFormacion.setOpaque(false);
-		pCampo.add(pFormacion);
-		
-		pPortero = new JPanel();
-		pPortero.setOpaque(false);
-		pFormacion.add(pPortero);
-		
-		pDefensa = new JPanel();
-		pDefensa.setOpaque(false);
-		pFormacion.add(pDefensa);
-		
-		pMedio = new JPanel();
-		pMedio.setOpaque(false);
-		pFormacion.add(pMedio);
-		
-		pDelantero = new JPanel();
-		pDelantero.setOpaque(false);
-		pFormacion.add(pDelantero);
-		
-		porteros = usuario.getPosicion("PORTERO");
-		defensas = usuario.getPosicion("DEFENSA");
-		medios = usuario.getPosicion("MEDIO");
-		delanteros = usuario.getPosicion("DELANTERO");
-		
-		btnGuardar = new JButton("Guardar");
+
 		btnGuardar.setActionCommand("GUARDAR");
 		btnGuardar.addActionListener(this);
-		getContentPane().add(btnGuardar, BorderLayout.SOUTH);
-		
+		btnVolver.setActionCommand("VOLVER");
+		btnVolver.addActionListener(this);
+
 		if (usuario.getFormacion()!=null)
 			formarTitulares(usuario.getFormacion());
-		
-		JMenuBar menuBar = menu();
-		setJMenuBar(menuBar);
-				
 	}	
 	
 		
@@ -148,33 +151,44 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 				formar(formacion);
 				break;
 			}
-			
+
+			case "VOLVER":
+			{
+				super.setVisible(true);
+				dispose();
+				break;
+			}
 			case "GUARDAR":
 			{
 				guardarFormacion();
-				
+
 				int once=0;
 				for (int i=0; i<usuario.getPlantilla().size();i++)
 				{
 					if(usuario.getPlantilla().get(i).isAlineado())
-							once++;
+					{
+						once++;
+					}
 				}
-				
+
 				if (once!=11)
 				{
-					JOptionPane.showMessageDialog(null, "Alineaci�n indevida. Jugador repetido", "Error", JOptionPane.DEFAULT_OPTION);
+					JOptionPane.showMessageDialog(null, "Alineación indevida. Jugador repetido", "Error", JOptionPane.DEFAULT_OPTION);
 					for (int i=0; i<usuario.getPlantilla().size();i++)
 					{
 						usuario.getPlantilla().get(i).setAlineado(false);
-					}			
+					}
 				}
-				
+
 				else
 				{
-					JOptionPane.showMessageDialog(null, "Alineaci�n guardada con �xito", "Guardado", JOptionPane.DEFAULT_OPTION);
+					JOptionPane.showMessageDialog(null, "Alineación guardada con éxito", "Guardado", JOptionPane.DEFAULT_OPTION);
+					//guardar cambios (atributo Usuario.formacion y Jugador.Alineado
+					//BD --> usuario.formacion
 					usuario.setFormacion(formacion);
-					controller.modificarAlineacion(usuario);
-					controller.modificarFormacion(usuario);
+					//BD --> jugador.alineado
+					super.setVisible(true);
+					dispose();
 				}
 				break;
 			}
@@ -191,7 +205,7 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		pDefensa.removeAll();
 		pMedio.removeAll();
 		pDelantero.removeAll();
-		flowLayout.setVgap(120);
+		flowLayout.setVgap(140);
 		
 		pFormacion.revalidate();
 		pFormacion.repaint();
@@ -204,40 +218,44 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		int del= Integer.parseInt(""+formacion.charAt(4));
 		
 		if (def>4|med>4|del>4)
-			flowLayout.setVgap(70);
+			flowLayout.setVgap(90);
 		else
-			flowLayout.setVgap(120);
-		
+			flowLayout.setVgap(140);
+
 		comboBox = new JComboBox<clsJugador>();
 		pPortero.add(comboBox);
 		comboBox.addItem(porteros.get(0));
-		
+		combos.add(comboBox);
+
 		for (int i=0; i<def; i++)
 		{
 			comboBox = new JComboBox<clsJugador>();
+			combos.add(comboBox);
 			pDefensa.add(comboBox);
-     		comboBox.addItem(defensas.get(i));
+			comboBox.addItem(defensas.get(i));
 		}
 		pDefensa.setLayout(new GridLayout(def, 1, 100, 100));
-		
+
 		for (int i=0; i<med; i++)
 		{
 			comboBox = new JComboBox<clsJugador>();
+			combos.add(comboBox);
 			pMedio.add(comboBox);
-     		comboBox.addItem(medios.get(i));
+			comboBox.addItem(medios.get(i));
 		}
 		pMedio.setLayout(new GridLayout(med, 1, 100, 100));
-		
+
 		for (int i=0; i<del; i++)
 		{
 			comboBox = new JComboBox<clsJugador>();
+			combos.add(comboBox);
 			pDelantero.add(comboBox);
-     		comboBox.addItem(delanteros.get(i));
+			comboBox.addItem(delanteros.get(i));
 		}
 		pDelantero.setLayout(new GridLayout(del, 1, 100, 100));
-		
+
 		pFormacion.revalidate();
-		pFormacion.repaint();	
+		pFormacion.repaint();
 	}
 	
 	
@@ -318,71 +336,5 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 				
 			}
 		}
-	}
-	
-	private JMenuBar menu ()
-	{
-		//MENU
-		JMenuBar menuBar = new JMenuBar();
-		
-		JMenu mnClasificacin = new JMenu("Clasificacion");
-		menuBar.add(mnClasificacin);
-		JMenuItem mntmTotal = new JMenuItem("Total");
-		mnClasificacin.add(mntmTotal);
-		JMenuItem mntmMiEquipo_1 = new JMenuItem("Mi equipo");
-		mnClasificacin.add(mntmMiEquipo_1);
-		JMenu mnAlineacin = new JMenu("Alineacion");
-		menuBar.add(mnAlineacin);
-		JMenuItem mntmConsultar = new JMenuItem("Consultar");
-		mnAlineacin.add(mntmConsultar);
-		JMenuItem mntmModificar = new JMenuItem("Modificar");
-		mnAlineacin.add(mntmModificar);
-		JMenu mnEstadsticas = new JMenu("Estadisticas");
-		menuBar.add(mnEstadsticas);
-		JMenuItem mntmMiEquipo = new JMenuItem("Mi equipo");
-		mnEstadsticas.add(mntmMiEquipo);
-		JMenu mnMercado = new JMenu("Mercado");
-		menuBar.add(mnMercado);
-		JMenuItem mntmComprar = new JMenuItem("Comprar");
-		mnMercado.add(mntmComprar);
-		JMenuItem mntmVender = new JMenuItem("Vender");
-		mnMercado.add(mntmVender);
-		
-		//Escuchadores de botones
-		
-		mntmConsultar.addActionListener( new ActionListener() 
-		{
-			@Override
-			public void actionPerformed(ActionEvent e) 
-			{
-				frConsultarAlineacion ventana = new frConsultarAlineacion (controller,usuario);
-				ventana.setVisible(true);
-				dispose();
-			}
-		});
-						
-		mntmModificar.addActionListener( new ActionListener() 
-		{
-			@Override
-			public void actionPerformed(ActionEvent e) 
-			{
-				frModificarAlineacion ventana = new frModificarAlineacion (controller,usuario);
-				ventana.setVisible(true);
-				dispose();
-			}
-		});
-				
-		mntmMiEquipo.addActionListener( new ActionListener() 
-		{
-			@Override
-			public void actionPerformed(ActionEvent e) 
-			{
-				frEstadisticas ventana = new frEstadisticas (controller,usuario);
-				ventana.setVisible(true);
-				dispose();
-			}	
-		});
-				
-		return menuBar;
 	}
 }

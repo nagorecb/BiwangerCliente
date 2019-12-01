@@ -52,7 +52,6 @@ public class frmPanelUsuario extends JFrame
         pFoto = new PanelConFondo ("/img/foto.jpg");
         pPrincipal.add(pFoto);
 
-
         //MENU
         JMenuBar menuBar = menu();
         setJMenuBar(menuBar);
@@ -95,7 +94,7 @@ public class frmPanelUsuario extends JFrame
             {
                 frConsultarAlineacion ventana = new frConsultarAlineacion (controller,usuario);
                 ventana.setVisible(true);
-                dispose();
+                setVisible(false);
             }
         });
 
@@ -106,7 +105,7 @@ public class frmPanelUsuario extends JFrame
             {
                 frModificarAlineacion ventana = new frModificarAlineacion (controller,usuario);
                 ventana.setVisible(true);
-                dispose();
+                setVisible(false);
             }
         });
 
@@ -117,7 +116,7 @@ public class frmPanelUsuario extends JFrame
             {
                 frEstadisticas ventana = new frEstadisticas (controller,usuario);
                 ventana.setVisible(true);
-                dispose();
+                setVisible(false);
             }
         });
 
