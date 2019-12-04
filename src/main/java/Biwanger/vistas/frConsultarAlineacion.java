@@ -32,10 +32,13 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 	private ArrayList <clsJugador> porteros,defensas,medios,delanteros;
 	
 	private clsUsuario usuario;
+
+	private JFrame panelUsuario;
 	clsController controller;
-	
-	public frConsultarAlineacion(final clsController controller, clsUsuario usuario)
+
+	public frConsultarAlineacion(JFrame frame, clsController controller, clsUsuario usuario)
 	{
+		panelUsuario = frame;
 		this.usuario = usuario;
 		this.controller = controller;
 
@@ -104,7 +107,7 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 		{	
 			case "MODIFICAR":
 			{
-				frModificarAlineacion ventana = new frModificarAlineacion (controller, usuario);
+				frModificarAlineacion ventana = new frModificarAlineacion (panelUsuario,controller, usuario);
 				ventana.setVisible(true);
 				dispose();
 				break;
@@ -112,8 +115,8 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 
 			case "VOLVER":
 			{
-				super.setVisible(true);
-				dispose();
+				panelUsuario.setVisible(true);
+				this.dispose();
 				break;
 			}
 

@@ -181,7 +181,6 @@ public class frmVentaJugador extends JInternalFrame implements ActionListener, L
 		{
 			btnVender.setEnabled(true);
 		}
-		
 	}
 
 	public boolean parseoPrecio (String texto)
@@ -195,6 +194,4 @@ public class frmVentaJugador extends JInternalFrame implements ActionListener, L
 		         return false;
 		    }
 	}
-	
-
 }
