@@ -35,16 +35,19 @@ public class frPremiar extends JFrame implements ActionListener
 
     clsController controller;
 
+    private JFrame panelAdmin;
     private ArrayList<clsUsuario> listaUsuarios;
-    
-	public frPremiar(final clsController controller)
+
+
+	public frPremiar(JFrame frame, clsController controller)
 	{
+		this.controller = controller;
+		panelAdmin = frame;
+
 		setUndecorated(true);
 //		setDefaultCloseOperation(Frame.NORMAL);
 		setSize(1066, 800);
 		setResizable(false);
-
-		this.controller = controller;
 
 		pPrincipal= new JPanel();
 		pPrincipal.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -75,7 +78,6 @@ public class frPremiar extends JFrame implements ActionListener
             Object [] data = {user,puntos,fondos};
             tableModel.addRow(data);
         }
-        
         this.tableModel=tableModel;
         
         header = tabla.getTableHeader();
@@ -129,8 +131,8 @@ public class frPremiar extends JFrame implements ActionListener
 
 				case "VOLVER":
 				{
-					super.setVisible(true);
-					dispose();
+					panelAdmin.setVisible(true);
+					this.dispose();
 				}
 				break;
 

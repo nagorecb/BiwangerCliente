@@ -34,11 +34,15 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 	
 	private String formacion;
 	private clsUsuario usuario;
+
+	private JFrame panelUsuario;
 	clsController controller;
 	
-	public frModificarAlineacion(final clsController controller, clsUsuario usuario)
+	public frModificarAlineacion(JFrame frame, clsController controller, clsUsuario usuario)
 	{
 		this.usuario = usuario;
+		this.controller = controller;
+		panelUsuario=frame;
 
 		setUndecorated(true);
 //		setDefaultCloseOperation(Frame.NORMAL);
@@ -187,8 +191,9 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 					//BD --> usuario.formacion
 					usuario.setFormacion(formacion);
 					//BD --> jugador.alineado
-					super.setVisible(true);
-					dispose();
+
+					panelUsuario.setVisible(true);
+					this.dispose();
 				}
 				break;
 			}

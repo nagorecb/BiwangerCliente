@@ -23,13 +23,15 @@ public class frEstadisticas extends JFrame implements ActionListener
     private DefaultTableModel tableModel;
 	private JButton btnVolver;
 
+	private JFrame panelUsuario;
 	clsController controller;
 	clsUsuario usuario;
 	
-	public frEstadisticas(final clsController controller, clsUsuario usuario)
+	public frEstadisticas(JFrame frame, clsController controller, clsUsuario usuario)
 	{
 		this.usuario = usuario;
 		this.controller = controller;
+		panelUsuario=frame;
 
 		setUndecorated(true);
 		//setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
@@ -91,8 +93,8 @@ public class frEstadisticas extends JFrame implements ActionListener
 		{
 			case "VOLVER":
 			{
-				super.setVisible(true);
-				dispose();
+				panelUsuario.setVisible(true);
+				this.dispose();
 				break;
 			}
 
