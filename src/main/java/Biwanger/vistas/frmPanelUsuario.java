@@ -25,6 +25,7 @@ public class frmPanelUsuario extends JFrame
     private JPanel pPrincipal;
     private PanelConFondo pFoto;
     private clsUsuario usuario;
+    private JFrame frame;
 
     private int altura = 800;
     private int anchura = 1066;
@@ -40,6 +41,7 @@ public class frmPanelUsuario extends JFrame
     {
         this.usuario = usuario;
         this.controller = controller;
+        frame = this;
 
         setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
         setSize(1066, 800);
@@ -92,7 +94,7 @@ public class frmPanelUsuario extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                frConsultarAlineacion ventana = new frConsultarAlineacion (controller,usuario);
+                frConsultarAlineacion ventana = new frConsultarAlineacion (frame, controller, usuario);
                 ventana.setVisible(true);
                 setVisible(false);
             }
@@ -103,7 +105,7 @@ public class frmPanelUsuario extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                frModificarAlineacion ventana = new frModificarAlineacion (controller,usuario);
+                frModificarAlineacion ventana = new frModificarAlineacion (frame, controller, usuario);
                 ventana.setVisible(true);
                 setVisible(false);
             }
@@ -114,7 +116,7 @@ public class frmPanelUsuario extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                frEstadisticas ventana = new frEstadisticas (controller,usuario);
+                frEstadisticas ventana = new frEstadisticas (frame, controller, usuario);
                 ventana.setVisible(true);
                 setVisible(false);
             }

@@ -14,6 +14,7 @@ public class frmPanelAdmin extends JFrame
     private JMenuBar menuBar;
     private JMenu mnMenu;
     private JMenuItem mntmPremiarTresMejores,mntmIntroducirPuntuacionJornada, mntmGestionDeMercado;
+    private JFrame frame;
 
     clsController controller;
 
@@ -25,6 +26,7 @@ public class frmPanelAdmin extends JFrame
         setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
         setSize(1066, 800);
         setResizable(false);
+        frame = this;
 
         this.controller=controller;
 
@@ -63,7 +65,7 @@ public class frmPanelAdmin extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                frPremiar ventana = new frPremiar (controller);
+                frPremiar ventana = new frPremiar (frame, controller);
                 ventana.setVisible(true);
                 setVisible(false);
             }
