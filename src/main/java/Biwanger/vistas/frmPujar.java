@@ -8,7 +8,7 @@ import Biwanger.objetosDominio.clsUsuario;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class frmPujar extends JFrame implements ActionListener
+public class frmPujar extends JFrame
 {
     private clsJugador jugadorSeleccionado;
 
@@ -66,7 +66,9 @@ public class frmPujar extends JFrame implements ActionListener
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                clsPuja puja = new clsPuja(usuario, jugadorSeleccionado, Double.parseDouble(txtSuma.getText(), );
+                clsPuja puja = new clsPuja(usuario, jugadorSeleccionado, Double.parseDouble(txtSuma.getText()));
+
+                controller.Pujar(puja);
             }
         });
 
@@ -85,6 +87,6 @@ public class frmPujar extends JFrame implements ActionListener
                 btnPujar.setEnabled(true);
             }
 
-        }
+        };
     }
 }

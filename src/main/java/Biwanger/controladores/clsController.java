@@ -6,7 +6,6 @@ import Biwanger.vistas.*;
 import Biwanger.Remote.clsServiceLocator;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
@@ -29,6 +28,7 @@ public class clsController
         sl.setService(hostname, port);
 
         frmInicioSesion GUI = new frmInicioSesion(this);
+        GUI.setVisible(true);
     }
 
     public clsUsuario inicioSesion(String email, String password)
@@ -37,9 +37,13 @@ public class clsController
         usuario.setEmail(email);
         usuario.setPassword(password);
 
+        System.out.println("1");
         WebTarget postRequestController = sl.getservice().path("resource/login");
+        System.out.println("2");
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
-        Response response = invocationBuilder.post(Entity.entity( usuario, MediaType.APPLICATION_JSON));
+        System.out.println("3");
+        Response response = invocationBuilder.post(Entity.entity(usuario, MediaType.APPLICATION_JSON));
+        System.out.println("4");
 
         clsUsuario resultado = response.readEntity(clsUsuario.class);
 

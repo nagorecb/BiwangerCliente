@@ -158,7 +158,7 @@ public class frmVentaJugador extends JInternalFrame implements ActionListener, L
 				int index = listaPlantilla.getSelectedIndex();
 				listmodel.remove(index);
 				JOptionPane.showMessageDialog(this,
-                        "Jugador puesto en venta con éxito",
+                        "Jugador puesto en venta con Ã©xito",
                         "Jugador en venta",
                         JOptionPane.INFORMATION_MESSAGE);
 			}
