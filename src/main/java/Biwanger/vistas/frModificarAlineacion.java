@@ -187,10 +187,9 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 				else
 				{
 					JOptionPane.showMessageDialog(null, "Alineación guardada con éxito", "Guardado", JOptionPane.DEFAULT_OPTION);
-					//guardar cambios (atributo Usuario.formacion y Jugador.Alineado
-					//BD --> usuario.formacion
 					usuario.setFormacion(formacion);
-					//BD --> jugador.alineado
+					controller.modificarAlineacion(usuario);
+					controller.modificarFormacion(usuario);
 
 					panelUsuario.setVisible(true);
 					this.dispose();
