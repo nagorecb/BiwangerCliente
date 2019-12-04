@@ -15,31 +15,6 @@ Mira **Deployment** para conocer como desplegar el proyecto.
 _Ejecutar siguientes comandos (después de haber puesto en marcha el servidor): _
 
 ```
-mvn compile
+mvn compiler:compile
 mvn exec:java -Pclient
 ```
-
-
-## Ejecutando las pruebas ⚙️
-
-_Explica como ejecutar las pruebas automatizadas para este sistema_
-
-### Analice las pruebas end-to-end 🔩
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-### Y las pruebas de estilo de codificación ⌨️
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-## Deployment 📦
-
-_Agrega notas adicionales sobre como hacer deploy_
