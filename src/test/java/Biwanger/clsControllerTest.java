@@ -9,8 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.Spy;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 
@@ -25,10 +24,20 @@ public class clsControllerTest
 {
     @Mock
     private clsUsuario mockedUsuario;
+
+    @Mock
     private ArrayList<clsUsuario> mockedListUsuarios;
+
+    @Mock
     private ArrayList<clsJugador> mockedListJugadores;
+
+    @Mock
     private clsPuja mockedPuja;
+
+    @Mock
     private clsJugador mockedJugador;
+
+    @Mock
     private clsController mockedController;
 
     @Before
@@ -51,8 +60,8 @@ public class clsControllerTest
         //De primeras no funciona, devuelve false
         assertEquals(false, mockedController.inicioSesion("email","password"));
         //Con stubbing funcionaria y devuelve true
-        Mockito.when(mockedController.registro("email","password")).thenReturn(true);
-        assertEquals(true, mockedController.inicioSesion("email","password"));
+        Mockito.when(mockedController.registro("email","password")).thenReturn("OK");
+        assertEquals("OK", mockedController.inicioSesion("email","password"));
     }
     @Test
     public void test_inicioSesion()
