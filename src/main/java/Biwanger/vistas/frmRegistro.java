@@ -178,9 +178,9 @@ public class frmRegistro extends JFrame implements ActionListener
                 }
                 else
                 {
-                    boolean okay = controller.registro(email, password);
+                    String okay = controller.registro(email, password);
 
-                    if(okay)
+                    if(okay.equals("OK"))
                     {
                         ventanaInicio.setVisible(true);
                         this.dispose();

@@ -41,6 +41,7 @@ public class frPremiar extends JFrame implements ActionListener
 
 	public frPremiar(JFrame frame, clsController controller)
 	{
+		System.out.println(2);
 		this.controller = controller;
 		panelAdmin = frame;
 
@@ -57,8 +58,8 @@ public class frPremiar extends JFrame implements ActionListener
         pPrincipal.setLayout(new BorderLayout(0, 0));
 
         this.listaUsuarios = controller.obtenerTodosUsuarios();
-        
-    	pTabla = new PanelConFondo ("/img/foto.jpg");
+		System.out.println(3);
+    	pTabla = new JPanel();
     	pTabla.setBorder(new EmptyBorder(40, 40, 40, 40));
         pTabla.setLayout(new BorderLayout(0, 0));
         
@@ -79,7 +80,7 @@ public class frPremiar extends JFrame implements ActionListener
             tableModel.addRow(data);
         }
         this.tableModel=tableModel;
-        
+		System.out.println(4);
         header = tabla.getTableHeader();
         pPrincipal.add(pTabla, BorderLayout.CENTER);
         pTabla.add(header, BorderLayout.NORTH);
@@ -93,11 +94,12 @@ public class frPremiar extends JFrame implements ActionListener
 		panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.NORTH);
 		panel.setLayout(new BorderLayout(0, 0));
-
+		System.out.println(5);
 		btnVolver = new JButton("Volver");
 		btnVolver.setActionCommand("VOLVER");
 		btnVolver.addActionListener(this);
 		panel.add(btnVolver, BorderLayout.WEST);
+		System.out.println(6);
 	}
 
 	@Override

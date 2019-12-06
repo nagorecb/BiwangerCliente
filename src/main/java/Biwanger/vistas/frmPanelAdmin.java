@@ -1,5 +1,6 @@
 package Biwanger.vistas;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import Biwanger.controladores.clsController;
 import java.awt.*;
@@ -10,7 +11,7 @@ public class frmPanelAdmin extends JFrame
 {
     private static final long serialVersionUID = 1L;
     private JPanel pPrincipal;
-    private PanelConFondo pFoto;
+    private JLabel lblFoto;
     private JMenuBar menuBar;
     private JMenu mnMenu;
     private JMenuItem mntmPremiarTresMejores,mntmIntroducirPuntuacionJornada, mntmGestionDeMercado;
@@ -34,8 +35,17 @@ public class frmPanelAdmin extends JFrame
         getContentPane().add(pPrincipal, BorderLayout.CENTER);
         pPrincipal.setLayout(new BorderLayout(0, 0));
 
-        pFoto = new PanelConFondo ("/img/foto.jpg");
-        pPrincipal.add(pFoto);
+        lblFoto =  new JLabel();
+        lblFoto.setBounds(0, 0, pPrincipal.getWidth(), pPrincipal.getHeight());
+
+        try {
+            Image img = ImageIO.read(getClass().getResource("../../../../img/foto.jpg"));
+            Image newimg = img.getScaledInstance( 500, 300,  java.awt.Image.SCALE_SMOOTH ) ;
+            lblFoto.setIcon(new ImageIcon(newimg));
+        } catch (Exception ex) {
+        }
+
+        pPrincipal.add(lblFoto);
 
         menuBar = menu();
         setJMenuBar(menuBar);
@@ -65,6 +75,7 @@ public class frmPanelAdmin extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                System.out.println(1);
                 frPremiar ventana = new frPremiar (frame, controller);
                 ventana.setVisible(true);
                 setVisible(false);

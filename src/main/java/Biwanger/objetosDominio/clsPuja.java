@@ -1,6 +1,7 @@
 package Biwanger.objetosDominio;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class clsPuja {
 
@@ -53,38 +54,20 @@ public class clsPuja {
 	public void setFecha(LocalDateTime fecha) {
 		this.fecha = fecha;
 	}
-	
-	
+
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		clsPuja clsPuja = (clsPuja) o;
+		return usuarioPuja.equals(clsPuja.usuarioPuja) &&
+				fecha.equals(clsPuja.fecha);
+	}
+
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((jugadorPuja == null) ? 0 : jugadorPuja.hashCode());
-		result = prime * result + ((usuarioPuja == null) ? 0 : usuarioPuja.hashCode());
-		return result;
-	}
-	
-	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		clsPuja other = (clsPuja) obj;
-		if (jugadorPuja == null) {
-			if (other.jugadorPuja != null)
-				return false;
-		} else if (!jugadorPuja.equals(other.jugadorPuja))
-			return false;
-		if (usuarioPuja == null) {
-			if (other.usuarioPuja != null)
-				return false;
-		} else if (!usuarioPuja.equals(other.usuarioPuja))
-			return false;
-		return true;
+		return Objects.hash(usuarioPuja, fecha);
 	}
 	
 }

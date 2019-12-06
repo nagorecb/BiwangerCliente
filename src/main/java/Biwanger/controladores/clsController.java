@@ -4,12 +4,16 @@ import Biwanger.objetosDominio.clsPuja;
 import Biwanger.objetosDominio.clsUsuario;
 import Biwanger.vistas.*;
 import Biwanger.Remote.clsServiceLocator;
+import Biwanger.objetosDominio.clsJugador;
+import Biwanger.objetosDominio.clsUsuario;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.MultivaluedMap;
@@ -40,7 +44,6 @@ public class clsController
         Response response = invocationBuilder.post(Entity.entity(usuario, MediaType.APPLICATION_JSON));
 
         clsUsuario resultado = response.readEntity(clsUsuario.class);
-
         if(response.getStatus() != Status.OK.getStatusCode())
         {
             System.out.println("No OK");
@@ -52,27 +55,25 @@ public class clsController
         return resultado;
     }
 
-    public boolean registro(String email, String password)
+    public String registro(String email, String password)
     {
         clsUsuario usuario = new clsUsuario ();
         usuario.setPassword(password);
         usuario.setEmail(email);
-        WebTarget postRequestController = sl.getservice().path("resource/registroRequest");
+        WebTarget postRequestController = sl.getservice().path("resource/registro");
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
         Response response = invocationBuilder.post(Entity.entity(usuario, MediaType.APPLICATION_JSON));
 
         if (response.getStatus() == Status.OK.getStatusCode())
         {
             System.out.println("Todo OK");
-            
-            return true;
         }
         else
         {
             System.out.println("No OK");
-
-            return false;
         }
+
+        return response.readEntity(String.class);
     }
     
     public ArrayList<clsUsuario> premiarTresMejores()
@@ -112,7 +113,6 @@ public class clsController
         }
     }
 
-
     public void modificarFormacion (clsUsuario usuario)
     {
         WebTarget postRequestController = sl.getservice().path("resource/modificarFormacion");
@@ -135,7 +135,7 @@ public class clsController
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
         Response response = invocationBuilder.get();
 
-        ArrayList<clsJugador> lJugadores = null;
+        ArrayList<clsJugador> lJugadores = response.readEntity(ArrayList.class);
 
         if (response.getStatus() == Status.OK.getStatusCode())
         {
@@ -144,7 +144,6 @@ public class clsController
         else
         {
             System.out.println("No OK");
-            lJugadores = response.readEntity(ArrayList.class);
         }
 
         return lJugadores;
@@ -226,7 +225,7 @@ public class clsController
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
         Response response = invocationBuilder.get();
 
-        ArrayList<clsUsuario> lUsuarios = null;
+        ArrayList<clsUsuario> lUsuarios = response.readEntity(ArrayList.class);
 
         if (response.getStatus() == Status.OK.getStatusCode())
         {
@@ -235,10 +234,8 @@ public class clsController
         else
         {
             System.out.println("No OK");
-            lUsuarios = response.readEntity(ArrayList.class);
         }
 
         return lUsuarios;
     }
-
 }

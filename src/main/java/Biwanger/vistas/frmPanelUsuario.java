@@ -51,7 +51,7 @@ public class frmPanelUsuario extends JFrame
         getContentPane().add(pPrincipal, BorderLayout.CENTER);
         pPrincipal.setLayout(new BorderLayout(0, 0));
 
-        pFoto = new PanelConFondo ("/img/foto.jpg");
+        pFoto = new PanelConFondo ("../../../img/foto.jpg");
         pPrincipal.add(pFoto);
 
         //MENU
