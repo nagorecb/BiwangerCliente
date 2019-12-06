@@ -18,13 +18,11 @@ import javax.ws.rs.core.Response.Status;
 
 public class clsController
 {
-    private clsServiceLocator sl = null;
+    private clsServiceLocator sl;
 
-    public clsController() //throws RemoteException
+    public clsController(String hostname, String port)
     {
         sl = new clsServiceLocator();
-        String hostname ="";
-        String port = "";
         sl.setService(hostname, port);
 
         frmInicioSesion GUI = new frmInicioSesion(this);
@@ -37,13 +35,9 @@ public class clsController
         usuario.setEmail(email);
         usuario.setPassword(password);
 
-        System.out.println("1");
         WebTarget postRequestController = sl.getservice().path("resource/login");
-        System.out.println("2");
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
-        System.out.println("3");
         Response response = invocationBuilder.post(Entity.entity(usuario, MediaType.APPLICATION_JSON));
-        System.out.println("4");
 
         clsUsuario resultado = response.readEntity(clsUsuario.class);
 
@@ -178,10 +172,11 @@ public class clsController
 
     public void venderJugador(double precio, clsJugador jugadorVenta)
     {
+        jugadorVenta.setPrecio(precio);
 
         WebTarget postRequestController = sl.getservice().path("resource/VenderJugador");
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
-        Response response = invocationBuilder.get();
+        Response response = invocationBuilder.post(Entity.entity(jugadorVenta, MediaType.APPLICATION_JSON));
         if (response.getStatus() == Status.OK.getStatusCode())
         {
             System.out.println("Todo OK");
