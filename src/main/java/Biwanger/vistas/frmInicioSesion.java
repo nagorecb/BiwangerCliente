@@ -171,6 +171,7 @@ public class frmInicioSesion extends JFrame implements ActionListener
                     }
                     else 
                     {
+                        this.setVisible(false);
                         frmPanelUsuario ventanaUsuario = new frmPanelUsuario(controller, usuarioIniciado);
                         ventanaUsuario.setVisible(true);
                     }

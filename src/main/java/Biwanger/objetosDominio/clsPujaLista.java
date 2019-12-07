@@ -17,9 +17,4 @@ public class clsPujaLista
     {
         return lPujas;
     }
-
-    public void setlPujas(ArrayList<clsPuja> lPujas)
-    {
-        this.lPujas = lPujas;
-    }
 }

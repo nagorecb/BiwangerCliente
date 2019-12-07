@@ -66,7 +66,7 @@ public class frmPujar extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                clsPuja puja = new clsPuja(usuario, jugadorSeleccionado, Double.parseDouble(txtSuma.getText()));
+                clsPuja puja = new clsPuja(usuario.getEmail(), jugadorSeleccionado.getId(), Double.parseDouble(txtSuma.getText()));
 
                 controller.Pujar(puja);
             }

@@ -30,11 +30,12 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.EventObject;
 
 import javax.swing.JLabel;
 
-public class frmVentaJugador extends JInternalFrame implements ActionListener, ListSelectionListener
+public class frmVentaJugador extends JFrame implements ActionListener, ListSelectionListener
 {
 	private int altura = 300;
     private int anchura = 600;
@@ -67,7 +68,9 @@ public class frmVentaJugador extends JInternalFrame implements ActionListener, L
         
         panelLista = new JPanel();
         panelLista.setLayout(new FlowLayout());
-        for (clsJugador j: usuario.getPlantilla())
+
+		ArrayList<clsJugador> plantilla = controller.obtenerPlantilla(usuario);
+        for (clsJugador j: plantilla)
         {
         	listmodel.addElement(j);
         }

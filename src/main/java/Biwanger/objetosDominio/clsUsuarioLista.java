@@ -1,12 +1,10 @@
 package Biwanger.objetosDominio;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
-public class clsUsuarioLista implements Serializable
+public class clsUsuarioLista
 {
-    private List<clsUsuario> lUsuarios;
+    private ArrayList<clsUsuario> lUsuarios;
 
     public clsUsuarioLista(ArrayList param)
     {
@@ -28,10 +26,5 @@ public class clsUsuarioLista implements Serializable
         }
 
         return lista;
-    }
-
-    public void setlUsuarios(List<clsUsuario> lUsuarios)
-    {
-        this.lUsuarios = lUsuarios;
     }
 }

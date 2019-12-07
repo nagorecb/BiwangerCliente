@@ -37,6 +37,8 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 
 	private JFrame panelUsuario;
 	clsController controller;
+
+	ArrayList<clsJugador> plantilla;
 	
 	public frModificarAlineacion(JFrame frame, clsController controller, clsUsuario usuario)
 	{
@@ -49,7 +51,8 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		setSize(1066, 800);
 		setResizable(false);
 
-		pCampo = new PanelConFondo("/img/cesped.jpg");
+		pCampo = new JPanel();
+		//pCampo = new PanelConFondo("/img/cesped.jpg");
 		pCampo.setForeground(new Color(0, 128, 0));
 		pCampo.setBorder(null);
 		getContentPane().add(pCampo, BorderLayout.CENTER);
@@ -83,10 +86,12 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		panel = new JPanel();
 		superior.add(panel);
 
-		porteros = usuario.getPosicion("PORTERO");
-		defensas = usuario.getPosicion("DEFENSA");
-		medios = usuario.getPosicion("MEDIO");
-		delanteros = usuario.getPosicion("DELANTERO");
+		plantilla = controller.obtenerPlantilla(usuario);
+
+		porteros = usuario.getPosicion("Portero", plantilla);
+		defensas = usuario.getPosicion("Defensa", plantilla);
+		medios = usuario.getPosicion("Centrocampista", plantilla);
+		delanteros = usuario.getPosicion("Delantero", plantilla);
 
 		btnGuardar = new JButton("Guardar");
 		getContentPane().add(btnGuardar, BorderLayout.SOUTH);
@@ -167,9 +172,9 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 				guardarFormacion();
 
 				int once=0;
-				for (int i=0; i<usuario.getPlantilla().size();i++)
+				for (int i=0; i<plantilla.size();i++)
 				{
-					if(usuario.getPlantilla().get(i).isAlineado())
+					if(plantilla.get(i).isAlineado())
 					{
 						once++;
 					}
@@ -178,9 +183,9 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 				if (once!=11)
 				{
 					JOptionPane.showMessageDialog(null, "Alineación indevida. Jugador repetido", "Error", JOptionPane.DEFAULT_OPTION);
-					for (int i=0; i<usuario.getPlantilla().size();i++)
+					for (int i=0; i<plantilla.size();i++)
 					{
-						usuario.getPlantilla().get(i).setAlineado(false);
+						plantilla.get(i).setAlineado(false);
 					}
 				}
 
@@ -188,7 +193,7 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 				{
 					JOptionPane.showMessageDialog(null, "Alineación guardada con éxito", "Guardado", JOptionPane.DEFAULT_OPTION);
 					usuario.setFormacion(formacion);
-					controller.modificarAlineacion(usuario);
+					controller.modificarAlineacion(plantilla);
 					controller.modificarFormacion(usuario);
 
 					panelUsuario.setVisible(true);
@@ -326,16 +331,16 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 	
 	public void guardarFormacion()
 	{
-		for (int i=0; i<usuario.getPlantilla().size();i++)
+		for (int i=0; i<plantilla.size();i++)
 		{
-			usuario.getPlantilla().get(i).setAlineado(false);
+			plantilla.get(i).setAlineado(false);
 			
 			for (JComboBox comboBox : combos)
 			{
-				if(usuario.getPlantilla().get(i)==comboBox.getSelectedItem())
+				if(plantilla.get(i)==comboBox.getSelectedItem())
 				{
-					usuario.getPlantilla().get(i).setAlineado(true);
-					System.out.println(usuario.getPlantilla().get(i));
+					plantilla.get(i).setAlineado(true);
+					System.out.println(plantilla.get(i));
 				}
 				
 			}

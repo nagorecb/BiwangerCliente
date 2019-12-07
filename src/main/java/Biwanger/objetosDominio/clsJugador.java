@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class clsJugador implements Serializable
+public class clsJugador
 {
 	private int id;
 	private String nombre;
@@ -22,9 +22,7 @@ public class clsJugador implements Serializable
 	private String estado;	//para saber si está lesionado o no
 	private boolean enVenta;
 	private LocalDateTime fechaVenta;
-	
-	private clsUsuario usuarioDueno;
-	private List <clsPuja> pujasRealizadas;
+	private String usuarioDueno;
 	
 	public clsJugador() {
 		super();
@@ -43,14 +41,12 @@ public class clsJugador implements Serializable
 		this.estado = null;
 		this.enVenta = false;
 		this.usuarioDueno = null;
-		this.pujasRealizadas = null;
 		this.fechaVenta = null;
 	}
 	
 	public clsJugador(int id, String nombre, int puntos, String posicion, double precio, String equipo,
 			boolean alineado, int numGoles, int numAsistencias, int numTarjetasAmarillas, int numTarjetasRojas,
-			int numPartidosJugados, String estado, boolean enVenta, clsUsuario usuarioDueno,
-			List<clsPuja> pujasRealizadas, LocalDateTime fecha) {
+			int numPartidosJugados, String estado, boolean enVenta, String usuarioDueno, LocalDateTime fecha) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -67,7 +63,6 @@ public class clsJugador implements Serializable
 		this.estado = estado;
 		this.enVenta = enVenta;
 		this.usuarioDueno = usuarioDueno;
-		this.pujasRealizadas = pujasRealizadas;
 		this.fechaVenta = fecha;
 	}
 
@@ -183,20 +178,12 @@ public class clsJugador implements Serializable
 		this.enVenta = enVenta;
 	}
 
-	public clsUsuario getUsuarioDueno() {
+	public String getUsuarioDueno() {
 		return usuarioDueno;
 	}
 
-	public void setUsuarioDueno(clsUsuario usuarioDueno) {
+	public void setUsuarioDueno(String usuarioDueno) {
 		this.usuarioDueno = usuarioDueno;
-	}
-
-	public List<clsPuja> getPujasRealizadas() {
-		return pujasRealizadas;
-	}
-
-	public void setPujasRealizadas(List<clsPuja> pujasRealizadas) {
-		this.pujasRealizadas = pujasRealizadas;
 	}
 
 	public void setFechaVenta(LocalDateTime fecha)
@@ -209,13 +196,11 @@ public class clsJugador implements Serializable
 		return fechaVenta;
 	}
 
-
 	@Override
 	public String toString()
 	{
 		return  nombre + " - " + puntos + " - " + posicion + " - " + equipo;
 	}
-
 
 	@Override
 	public boolean equals(Object o) {

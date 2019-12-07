@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
@@ -37,8 +38,9 @@ public class frEstadisticas extends JFrame implements ActionListener
 		//setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
 		setSize(1066, 800);
 		setResizable(false);
-		
-		pPrincipal = new PanelConFondo ("/img/foto.jpg");
+
+		pPrincipal = new JPanel();
+		//pPrincipal = new PanelConFondo ("/img/foto.jpg");
 		pPrincipal.setBorder(new EmptyBorder(60, 40, 100, 40));
 		getContentPane().add(pPrincipal, BorderLayout.CENTER);
 		pPrincipal.setLayout(new BorderLayout(0, 0));
@@ -59,10 +61,12 @@ public class frEstadisticas extends JFrame implements ActionListener
 	     table.setRowHeight(25);
 //	     table.setShowVerticalLines(false);
 	     table.setEnabled(false);
-	     
-	     for (int i =0; i<usuario.getPlantilla().size();i++)
+
+		ArrayList<clsJugador> plantilla = controller.obtenerPlantilla(usuario);
+
+	     for (int i =0; i<plantilla.size();i++)
 	        {
-	    	 	clsJugador jugador = usuario.getPlantilla().get(i);
+	    	 	clsJugador jugador = plantilla.get(i);
 	    	 	
 	    	 	String nombre = jugador.getNombre();
 	    		int puntos = jugador.getPuntos();

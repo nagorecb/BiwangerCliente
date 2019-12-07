@@ -17,9 +17,4 @@ public class clsJugadorLista
     {
         return lJugadores;
     }
-
-    public void setlJugadores(ArrayList<clsJugador> lJugadores)
-    {
-        this.lJugadores = lJugadores;
-    }
 }

@@ -5,14 +5,11 @@ import Biwanger.objetosDominio.clsUsuario;
 import Biwanger.objetosDominio.clsJugador;
 
 import java.awt.BorderLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
@@ -29,7 +26,7 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 	private JComboBox<clsJugador> comboBox;
 	private FlowLayout flowLayout;
 
-	private ArrayList <clsJugador> porteros,defensas,medios,delanteros;
+	private ArrayList<clsJugador> porteros,defensas, centrocampistas,delanteros;
 	
 	private clsUsuario usuario;
 
@@ -43,7 +40,7 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 		this.controller = controller;
 
 		setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
-		setSize(1066, 800);
+		setSize(1500, 1000);
 		setResizable(false);
 
 		pCampo = new JPanel();
@@ -74,11 +71,39 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 		pDelantero = new JPanel();
 		pDelantero.setOpaque(false);
 		pFormacion.add(pDelantero);
-		
-		porteros = usuario.getPosicion("Portero");
-		defensas = usuario.getPosicion("Defensa");
-		medios = usuario.getPosicion("Centrocampista");
-		delanteros = usuario.getPosicion("Delantero");
+
+		ArrayList<clsJugador> plantilla = controller.obtenerPlantilla(usuario);
+
+		porteros = usuario.getPosicion("Portero", plantilla);
+		defensas = usuario.getPosicion("Defensa", plantilla);
+		centrocampistas = usuario.getPosicion("Centrocampista", plantilla);
+		delanteros = usuario.getPosicion("Delantero", plantilla);
+/*
+		System.out.println("\nPorteros:");
+		for(clsJugador aux: porteros)
+		{
+			System.out.println(aux.getNombre());
+		}
+
+		System.out.println("\nDefensas: ");
+		for(clsJugador aux: defensas)
+		{
+			System.out.println(aux.getNombre());
+		}
+
+		System.out.println("\nCentrocampistas:");
+		for(clsJugador aux: centrocampistas)
+		{
+			System.out.println(aux.getNombre());
+		}
+
+		System.out.println("\nDelanteros");
+		for(clsJugador aux: delanteros)
+		{
+			System.out.println(aux.getNombre());
+		}
+
+ */
 		
 		btnModificar = new JButton("Modificar");
 		btnModificar.setActionCommand("MODIFICAR");
@@ -153,7 +178,7 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 		{
 			comboBox = new JComboBox<clsJugador>();
 			pMedio.add(comboBox);
-     		comboBox.addItem(medios.get(i));
+     		comboBox.addItem(centrocampistas.get(i));
 		}
 		pMedio.setLayout(new GridLayout(med, 1, 100, 100));
 		

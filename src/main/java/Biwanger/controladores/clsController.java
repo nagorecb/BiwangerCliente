@@ -40,6 +40,7 @@ public class clsController
         Response response = invocationBuilder.post(Entity.entity(usuario, MediaType.APPLICATION_JSON));
 
         clsUsuario resultado = response.readEntity(clsUsuario.class);
+
         if(response.getStatus() != Status.OK.getStatusCode())
         {
             System.out.println("No OK");
@@ -93,11 +94,13 @@ public class clsController
         return lUsuarios.getlUsuarios();
     }
 
-    public void modificarAlineacion(clsUsuario usuario)
+    public void modificarAlineacion(ArrayList<clsJugador> plantilla)
     {
+        clsJugadorLista param = new clsJugadorLista(plantilla);
+
         WebTarget postRequestController = sl.getservice().path("resource/modificarAlineacion");
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
-        Response response = invocationBuilder.post(Entity.entity(usuario, MediaType.APPLICATION_JSON));
+        Response response = invocationBuilder.post(Entity.entity(param, MediaType.APPLICATION_JSON));
 
         if(response.getStatus() != Status.OK.getStatusCode())
         {
@@ -253,5 +256,32 @@ public class clsController
         }
 
         return lJugadores.getlJugadores();
+    }
+
+    public ArrayList<clsJugador> obtenerPlantilla(clsUsuario usuario)
+    {
+        WebTarget getRequestController = sl.getservice().path("resource/obtenerPlantilla");
+        Invocation.Builder invocationBuilder = getRequestController.request(MediaType.APPLICATION_JSON);
+        Response response = invocationBuilder.post(Entity.entity(usuario.getEmail(), MediaType.APPLICATION_JSON));
+
+        clsJugadorLista lJugadores= response.readEntity(clsJugadorLista.class);
+
+        if (response.getStatus() == Status.OK.getStatusCode())
+        {
+            System.out.println("Todo OK");
+        }
+        else
+        {
+            System.out.println("No OK");
+        }
+
+        return lJugadores.getlJugadores();
+    }
+
+    public void hardcode()
+    {
+        WebTarget getRequestController = sl.getservice().path("resource/hardcode");
+        Invocation.Builder invocationBuilder = getRequestController.request(MediaType.APPLICATION_JSON);
+        Response response = invocationBuilder.get();
     }
 }

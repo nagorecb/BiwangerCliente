@@ -7,5 +7,6 @@ final class clsMain {
     public static void main(String[] args)
     {
         clsController controller = new clsController(args[0], args[1]);
+        controller.hardcode();
     }
 }
