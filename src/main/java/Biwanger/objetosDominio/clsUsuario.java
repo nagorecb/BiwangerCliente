@@ -90,7 +90,7 @@ public class clsUsuario implements Serializable
 		ArrayList <clsJugador> lPosicion = new ArrayList <clsJugador>();
 		for (int i=0;i<plantilla.size();i++)
 		{
-			if (plantilla.get(i).getPosicion()==posicion)
+			if (plantilla.get(i).getPosicion().equals(posicion))
 				lPosicion.add(plantilla.get(i));
 		}
 		return lPosicion;

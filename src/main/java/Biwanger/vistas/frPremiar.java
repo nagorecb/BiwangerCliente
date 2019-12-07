@@ -41,7 +41,6 @@ public class frPremiar extends JFrame implements ActionListener
 
 	public frPremiar(JFrame frame, clsController controller)
 	{
-		System.out.println(2);
 		this.controller = controller;
 		panelAdmin = frame;
 
@@ -56,9 +55,9 @@ public class frPremiar extends JFrame implements ActionListener
         setContentPane(pPrincipal);
         
         pPrincipal.setLayout(new BorderLayout(0, 0));
-		System.out.println(22);
+
         this.listaUsuarios = controller.obtenerTodosUsuarios();
-		System.out.println(3);
+
     	pTabla = new JPanel();
     	pTabla.setBorder(new EmptyBorder(40, 40, 40, 40));
         pTabla.setLayout(new BorderLayout(0, 0));
@@ -80,7 +79,7 @@ public class frPremiar extends JFrame implements ActionListener
             tableModel.addRow(data);
         }
         this.tableModel=tableModel;
-		System.out.println(4);
+
         header = tabla.getTableHeader();
         pPrincipal.add(pTabla, BorderLayout.CENTER);
         pTabla.add(header, BorderLayout.NORTH);
@@ -94,12 +93,12 @@ public class frPremiar extends JFrame implements ActionListener
 		panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.NORTH);
 		panel.setLayout(new BorderLayout(0, 0));
-		System.out.println(5);
+
 		btnVolver = new JButton("Volver");
 		btnVolver.setActionCommand("VOLVER");
 		btnVolver.addActionListener(this);
 		panel.add(btnVolver, BorderLayout.WEST);
-		System.out.println(6);
+
 	}
 
 	@Override
@@ -109,30 +108,24 @@ public class frPremiar extends JFrame implements ActionListener
 	        {
 	            case "PREMIAR":
 	            {
-	            	System.out.println(1111111);
 	                tabla.setVisible(false);
 
 					listaUsuarios = controller.premiarTresMejores();
-					System.out.println(222222222);
 
 					double fondos;
 	                int num;
 
 	                if (listaUsuarios.size()>3)	num = 3;
                 	else num = listaUsuarios.size();
-					System.out.println(3333333);
                 	
                 	for (int i =0; i<num;i++)
   	                {
   	                	fondos = listaUsuarios.get(i).getFondos();
   	                	tabla.getModel().setValueAt(fondos, i, 2);
   	                }
-					System.out.println(44444444);
-	   
+
 	                tabla.setModel(tableModel);
-					System.out.println(55555555);
 	                tableModel.fireTableDataChanged();
-					System.out.println(66666666);
 	                tabla.setVisible(true);
 	            }
 				break;

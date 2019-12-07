@@ -56,6 +56,8 @@ public class clsController
         clsUsuario usuario = new clsUsuario ();
         usuario.setPassword(password);
         usuario.setEmail(email);
+        usuario.setFondos(1000000);
+
         WebTarget postRequestController = sl.getservice().path("resource/registro");
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
         Response response = invocationBuilder.post(Entity.entity(usuario, MediaType.APPLICATION_JSON));
@@ -77,9 +79,9 @@ public class clsController
         WebTarget postRequestController = sl.getservice().path("resource/premiarTresMejores");
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
         Response response = invocationBuilder.get();
-        System.out.println("Antes de read entity");
+
         clsUsuarioLista lUsuarios = response.readEntity(clsUsuarioLista.class);
-        System.out.println("Después de read entity");
+
         if(response.getStatus() != Status.OK.getStatusCode())
         {
             System.out.println("No OK");

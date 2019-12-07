@@ -56,11 +56,11 @@ public class frmCrearJugador extends JFrame implements ActionListener {
 		int posX = (int) (screenSize.width*0.05);
 		int posY = (int) (screenSize.height*0.02);
 		int width = (int) (screenSize.width*0.9);
-		int heigth = (int) (screenSize.height*0.6);
+		int heigth = (int) (screenSize.height*0.3);
 		
 		//formulario
 		panelFormulario = new JPanel();
-		panelFormulario.setLayout(new GridLayout(4, 0));
+		panelFormulario.setLayout(new GridLayout(5, 0));
 		panelFormulario.setBounds(posX, posY, width, heigth);
 		getContentPane().add(panelFormulario);
 		

@@ -61,18 +61,19 @@ public class frmAnadirPuntos extends JFrame implements ActionListener
 		
 		//Parte superior
 		int posX = (int) (screenSize.width*0.05);
-		int posY = (int) (screenSize.height*0.02);
+		int posY = (int) (screenSize.height*0.1);
 		int width = (int) (screenSize.width*0.9);
 		int heigth = (int) (screenSize.height*0.1);
 		
 		//formulario
 		panelFormulario = new JPanel();
-		panelFormulario.setLayout(new GridLayout(2, 4));
+		panelFormulario.setLayout(new GridLayout(1, 1));
 		panelFormulario.setBounds(posX, posY, width, heigth);
 		getContentPane().add(panelFormulario);
 		
 		spinnerPuntos = new JSpinner(new SpinnerNumberModel()); 
-		spinnerPuntos.setBounds(70, 70, 50, 40); 
+		spinnerPuntos.setBounds(30, 30, 30, 30); 
+		spinnerPuntos.setFont(spinnerPuntos.getFont().deriveFont(18f));
 		
 		lblPuntos = new JLabel("Puntos a añadir: ");
 		lblPuntos.setFont(lblPuntos.getFont().deriveFont(18f));
@@ -83,11 +84,11 @@ public class frmAnadirPuntos extends JFrame implements ActionListener
 		//listajugadores
 		posX = (int) (screenSize.width*0.05);
 		posY = (int) (screenSize.height*0.25);
-		width = (int) (screenSize.width*0.7);
-		heigth = (int) (screenSize.height*0.5);
+		width = (int) (screenSize.width*0.9);
+		heigth = (int) (screenSize.height*0.2);
 		
 		panelListaJugadores= new JPanel();
-		panelListaJugadores.setLayout(new GridLayout());
+		panelListaJugadores.setLayout(new GridLayout(1,1));
 		panelListaJugadores.setBounds(posX, posY, width, heigth);
 		getContentPane().add(panelListaJugadores);
 		

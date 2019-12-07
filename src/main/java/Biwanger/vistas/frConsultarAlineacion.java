@@ -45,8 +45,9 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 		setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
 		setSize(1066, 800);
 		setResizable(false);
-		
-		pCampo = new PanelConFondo("/img/cesped.jpg");
+
+		pCampo = new JPanel();
+		//pCampo = new PanelConFondo("/img/cesped.jpg");
 		pCampo.setForeground(new Color(0, 128, 0));
 		pCampo.setBorder(null);
 		getContentPane().add(pCampo, BorderLayout.CENTER);
@@ -74,10 +75,10 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 		pDelantero.setOpaque(false);
 		pFormacion.add(pDelantero);
 		
-		porteros = usuario.getPosicion("PORTERO");
-		defensas = usuario.getPosicion("DEFENSA");
-		medios = usuario.getPosicion("MEDIO");
-		delanteros = usuario.getPosicion("DELANTERO");
+		porteros = usuario.getPosicion("Portero");
+		defensas = usuario.getPosicion("Defensa");
+		medios = usuario.getPosicion("Centrocampista");
+		delanteros = usuario.getPosicion("Delantero");
 		
 		btnModificar = new JButton("Modificar");
 		btnModificar.setActionCommand("MODIFICAR");

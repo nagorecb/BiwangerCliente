@@ -51,8 +51,8 @@ public class frmPanelUsuario extends JFrame
         getContentPane().add(pPrincipal, BorderLayout.CENTER);
         pPrincipal.setLayout(new BorderLayout(0, 0));
 
-        pFoto = new PanelConFondo ("../../../img/foto.jpg");
-        pPrincipal.add(pFoto);
+        //pFoto = new PanelConFondo ("../../../img/foto.jpg");
+        //pPrincipal.add(pFoto);
 
         //MENU
         JMenuBar menuBar = menu();
@@ -88,6 +88,21 @@ public class frmPanelUsuario extends JFrame
         mnMercado.add(mntmVender);
 
         //Escuchadores de botones
+        mntmTotal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+            }
+        });
+
+        mntmMiEquipo_1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+
+            }
+        });
 
         mntmConsultar.addActionListener( new ActionListener()
         {
@@ -119,6 +134,24 @@ public class frmPanelUsuario extends JFrame
                 frEstadisticas ventana = new frEstadisticas (frame, controller, usuario);
                 ventana.setVisible(true);
                 setVisible(false);
+            }
+        });
+
+        mntmComprar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                frmPujar ventana = new frmPujar(controller, usuario);
+                ventana.setVisible(true);
+            }
+        });
+
+        mntmVender.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                frmVentaJugador ventana = new frmVentaJugador(controller, usuario);
+                ventana.setVisible(true);
             }
         });
 
