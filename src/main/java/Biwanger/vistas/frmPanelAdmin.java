@@ -75,10 +75,27 @@ public class frmPanelAdmin extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                System.out.println(1);
                 frPremiar ventana = new frPremiar (frame, controller);
                 ventana.setVisible(true);
                 setVisible(false);
+            }
+        });
+
+        mntmIntroducirPuntuacionJornada.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                frmAnadirPuntos ventana = new frmAnadirPuntos(frame, controller);
+                ventana.setVisible(true);
+            }
+        });
+
+        mntmGestionDeMercado.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                frmCrearJugador ventana = new frmCrearJugador(frame, controller);
+                ventana.setVisible(true);
             }
         });
 

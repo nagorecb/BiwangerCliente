@@ -1,24 +1,20 @@
 package Biwanger.controladores;
-import Biwanger.objetosDominio.clsJugador;
-import Biwanger.objetosDominio.clsPuja;
-import Biwanger.objetosDominio.clsUsuario;
+import Biwanger.objetosDominio.*;
 import Biwanger.vistas.*;
 import Biwanger.Remote.clsServiceLocator;
 import Biwanger.objetosDominio.clsJugador;
 import Biwanger.objetosDominio.clsUsuario;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Form;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedHashMap;
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.Response;
+import javax.ws.rs.core.*;
 import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.GenericType;
 
 public class clsController
 {
@@ -78,14 +74,12 @@ public class clsController
     
     public ArrayList<clsUsuario> premiarTresMejores()
     {
-        ArrayList<clsUsuario> usuarios;
-
         WebTarget postRequestController = sl.getservice().path("resource/premiarTresMejores");
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
         Response response = invocationBuilder.get();
-
-        usuarios = response.readEntity(ArrayList.class);
-
+        System.out.println("Antes de read entity");
+        clsUsuarioLista lUsuarios = response.readEntity(clsUsuarioLista.class);
+        System.out.println("Después de read entity");
         if(response.getStatus() != Status.OK.getStatusCode())
         {
             System.out.println("No OK");
@@ -94,7 +88,7 @@ public class clsController
         {
             System.out.println("Todo OK");
         }
-        return usuarios;
+        return lUsuarios.getlUsuarios();
     }
 
     public void modificarAlineacion(clsUsuario usuario)
@@ -135,7 +129,7 @@ public class clsController
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
         Response response = invocationBuilder.get();
 
-        ArrayList<clsJugador> lJugadores = response.readEntity(ArrayList.class);
+        clsJugadorLista lJugadores = response.readEntity(clsJugadorLista.class);
 
         if (response.getStatus() == Status.OK.getStatusCode())
         {
@@ -146,7 +140,7 @@ public class clsController
             System.out.println("No OK");
         }
 
-        return lJugadores;
+        return lJugadores.getlJugadores();
     }
 
     public boolean Pujar(clsPuja puja)
@@ -221,11 +215,11 @@ public class clsController
 
 	public ArrayList<clsUsuario> obtenerTodosUsuarios()
     {
-        WebTarget postRequestController = sl.getservice().path("resource/obtenerTodosUsuarios");
-        Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
+        WebTarget getRequestController = sl.getservice().path("resource/obtenerTodosUsuarios");
+        Invocation.Builder invocationBuilder = getRequestController.request(MediaType.APPLICATION_JSON);
         Response response = invocationBuilder.get();
 
-        ArrayList<clsUsuario> lUsuarios = response.readEntity(ArrayList.class);
+        clsUsuarioLista lUsuarios = response.readEntity(clsUsuarioLista.class);
 
         if (response.getStatus() == Status.OK.getStatusCode())
         {
@@ -236,6 +230,26 @@ public class clsController
             System.out.println("No OK");
         }
 
-        return lUsuarios;
+        return lUsuarios.getlUsuarios();
+    }
+
+    public ArrayList<clsJugador> obtenerTodosJugadores()
+    {
+        WebTarget getRequestController = sl.getservice().path("resource/obtenerTodosJugadores");
+        Invocation.Builder invocationBuilder = getRequestController.request(MediaType.APPLICATION_JSON);
+        Response response = invocationBuilder.get();
+
+        clsJugadorLista lJugadores = response.readEntity(clsJugadorLista.class);
+
+        if (response.getStatus() == Status.OK.getStatusCode())
+        {
+            System.out.println("Todo OK");
+        }
+        else
+        {
+            System.out.println("No OK");
+        }
+
+        return lJugadores.getlJugadores();
     }
 }

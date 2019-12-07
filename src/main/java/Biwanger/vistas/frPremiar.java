@@ -56,7 +56,7 @@ public class frPremiar extends JFrame implements ActionListener
         setContentPane(pPrincipal);
         
         pPrincipal.setLayout(new BorderLayout(0, 0));
-
+		System.out.println(22);
         this.listaUsuarios = controller.obtenerTodosUsuarios();
 		System.out.println(3);
     	pTabla = new JPanel();
@@ -109,24 +109,30 @@ public class frPremiar extends JFrame implements ActionListener
 	        {
 	            case "PREMIAR":
 	            {
+	            	System.out.println(1111111);
 	                tabla.setVisible(false);
 
 					listaUsuarios = controller.premiarTresMejores();
+					System.out.println(222222222);
 
 					double fondos;
 	                int num;
 
 	                if (listaUsuarios.size()>3)	num = 3;
                 	else num = listaUsuarios.size();
+					System.out.println(3333333);
                 	
                 	for (int i =0; i<num;i++)
   	                {
   	                	fondos = listaUsuarios.get(i).getFondos();
   	                	tabla.getModel().setValueAt(fondos, i, 2);
   	                }
+					System.out.println(44444444);
 	   
 	                tabla.setModel(tableModel);
+					System.out.println(55555555);
 	                tableModel.fireTableDataChanged();
+					System.out.println(66666666);
 	                tabla.setVisible(true);
 	            }
 				break;

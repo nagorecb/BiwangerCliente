@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDateTime;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -31,13 +32,13 @@ public class frmCrearJugador extends JFrame implements ActionListener {
 	private JLabel lblPosicion;
 	private JLabel lblPrecio;
 	private JLabel lblEquipo;
+	private JLabel lblEstado;
 	private JPanel panelGuardar;
 	private JButton botonGuardar;
-	@SuppressWarnings("rawtypes")
 	private JComboBox comboPosicion;
+	private JComboBox comboEstado;
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public frmCrearJugador(clsController controller)
+	public frmCrearJugador(JFrame frame, clsController controller)
 	{
 		this.controller = controller;
 		
@@ -55,7 +56,7 @@ public class frmCrearJugador extends JFrame implements ActionListener {
 		int posX = (int) (screenSize.width*0.05);
 		int posY = (int) (screenSize.height*0.02);
 		int width = (int) (screenSize.width*0.9);
-		int heigth = (int) (screenSize.height*0.3);
+		int heigth = (int) (screenSize.height*0.6);
 		
 		//formulario
 		panelFormulario = new JPanel();
@@ -65,14 +66,18 @@ public class frmCrearJugador extends JFrame implements ActionListener {
 		
 		textFieldNombre = new JTextField();
 		comboPosicion = new JComboBox();
-		comboPosicion.addItem("delantero");
-		comboPosicion.addItem("centrocampista");
-		comboPosicion.addItem("defensa");
-		comboPosicion.addItem("portero");
+		comboPosicion.addItem("Delantero");
+		comboPosicion.addItem("Centrocampista");
+		comboPosicion.addItem("Defensa");
+		comboPosicion.addItem("Portero");
+		comboEstado = new JComboBox();
+		comboEstado.addItem("Buen estado");
+		comboEstado.addItem("Lesionado");
 		textFieldPrecio = new JTextField();
 		textFieldEquipo = new JTextField();
 		textFieldNombre.setFont(textFieldNombre.getFont().deriveFont(18f));
 		comboPosicion.setFont(comboPosicion.getFont().deriveFont(18f));
+		comboEstado.setFont(comboPosicion.getFont().deriveFont(18f));
 		textFieldPrecio.setFont(textFieldPrecio.getFont().deriveFont(18f));
 		textFieldEquipo.setFont(textFieldEquipo.getFont().deriveFont(18f));
 		
@@ -80,10 +85,12 @@ public class frmCrearJugador extends JFrame implements ActionListener {
 		lblPosicion = new JLabel("Posición: ");
 		lblPrecio = new JLabel("Precio: ");
 		lblEquipo = new JLabel("Equipo: ");
+		lblEstado = new JLabel("Estado: ");
 		lblNombre.setFont(lblNombre.getFont().deriveFont(18f));
 		lblPosicion.setFont(lblPosicion.getFont().deriveFont(18f));
 		lblPrecio.setFont(lblPrecio.getFont().deriveFont(18f));
 		lblEquipo.setFont(lblEquipo.getFont().deriveFont(18f));
+		lblEstado.setFont(comboPosicion.getFont().deriveFont(18f));
 		
 		//todos los demas campos se inicializaran con valores predeterminados
 		
@@ -95,6 +102,8 @@ public class frmCrearJugador extends JFrame implements ActionListener {
 		panelFormulario.add(textFieldPrecio);
 		panelFormulario.add(lblEquipo);
 		panelFormulario.add(textFieldEquipo);
+		panelFormulario.add(lblEstado);
+		panelFormulario.add(comboEstado);
 		
 		posX = (int) (screenSize.width*0.85);
 		posY = (int) (screenSize.height*0.35);
@@ -120,16 +129,21 @@ public class frmCrearJugador extends JFrame implements ActionListener {
 		{
 			case "guardar":
 				String nombre = textFieldNombre.getText();
-				String posicion = comboPosicion.getToolTipText();
+				String posicion = (String) comboPosicion.getSelectedItem();
+				System.out.println(posicion);
 				String precio = textFieldPrecio.getText();
 				String equipo = textFieldEquipo.getText();
+				String estado = (String) comboEstado.getSelectedItem();
 				
 				clsJugador nuevoJugador = new clsJugador();
 				nuevoJugador.setNombre(nombre);
 				nuevoJugador.setPosicion(posicion);
 				nuevoJugador.setPrecio(Integer.valueOf(precio));
 				nuevoJugador.setEquipo(equipo);
-				
+				nuevoJugador.setEnVenta(true);
+				nuevoJugador.setFechaVenta(LocalDateTime.now());
+				nuevoJugador.setEstado(estado);
+
 				this.controller.guardarNuevoJugador(nuevoJugador);
 				
 				break;

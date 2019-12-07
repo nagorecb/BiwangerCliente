@@ -8,6 +8,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
@@ -39,14 +40,13 @@ public class frmAnadirPuntos extends JFrame implements ActionListener
 	private static Toolkit mipantalla;
 	private JSpinner spinnerPuntos;
 	
-	private List<clsJugador> listaJugadores;
+	private ArrayList<clsJugador> listaJugadores;
 	private clsController controller;
-	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public frmAnadirPuntos (clsController controller, List<clsJugador> listaJugadores)
+
+	public frmAnadirPuntos (JFrame frame, clsController controller)
 	{
 		
-		this.listaJugadores=listaJugadores;
+		this.listaJugadores = controller.obtenerTodosJugadores();
 		this.controller = controller;
 		
 		mipantalla=Toolkit.getDefaultToolkit();
