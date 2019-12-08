@@ -26,7 +26,7 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 	
 	private JButton btnGuardar,btnVolver,b1,b2,b3,b4;
 	
-	private JComboBox<clsJugador> comboBox;
+	private JComboBox comboBox;
 	private ArrayList<JComboBox> combos = new ArrayList();
 	
 	private FlowLayout flowLayout;
@@ -126,7 +126,7 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		btnVolver.addActionListener(this);
 
 		if (usuario.getFormacion()!=null)
-			formarTitulares(usuario.getFormacion());
+			formar(usuario.getFormacion());
 	}	
 	
 		
@@ -163,14 +163,13 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 
 			case "VOLVER":
 			{
-				super.setVisible(true);
+				panelUsuario.setVisible(true);
 				dispose();
 				break;
 			}
 			case "GUARDAR":
 			{
 				guardarFormacion();
-
 				int once=0;
 				for (int i=0; i<plantilla.size();i++)
 				{
@@ -179,7 +178,7 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 						once++;
 					}
 				}
-
+				System.out.println(once);
 				if (once!=11)
 				{
 					JOptionPane.showMessageDialog(null, "Alineación indevida. Jugador repetido", "Error", JOptionPane.DEFAULT_OPTION);
@@ -188,7 +187,6 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 						plantilla.get(i).setAlineado(false);
 					}
 				}
-
 				else
 				{
 					JOptionPane.showMessageDialog(null, "Alineación guardada con éxito", "Guardado", JOptionPane.DEFAULT_OPTION);
@@ -207,20 +205,19 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 	    }
 	}
 	
-	
 	public void limpiar()
 	{
 		pPortero.removeAll();
 		pDefensa.removeAll();
 		pMedio.removeAll();
 		pDelantero.removeAll();
-		flowLayout.setVgap(140);
+		//flowLayout.setVgap(140);
 		
 		pFormacion.revalidate();
 		pFormacion.repaint();
 	}
 	
-	public void formarTitulares(String formacion)
+/**	public void formarTitulares(String formacion)
 	{
 		int def= Integer.parseInt(""+formacion.charAt(0));
 		int med= Integer.parseInt(""+formacion.charAt(2));
@@ -231,41 +228,41 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		else
 			flowLayout.setVgap(140);
 
-		comboBox = new JComboBox<clsJugador>();
+		comboBox = new JComboBox();
 		pPortero.add(comboBox);
-		comboBox.addItem(porteros.get(0));
+		comboBox.addItem(porteros.get(0).getNombre());
 		combos.add(comboBox);
 
 		for (int i=0; i<def; i++)
 		{
-			comboBox = new JComboBox<clsJugador>();
+			comboBox = new JComboBox();
 			combos.add(comboBox);
 			pDefensa.add(comboBox);
-			comboBox.addItem(defensas.get(i));
+			comboBox.addItem(defensas.get(i).getNombre());
 		}
 		pDefensa.setLayout(new GridLayout(def, 1, 100, 100));
 
 		for (int i=0; i<med; i++)
 		{
-			comboBox = new JComboBox<clsJugador>();
+			comboBox = new JComboBox();
 			combos.add(comboBox);
 			pMedio.add(comboBox);
-			comboBox.addItem(medios.get(i));
+			comboBox.addItem(medios.get(i).getNombre());
 		}
 		pMedio.setLayout(new GridLayout(med, 1, 100, 100));
 
 		for (int i=0; i<del; i++)
 		{
-			comboBox = new JComboBox<clsJugador>();
+			comboBox = new JComboBox();
 			combos.add(comboBox);
 			pDelantero.add(comboBox);
-			comboBox.addItem(delanteros.get(i));
+			comboBox.addItem(delanteros.get(i).getNombre());
 		}
 		pDelantero.setLayout(new GridLayout(del, 1, 100, 100));
 
 		pFormacion.revalidate();
 		pFormacion.repaint();
-	}
+	} **/
 	
 	
 	public void formar(String formacion) 
@@ -277,50 +274,50 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		int del= Integer.parseInt(""+formacion.charAt(4));
 		
 		if (def>4|med>4|del>4)
-			flowLayout.setVgap(70);
+			flowLayout.setVgap(90);
 		else
-			flowLayout.setVgap(100);
+			flowLayout.setVgap(140);
 		
-		comboBox = new JComboBox<clsJugador>();
+		comboBox = new JComboBox();
 		combos.add(comboBox);
 		for (int i=0; i<porteros.size();i++)
 		{
 			pPortero.add(comboBox);
-			comboBox.addItem(porteros.get(i));	
+			comboBox.addItem(porteros.get(i).getNombre());
 		}
 		
 		for (int i=0; i<def; i++)
 		{
-			comboBox = new JComboBox<clsJugador>();
+			comboBox = new JComboBox();
 			combos.add(comboBox);
 			pDefensa.add(comboBox);
 			for (int j=0; j<defensas.size();j++)
 			{
-				comboBox.addItem(defensas.get(j));
+				comboBox.addItem(defensas.get(j).getNombre());
 			}
 		}
 		pDefensa.setLayout(new GridLayout(def, 1, 100, 100));
 		
 		for (int i=0; i<med; i++)
 		{
-			comboBox = new JComboBox<clsJugador>();
+			comboBox = new JComboBox();
 			combos.add(comboBox);
 			pMedio.add(comboBox);
 			for (int j=0; j<medios.size();j++)
 			{
-				comboBox.addItem(medios.get(j));
+				comboBox.addItem(medios.get(j).getNombre());
 			}
 		}
 		pMedio.setLayout(new GridLayout(med, 1, 100, 100));
 		
 		for (int i=0; i<del; i++)
 		{
-			comboBox = new JComboBox<clsJugador>();
+			comboBox = new JComboBox();
 			combos.add(comboBox);
 			pDelantero.add(comboBox);
 			for (int j=0; j<delanteros.size();j++)
 			{
-				comboBox.addItem(delanteros.get(j));
+				comboBox.addItem(delanteros.get(j).getNombre());
 			}
 		}
 		pDelantero.setLayout(new GridLayout(del, 1, 100, 100));
@@ -337,10 +334,10 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 			
 			for (JComboBox comboBox : combos)
 			{
-				if(plantilla.get(i)==comboBox.getSelectedItem())
+				if(plantilla.get(i).getNombre()==comboBox.getSelectedItem())
 				{
-					plantilla.get(i).setAlineado(true);
 					System.out.println(plantilla.get(i));
+					plantilla.get(i).setAlineado(true);
 				}
 				
 			}

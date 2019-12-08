@@ -9,7 +9,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
@@ -23,7 +22,7 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 	private JPanel panel,pCampo,pDefensa,pPortero,pFormacion,pMedio,pDelantero;
 	
 	private JButton btnModificar, btnVolver;
-	private JComboBox<clsJugador> comboBox;
+	private JComboBox comboBox;
 	private FlowLayout flowLayout;
 
 	private ArrayList<clsJugador> porteros,defensas, centrocampistas,delanteros;
@@ -39,8 +38,9 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 		this.usuario = usuario;
 		this.controller = controller;
 
-		setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
-		setSize(1500, 1000);
+		setUndecorated(true);
+		//setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
+		setSize(1066, 800);
 		setResizable(false);
 
 		pCampo = new JPanel();
@@ -78,33 +78,7 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 		defensas = usuario.getPosicion("Defensa", plantilla);
 		centrocampistas = usuario.getPosicion("Centrocampista", plantilla);
 		delanteros = usuario.getPosicion("Delantero", plantilla);
-/*
-		System.out.println("\nPorteros:");
-		for(clsJugador aux: porteros)
-		{
-			System.out.println(aux.getNombre());
-		}
 
-		System.out.println("\nDefensas: ");
-		for(clsJugador aux: defensas)
-		{
-			System.out.println(aux.getNombre());
-		}
-
-		System.out.println("\nCentrocampistas:");
-		for(clsJugador aux: centrocampistas)
-		{
-			System.out.println(aux.getNombre());
-		}
-
-		System.out.println("\nDelanteros");
-		for(clsJugador aux: delanteros)
-		{
-			System.out.println(aux.getNombre());
-		}
-
- */
-		
 		btnModificar = new JButton("Modificar");
 		btnModificar.setActionCommand("MODIFICAR");
 		btnModificar.addActionListener(this);
@@ -135,7 +109,7 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 			{
 				frModificarAlineacion ventana = new frModificarAlineacion (panelUsuario,controller, usuario);
 				ventana.setVisible(true);
-				dispose();
+				this.dispose();
 				break;
 			}
 
@@ -158,35 +132,35 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 		int del= Integer.parseInt(""+formacion.charAt(4));
 		
 		if (def>4|med>4|del>4)
-			flowLayout.setVgap(70);
+			flowLayout.setVgap(90);
 		else
-			flowLayout.setVgap(120);
+			flowLayout.setVgap(140);
 		
-		comboBox = new JComboBox<clsJugador>();
+		comboBox = new JComboBox();
 		pPortero.add(comboBox);
-		comboBox.addItem(porteros.get(0));
+		comboBox.addItem(porteros.get(0).getNombre());
 		
 		for (int i=0; i<def; i++)
 		{
-			comboBox = new JComboBox<clsJugador>();
+			comboBox = new JComboBox();
 			pDefensa.add(comboBox);
-     		comboBox.addItem(defensas.get(i));
+     		comboBox.addItem(defensas.get(i).getNombre());
 		}
 		pDefensa.setLayout(new GridLayout(def, 1, 100, 100));
 		
 		for (int i=0; i<med; i++)
 		{
-			comboBox = new JComboBox<clsJugador>();
+			comboBox = new JComboBox();
 			pMedio.add(comboBox);
-     		comboBox.addItem(centrocampistas.get(i));
+     		comboBox.addItem(centrocampistas.get(i).getNombre());
 		}
 		pMedio.setLayout(new GridLayout(med, 1, 100, 100));
 		
 		for (int i=0; i<del; i++)
 		{
-			comboBox = new JComboBox<clsJugador>();
+			comboBox = new JComboBox();
 			pDelantero.add(comboBox);
-     		comboBox.addItem(delanteros.get(i));
+     		comboBox.addItem(delanteros.get(i).getNombre());
 		}
 		pDelantero.setLayout(new GridLayout(del, 1, 100, 100));
 		
