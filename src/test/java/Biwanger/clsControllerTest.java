@@ -4,6 +4,7 @@ import Biwanger.controladores.clsController;
 import Biwanger.objetosDominio.clsJugador;
 import Biwanger.objetosDominio.clsPuja;
 import Biwanger.objetosDominio.clsUsuario;
+import jdk.nashorn.internal.ir.LiteralNode;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
@@ -54,14 +56,12 @@ public class clsControllerTest
     public void test_registro()
     {
         //Registro
-        mockedController.registro(mockedUsuario.getEmail(),mockedUsuario.getPassword());
-        Mockito.verify(mockedController.inicioSesion("email","password"));
-
+        mockedController.registro("email","password");
         //De primeras no funciona, devuelve false
-        assertEquals(false, mockedController.inicioSesion("email","password"));
+        assertEquals(null, mockedController.registro("email","password"));
         //Con stubbing funcionaria y devuelve true
-        Mockito.when(mockedController.registro("email","password")).thenReturn("OK");
-        assertEquals("OK", mockedController.inicioSesion("email","password"));
+        Mockito.when(mockedController.registro("email","password")).thenReturn("email");
+        assertEquals("email", mockedController.registro("email","password"));
     }
     @Test
     public void test_inicioSesion()
@@ -73,28 +73,23 @@ public class clsControllerTest
         Mockito.when(mockedController.inicioSesion("email","password")).thenReturn(mockedUsuario);
         assertEquals(mockedUsuario, mockedController.inicioSesion("email","password"));
     }
-
+    @Test
     public void test_premiarTresMejores()
     {
-       mockedListUsuarios=mockedController.premiarTresMejores();
-       Mockito.verify(mockedController.premiarTresMejores(),times(1));
-       assertEquals(0, mockedListUsuarios.size());
+       ArrayList<clsUsuario>listaUsuarios=mockedController.premiarTresMejores();
+       assertEquals(0, listaUsuarios.size());
     }
-
-
+    @Test
     public void test_mostrarMercado()
     {
-        mockedListJugadores = mockedController.MostrarMercado();
-
-        Mockito.verify(mockedController.MostrarMercado());
-        assertEquals(0,mockedListJugadores.size());
-
+        ArrayList<clsJugador>listaJugadores = mockedController.MostrarMercado();
+        assertEquals(0,listaJugadores.size());
         //con stub
-        mockedListJugadores.add(mockedJugador);
-        Mockito.when(mockedController.MostrarMercado()).thenReturn(mockedListJugadores);
-        assertEquals(1, mockedListJugadores.size());
+        listaJugadores.add(mockedJugador);
+        Mockito.when(mockedController.MostrarMercado()).thenReturn(listaJugadores);
+        assertEquals(1, mockedController.MostrarMercado().size());
     }
-
+    @Test
     public void test_puja()
     {
         //la puja no funciona
@@ -104,12 +99,11 @@ public class clsControllerTest
         Mockito.when(mockedController.Pujar(mockedPuja)).thenReturn(true);
         assertEquals(true, mockedController.Pujar(mockedPuja));
     }
-
+    @Test
     public void test_obtenerTodosUsuarios()
     {
         mockedListUsuarios = mockedController.obtenerTodosUsuarios();
         assertEquals(0,mockedListUsuarios.size());
-
         //con stub
         mockedListUsuarios.add(mockedUsuario);
         Mockito.when(mockedController.obtenerTodosUsuarios()).thenReturn(mockedListUsuarios);
