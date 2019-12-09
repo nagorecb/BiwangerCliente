@@ -87,6 +87,7 @@ public class frmPanelAdmin extends JFrame
             {
                 frmAnadirPuntos ventana = new frmAnadirPuntos(frame, controller);
                 ventana.setVisible(true);
+                setVisible(false);
             }
         });
 
