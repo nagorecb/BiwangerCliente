@@ -8,12 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 import Biwanger.controladores.clsController;
 import Biwanger.objetosDominio.clsJugador;
@@ -145,7 +140,10 @@ public class frmCrearJugador extends JFrame implements ActionListener {
 				nuevoJugador.setEstado(estado);
 
 				this.controller.guardarNuevoJugador(nuevoJugador);
-				
+				JOptionPane.showMessageDialog(this,
+						"Jugador guardado con éxito",
+						"Crear jugador",
+						JOptionPane.INFORMATION_MESSAGE);
 				break;
 			
 			default:

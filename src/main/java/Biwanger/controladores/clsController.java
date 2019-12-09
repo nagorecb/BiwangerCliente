@@ -2,8 +2,6 @@ package Biwanger.controladores;
 import Biwanger.objetosDominio.*;
 import Biwanger.vistas.*;
 import Biwanger.Remote.clsServiceLocator;
-import Biwanger.objetosDominio.clsJugador;
-import Biwanger.objetosDominio.clsUsuario;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
