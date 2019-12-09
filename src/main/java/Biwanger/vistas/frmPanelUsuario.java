@@ -141,8 +141,9 @@ public class frmPanelUsuario extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                frmPujar ventana = new frmPujar(controller, usuario);
+                frmPujar ventana = new frmPujar(frame,controller, usuario);
                 ventana.setVisible(true);
+                setVisible(false);
             }
         });
 
@@ -150,8 +151,9 @@ public class frmPanelUsuario extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                frmVentaJugador ventana = new frmVentaJugador(controller, usuario);
+                frmVentaJugador ventana = new frmVentaJugador(frame,controller, usuario);
                 ventana.setVisible(true);
+                setVisible(false);
             }
         });
 
