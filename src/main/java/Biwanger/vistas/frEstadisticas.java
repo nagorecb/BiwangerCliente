@@ -39,8 +39,7 @@ public class frEstadisticas extends JFrame implements ActionListener
 		setSize(1066, 800);
 		setResizable(false);
 
-		pPrincipal = new JPanel();
-		//pPrincipal = new PanelConFondo ("/img/foto.jpg");
+		pPrincipal = new PanelConFondo ("src/main/java/resources/foto.jpg");
 		pPrincipal.setBorder(new EmptyBorder(60, 40, 100, 40));
 		getContentPane().add(pPrincipal, BorderLayout.CENTER);
 		pPrincipal.setLayout(new BorderLayout(0, 0));

@@ -51,8 +51,7 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		setSize(1066, 800);
 		setResizable(false);
 
-		pCampo = new JPanel();
-		//pCampo = new PanelConFondo("/img/cesped.jpg");
+		pCampo = new PanelConFondo("src/main/java/resources/cesped.jpg");
 		pCampo.setForeground(new Color(0, 128, 0));
 		pCampo.setBorder(null);
 		getContentPane().add(pCampo, BorderLayout.CENTER);

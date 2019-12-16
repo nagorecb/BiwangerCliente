@@ -11,7 +11,7 @@ public class frmPanelAdmin extends JFrame
 {
     private static final long serialVersionUID = 1L;
     private JPanel pPrincipal;
-    private JLabel lblFoto;
+    private PanelConFondo panelFoto;
     private JMenuBar menuBar;
     private JMenu mnMenu;
     private JMenuItem mntmPremiarTresMejores,mntmIntroducirPuntuacionJornada, mntmGestionDeMercado;
@@ -35,17 +35,9 @@ public class frmPanelAdmin extends JFrame
         getContentPane().add(pPrincipal, BorderLayout.CENTER);
         pPrincipal.setLayout(new BorderLayout(0, 0));
 
-        lblFoto =  new JLabel();
-        lblFoto.setBounds(0, 0, pPrincipal.getWidth(), pPrincipal.getHeight());
+        panelFoto = new PanelConFondo("src/main/java/resources/foto.jpg");
 
-        try {
-            Image img = ImageIO.read(getClass().getResource("../../../../img/foto.jpg"));
-            Image newimg = img.getScaledInstance( 500, 300,  java.awt.Image.SCALE_SMOOTH ) ;
-            lblFoto.setIcon(new ImageIcon(newimg));
-        } catch (Exception ex) {
-        }
-
-        pPrincipal.add(lblFoto);
+        pPrincipal.add(panelFoto);
 
         menuBar = menu();
         setJMenuBar(menuBar);
