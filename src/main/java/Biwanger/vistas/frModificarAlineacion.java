@@ -45,6 +45,7 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		this.usuario = usuario;
 		this.controller = controller;
 		panelUsuario=frame;
+		this.formacion = usuario.getFormacion();
 
 		setUndecorated(true);
 //		setDefaultCloseOperation(Frame.NORMAL);
@@ -125,10 +126,77 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		btnVolver.addActionListener(this);
 
 		if (usuario.getFormacion()!=null)
+		{
 			formar(usuario.getFormacion());
-	}	
-	
-		
+			titulares();
+		}
+	}
+
+	public void titulares()
+	{
+		int contadorCombos = 0;
+		int contadorJugadores = 0;
+
+		for (int i=0;i<porteros.size();i++)
+		{
+			if (porteros.get(i).isAlineado())
+			{
+				System.out.println("Jugador: " + porteros.get(i).getNombre());
+				combos.get(contadorCombos).setSelectedIndex(contadorJugadores);
+				contadorCombos++;
+				System.out.println("Contador pasa a ser: " + contadorJugadores);
+			}
+
+			contadorJugadores++;
+		}
+
+		contadorJugadores = 0;
+
+		for(int i=0;i<defensas.size();i++)
+		{
+			if(defensas.get(i).isAlineado())
+			{
+				System.out.println("Jugador: " + defensas.get(i).getNombre());
+				combos.get(contadorCombos).setSelectedIndex(contadorJugadores);
+				contadorCombos++;
+				System.out.println("Contador pasa a ser: " + contadorJugadores);
+			}
+
+			contadorJugadores++;
+		}
+
+		contadorJugadores = 0;
+
+		for(int i=0;i<medios.size();i++)
+		{
+			if(medios.get(i).isAlineado())
+			{
+				System.out.println("Jugador: " + medios.get(i).getNombre());
+				combos.get(contadorCombos).setSelectedIndex(contadorJugadores);
+				contadorCombos++;
+				System.out.println("Contador pasa a ser: " + contadorJugadores);
+			}
+
+			contadorJugadores++;
+		}
+
+		contadorJugadores = 0;
+
+		for(int i=0;i<delanteros.size();i++)
+		{
+			if(delanteros.get(i).isAlineado())
+			{
+				System.out.println("Jugador: " + delanteros.get(i).getNombre());
+				combos.get(contadorCombos).setSelectedIndex(contadorJugadores);
+				contadorCombos++;
+				System.out.println("Contador pasa a ser: " + contadorJugadores);
+			}
+
+			contadorJugadores++;
+		}
+	}
+
+
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{

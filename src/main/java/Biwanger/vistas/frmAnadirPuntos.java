@@ -3,26 +3,12 @@ package Biwanger.vistas;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.List;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JSpinner;
-import javax.swing.JTextField;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.text.NumberFormatter;
+import javax.swing.*;
 
 import Biwanger.controladores.clsController;
 import Biwanger.objetosDominio.clsJugador;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 public class frmAnadirPuntos extends JFrame implements ActionListener
 {
@@ -147,6 +133,7 @@ public class frmAnadirPuntos extends JFrame implements ActionListener
 			case "VOLVER":
 				panelAdmin.setVisible(true);
 				dispose();
+				JOptionPane.showMessageDialog(null, "Puntos añadidos con exito", "Guardado", JOptionPane.DEFAULT_OPTION);
 				break;
 
 			default:
