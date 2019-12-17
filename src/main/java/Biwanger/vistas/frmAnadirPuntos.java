@@ -1,10 +1,6 @@
 package Biwanger.vistas;
 
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
@@ -26,7 +22,7 @@ import javax.swing.text.NumberFormatter;
 
 import Biwanger.controladores.clsController;
 import Biwanger.objetosDominio.clsJugador;
-import java.awt.BorderLayout;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 public class frmAnadirPuntos extends JFrame implements ActionListener
 {
@@ -40,12 +36,11 @@ public class frmAnadirPuntos extends JFrame implements ActionListener
 	private JButton btnAnadir;
 	private static Toolkit mipantalla;
 	private JSpinner spinnerPuntos;
+	private JButton btnVolver;
+	private JPanel pBotonera = new JPanel();
 
 	private ArrayList<clsJugador> listaJugadores;
 	private clsController controller;
-	private JPanel pPrincipal;
-	private JPanel pBotonera;
-	private JButton btnVolver;
 
 	private JFrame panelAdmin;
 
@@ -56,15 +51,15 @@ public class frmAnadirPuntos extends JFrame implements ActionListener
 		this.listaJugadores = controller.obtenerTodosJugadores();
 		this.controller = controller;
 
-		setUndecorated(true);
-		//setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-		//mipantalla=Toolkit.getDefaultToolkit();
-		//screenSize=mipantalla.getScreenSize();
-		setSize(1066,800);
+		mipantalla=Toolkit.getDefaultToolkit();
+		screenSize=mipantalla.getScreenSize();
+		setSize(screenSize.width, screenSize.height);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Añadir puntos a un jugador");
 		setResizable(true);
+
+		//Layout
+		getContentPane().setLayout(null);
 
 		//Parte superior
 		int posX = (int) (screenSize.width*0.05);
@@ -72,32 +67,11 @@ public class frmAnadirPuntos extends JFrame implements ActionListener
 		int width = (int) (screenSize.width*0.9);
 		int heigth = (int) (screenSize.height*0.1);
 
-		//listajugadores
-		posX = (int) (screenSize.width*0.05);
-		posY = (int) (screenSize.height*0.25);
-		width = (int) (screenSize.width*0.9);
-		heigth = (int) (screenSize.height*0.2);
-
-		model = new DefaultListModel();
-
-		if(!listaJugadores.isEmpty())
-		{
-			for (clsJugador jugador : listaJugadores)
-			{
-				model.addElement(jugador.getNombre());
-			}
-		}
-		getContentPane().setLayout(new BorderLayout(0, 0));
-
-		pPrincipal = new JPanel();
-		getContentPane().add(pPrincipal, BorderLayout.CENTER);
-		pPrincipal.setLayout(null);
-
 		//formulario
 		panelFormulario = new JPanel();
-		panelFormulario.setBounds(0, 0, 0, 0);
-		pPrincipal.add(panelFormulario);
 		panelFormulario.setLayout(new GridLayout(1, 1));
+		panelFormulario.setBounds(posX, posY, width, heigth);
+		getContentPane().add(panelFormulario);
 
 		spinnerPuntos = new JSpinner(new SpinnerNumberModel());
 		spinnerPuntos.setBounds(30, 30, 30, 30);
@@ -109,11 +83,27 @@ public class frmAnadirPuntos extends JFrame implements ActionListener
 		panelFormulario.add(lblPuntos);
 		panelFormulario.add(spinnerPuntos);
 
-		panelListaJugadores= new JPanel();
-		panelListaJugadores.setBounds(0, 0, 0, 0);
-		pPrincipal.add(panelListaJugadores);
-		panelListaJugadores.setLayout(new GridLayout(1,1));
+		//listajugadores
+		posX = (int) (screenSize.width*0.05);
+		posY = (int) (screenSize.height*0.25);
+		width = (int) (screenSize.width*0.9);
+		heigth = (int) (screenSize.height*0.2);
 
+		panelListaJugadores= new JPanel();
+		panelListaJugadores.setLayout(new GridLayout(1,1));
+		panelListaJugadores.setBounds(posX, posY, width, heigth);
+		getContentPane().add(panelListaJugadores);
+
+		model = new DefaultListModel();
+
+		if(!listaJugadores.isEmpty())
+		{
+
+			for (clsJugador jugador : listaJugadores)
+			{
+				model.addElement(jugador.getNombre());
+			}
+		}
 		jListJugadores = new JList(model);
 		jListJugadores.setFont(new Font("Helvetica Neue", Font.PLAIN, 18));
 
@@ -130,15 +120,14 @@ public class frmAnadirPuntos extends JFrame implements ActionListener
 		panelListaJugadores.add(scrollLista);
 		panelListaJugadores.add(btnAnadir);
 
-		pBotonera = new JPanel();
-		getContentPane().add(pBotonera, BorderLayout.NORTH);
-		pBotonera.setLayout(new BorderLayout(0, 0));
-
 		btnVolver = new JButton("Volver");
 		btnVolver.setActionCommand("VOLVER");
 		btnVolver.addActionListener(this);
-		pBotonera.add(btnVolver, BorderLayout.WEST);
 
+		getContentPane().add(pBotonera, BorderLayout.NORTH);
+		pBotonera.setLayout(new BorderLayout(0, 0));
+
+		pBotonera.add(btnVolver, BorderLayout.WEST);
 
 	}
 
@@ -164,4 +153,5 @@ public class frmAnadirPuntos extends JFrame implements ActionListener
 				break;
 		}
 	}
+
 }
