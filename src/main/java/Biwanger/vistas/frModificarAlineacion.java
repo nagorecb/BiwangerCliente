@@ -180,7 +180,7 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 				System.out.println(once);
 				if (once!=11)
 				{
-					JOptionPane.showMessageDialog(null, "Alineación indevida. Jugador repetido", "Error", JOptionPane.DEFAULT_OPTION);
+					JOptionPane.showMessageDialog(null, "Alineación indebida. Jugador repetido", "Error", JOptionPane.DEFAULT_OPTION);
 					for (int i=0; i<plantilla.size();i++)
 					{
 						plantilla.get(i).setAlineado(false);
@@ -189,12 +189,12 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 				else
 				{
 					JOptionPane.showMessageDialog(null, "Alineación guardada con éxito", "Guardado", JOptionPane.DEFAULT_OPTION);
+					this.dispose();
 					usuario.setFormacion(formacion);
 					controller.modificarAlineacion(plantilla);
 					controller.modificarFormacion(usuario);
 
 					panelUsuario.setVisible(true);
-					this.dispose();
 				}
 				break;
 			}

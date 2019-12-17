@@ -125,7 +125,6 @@ public class frmCrearJugador extends JFrame implements ActionListener {
 			case "guardar":
 				String nombre = textFieldNombre.getText();
 				String posicion = (String) comboPosicion.getSelectedItem();
-				System.out.println(posicion);
 				String precio = textFieldPrecio.getText();
 				String equipo = textFieldEquipo.getText();
 				String estado = (String) comboEstado.getSelectedItem();

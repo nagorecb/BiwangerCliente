@@ -201,10 +201,11 @@ public class clsController
     }
 
 	public void guardarNuevoJugador(clsJugador nuevoJugador) 
-	{
-        WebTarget postRequestController = sl.getservice().path("resource/crearJugador");
+    {
+        String aux = nuevoJugador.getNombre() +","+ nuevoJugador.getPosicion() +","+ nuevoJugador.getPrecio() +","+ nuevoJugador.getEquipo() +","+ nuevoJugador.isEnVenta() +","+ nuevoJugador.getEstado();
+	    WebTarget postRequestController = sl.getservice().path("resource/crearJugador");
         Invocation.Builder invocationBuilder = postRequestController.request(MediaType.APPLICATION_JSON);
-        Response response = invocationBuilder.post(Entity.entity(nuevoJugador, MediaType.APPLICATION_JSON));
+        Response response = invocationBuilder.post(Entity.entity(aux, MediaType.APPLICATION_JSON));
 
         if (response.getStatus() != Status.OK.getStatusCode())
         {
