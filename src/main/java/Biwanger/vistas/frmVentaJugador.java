@@ -79,6 +79,7 @@ public class frmVentaJugador extends JFrame implements ActionListener, ListSelec
 		ArrayList<clsJugador> plantilla = controller.obtenerPlantilla(usuario);
 		for (clsJugador j: plantilla)
 		{
+			if(!j.isEnVenta())
 			listmodel.addElement(j);
 		}
 		listaPlantilla = new JList (listmodel);

@@ -21,7 +21,7 @@ public class clsJugador
 	private int numPartidosJugados;
 	private String estado;	//para saber si está lesionado o no
 	private boolean enVenta;
-	private LocalDateTime fechaVenta;
+	private String fechaVenta;
 	private String usuarioDueno;
 	
 	public clsJugador() {
@@ -46,7 +46,7 @@ public class clsJugador
 	
 	public clsJugador(int id, String nombre, int puntos, String posicion, double precio, String equipo,
 			boolean alineado, int numGoles, int numAsistencias, int numTarjetasAmarillas, int numTarjetasRojas,
-			int numPartidosJugados, String estado, boolean enVenta, String usuarioDueno, LocalDateTime fecha) {
+			int numPartidosJugados, String estado, boolean enVenta, String usuarioDueno, String fecha) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -186,12 +186,12 @@ public class clsJugador
 		this.usuarioDueno = usuarioDueno;
 	}
 
-	public void setFechaVenta(LocalDateTime fecha)
+	public void setFechaVenta(String fecha)
 	{
 		this.fechaVenta = fecha;
 	}
 
-	public LocalDateTime getFechaVenta()
+	public String getFechaVenta()
 	{
 		return fechaVenta;
 	}

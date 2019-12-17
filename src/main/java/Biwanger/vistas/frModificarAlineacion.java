@@ -189,11 +189,12 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 				else
 				{
 					JOptionPane.showMessageDialog(null, "Alineación guardada con éxito", "Guardado", JOptionPane.DEFAULT_OPTION);
-					this.dispose();
+
 					usuario.setFormacion(formacion);
 					controller.modificarAlineacion(plantilla);
 					controller.modificarFormacion(usuario);
 
+					this.dispose();
 					panelUsuario.setVisible(true);
 				}
 				break;

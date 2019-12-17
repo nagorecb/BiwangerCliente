@@ -7,6 +7,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.swing.*;
 
@@ -135,7 +136,9 @@ public class frmCrearJugador extends JFrame implements ActionListener {
 				nuevoJugador.setPrecio(Integer.valueOf(precio));
 				nuevoJugador.setEquipo(equipo);
 				nuevoJugador.setEnVenta(true);
-				nuevoJugador.setFechaVenta(LocalDateTime.now());
+				LocalDateTime fecha = LocalDateTime.now();
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+				nuevoJugador.setFechaVenta(fecha.format(formatter));
 				nuevoJugador.setEstado(estado);
 
 				this.controller.guardarNuevoJugador(nuevoJugador);
