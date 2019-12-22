@@ -257,6 +257,46 @@ public class clsController
         return lJugadores.getlJugadores();
     }
 
+    public ArrayList<clsJugador> clasificaconEquipo(String email)
+    {
+        WebTarget getRequestController = sl.getservice().path("resource/clasificacionEquipo");
+        Invocation.Builder invocationBuilder = getRequestController.request(MediaType.APPLICATION_JSON);
+        Response response =  invocationBuilder.post(Entity.entity(email, MediaType.APPLICATION_JSON));
+
+        clsJugadorLista lJugadores = response.readEntity(clsJugadorLista.class);
+
+        if (response.getStatus() == Status.OK.getStatusCode())
+        {
+            System.out.println("Todo OK");
+        }
+        else
+        {
+            System.out.println("No OK");
+        }
+
+        return lJugadores.getlJugadores();
+    }
+
+    public ArrayList<clsUsuario> clasificacionUsuarios()
+    {
+        WebTarget getRequestController = sl.getservice().path("resource/clasificacionUsuarios");
+        Invocation.Builder invocationBuilder = getRequestController.request(MediaType.APPLICATION_JSON);
+        Response response = invocationBuilder.get();
+
+        clsUsuarioLista lUsuarios = response.readEntity(clsUsuarioLista.class);
+
+        if (response.getStatus() == Status.OK.getStatusCode())
+        {
+            System.out.println("Todo OK");
+        }
+        else
+        {
+            System.out.println("No OK");
+        }
+
+        return lUsuarios.getlUsuarios();
+    }
+
     public ArrayList<clsJugador> obtenerPlantilla(clsUsuario usuario)
     {
         WebTarget getRequestController = sl.getservice().path("resource/obtenerPlantilla");

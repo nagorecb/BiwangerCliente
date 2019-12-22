@@ -1,6 +1,10 @@
 package Biwanger.comun;
 
 import Biwanger.controladores.clsController;
+import Biwanger.objetosDominio.clsUsuario;
+import org.glassfish.jersey.servlet.ServletContainer;
+
+import java.util.ArrayList;
 
 final class clsMain {
 
