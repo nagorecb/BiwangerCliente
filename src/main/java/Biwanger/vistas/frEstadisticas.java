@@ -14,6 +14,19 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
+/**
+ *  Ventana que permite consultar los datos de los jugadores del usuario. Datos de los jugadores que se pueden consultar:
+ *  - Nombre
+ *  - Posición
+ *  - Equipo
+ *  - Puntuación
+ *  - Goles
+ *  - Asistencias
+ *  - Tarjetas Amarillas
+ *  - Tarjetas Rojas
+ *  - Partidos Jugados
+ *  - Estado
+ */
 public class frEstadisticas extends JFrame implements ActionListener
 {
 
@@ -27,7 +40,14 @@ public class frEstadisticas extends JFrame implements ActionListener
 	private JFrame panelUsuario;
 	clsController controller;
 	clsUsuario usuario;
-	
+
+	/**
+	 * Constructor de la ventana que permite consultar los datos de los jugadores del usuario.
+	 *
+	 * @param frame Recibe la ventana principal desde el que ha sido llamado
+	 * @param controller Recibe el controlador para añadir funcionalidad
+	 * @param usuario Recibe el usuario cuyas estadísticas hay que mostrar
+	 */
 	public frEstadisticas(JFrame frame, clsController controller, clsUsuario usuario)
 	{
 		this.usuario = usuario;

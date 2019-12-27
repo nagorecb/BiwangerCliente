@@ -16,6 +16,9 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Color;
 
+/**
+ * Ventana que permite al usuario consultar la alineación de sus jugadores.
+ */
 public class frConsultarAlineacion extends JFrame implements ActionListener
 {	
 	private static final long serialVersionUID = 1L;
@@ -32,6 +35,13 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 	private JFrame panelUsuario;
 	clsController controller;
 
+	/**
+	 *  Constructor de la ventana que permite al usuario consultar la alineación de sus jugadores.
+	 *
+	 * @param frame Recibe la ventana principal del que se le ha llamado
+	 * @param controller Recibe el controlador para añadir la funcionalidad
+	 * @param usuario Recibe el usuario cuya alineación hay que consultar
+	 */
 	public frConsultarAlineacion(JFrame frame, clsController controller, clsUsuario usuario)
 	{
 		panelUsuario = frame;
@@ -123,7 +133,12 @@ public class frConsultarAlineacion extends JFrame implements ActionListener
 				break;
 	    }	
 	}
-	
+
+	/**
+	 * Permite poblar los combo boxes con los jugadores alineados: Portero, Defensas, Centrocampistas y Delanteros.
+	 *
+	 * @param formacion Representa la formación del usuario (Ej: 4-4-2)
+	 */
 	public void formar(String formacion)
 	{
 		int def= Integer.parseInt(""+formacion.charAt(0));

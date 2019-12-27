@@ -1,8 +1,6 @@
 package Biwanger.vistas;
 
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import java.awt.Component;
 import java.awt.Dimension;
 
 import javax.swing.DefaultListModel;
@@ -14,15 +12,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingUtilities;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.text.Document;
-
 import Biwanger.controladores.clsController;
 import Biwanger.objetosDominio.clsJugador;
 import Biwanger.objetosDominio.clsUsuario;
@@ -31,10 +26,11 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.EventObject;
-
 import javax.swing.JLabel;
 
+/**
+ * Ventana que premite poner un jugador en venta
+ */
 public class frmVentaJugador extends JFrame implements ActionListener, ListSelectionListener
 {
 	private int altura = 800;
@@ -56,6 +52,13 @@ public class frmVentaJugador extends JFrame implements ActionListener, ListSelec
 
 	private JFrame panelUsuario;
 
+	/**
+	 * Constructor de la ventana que permite poner un jugador en venta
+	 *
+	 * @param frame Recibe la ventana principal del que se le ha llamado
+	 * @param controller Recibe el controlador para añadir la funcionalidad
+	 * @param usuario  Recibe el usuario que quiere poner un jugador en venta
+	 */
 	public frmVentaJugador (JFrame frame, clsController controller, clsUsuario usuario)//Hay que pasar de Inicio de sesion y registro el usuario a la pantalla principal, y que esta le pase el usuario a las que las necesiten
 	{
 		this.controller = controller;
@@ -208,6 +211,11 @@ public class frmVentaJugador extends JFrame implements ActionListener, ListSelec
 		}
 	}
 
+	/**
+	 * Realiza el parseo de String a Double
+	 * @param texto Recibe un String con el precio
+	 * @return Devuelve un Double con el precio
+	 */
 	public boolean parseoPrecio (String texto)
 	{
 		try {

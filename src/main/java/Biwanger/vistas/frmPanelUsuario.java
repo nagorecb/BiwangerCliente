@@ -4,17 +4,17 @@ import Biwanger.controladores.clsController;
 import Biwanger.objetosDominio.clsUsuario;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.logging.Handler;
 import java.util.logging.Logger;
 
-
+/**
+ * Ventana principal del usuario. Le permite acceder a su funcionalidad:
+ * - Consultar la clasificación de sus jugadores
+ * -
+ */
 public class frmPanelUsuario extends JFrame
 {
     private static Logger logger = Logger.getLogger(frmPanelUsuario.class.getName());
@@ -35,7 +35,9 @@ public class frmPanelUsuario extends JFrame
     clsController controller;
 
     /**
-     * Constructor de la ventana de registro o inicio de sesion
+     * Constructor de la ventana principal del usuario
+     * @param controller Recibe el controlador para añadir funcionalidad
+     * @param usuario Recibe el usuario que ha iniciado la sesión
      */
     public frmPanelUsuario(final clsController controller, clsUsuario usuario)
     {
@@ -59,6 +61,10 @@ public class frmPanelUsuario extends JFrame
         setJMenuBar(menuBar);
     }
 
+    /**
+     * Crea un menú con las funcionalidades a las que puede acceder el usuario
+     * @return Devuelve un JMenuBar con las funcionalidades
+     */
     private JMenuBar menu ()
     {
         //MENU

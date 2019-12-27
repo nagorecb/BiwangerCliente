@@ -21,7 +21,10 @@ import Biwanger.controladores.clsController;
 import Biwanger.objetosDominio.clsUsuario;
 import java.awt.Font;
 
-
+/**
+ * Ventana que permite a los usuario y al administrador iniciar sesión en el sistema.
+ * Permite también acceder a la ventana de registro.
+ */
 public class frmInicioSesion extends JFrame implements ActionListener
 {
 
@@ -43,8 +46,10 @@ public class frmInicioSesion extends JFrame implements ActionListener
     private int y = 100;
 
     clsController controller;
+
     /**
-     * Constructor de la ventana de registro o inicio de sesion
+     * Constructor de la ventana de inicio de sesion
+     * @param controller Recibe el controlador para añadir funcionalidad
      */
     public frmInicioSesion (final clsController controller)
     {

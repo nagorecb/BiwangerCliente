@@ -18,6 +18,9 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Color;
 
+/**
+ * Ventana que permite al usuario modificar la alineación de sus jugadores.
+ */
 public class frModificarAlineacion extends JFrame implements ActionListener
 {	
 	private static final long serialVersionUID = 1L;
@@ -39,7 +42,14 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 	clsController controller;
 
 	ArrayList<clsJugador> plantilla;
-	
+
+	/**
+	 * Constructor de la ventana que permite al usuario modificar la alineación de sus jugadores.
+	 *
+	 * @param frame Recibe la ventana principal del que se le ha llamado
+	 * @param controller Recibe el controlador para añadir la funcionalidad
+	 * @param usuario Recibe el usuario cuya alineación hay que consultar
+	 */
 	public frModificarAlineacion(JFrame frame, clsController controller, clsUsuario usuario)
 	{
 		this.usuario = usuario;
@@ -132,6 +142,9 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		}
 	}
 
+	/**
+	 * Coloca como los elementos seleccionados de los combo boxes los jugadores alineados
+	 */
 	public void titulares()
 	{
 		int contadorCombos = 0;
@@ -141,10 +154,8 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		{
 			if (porteros.get(i).isAlineado())
 			{
-				System.out.println("Jugador: " + porteros.get(i).getNombre());
 				combos.get(contadorCombos).setSelectedIndex(contadorJugadores);
 				contadorCombos++;
-				System.out.println("Contador pasa a ser: " + contadorJugadores);
 			}
 
 			contadorJugadores++;
@@ -156,10 +167,8 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		{
 			if(defensas.get(i).isAlineado())
 			{
-				System.out.println("Jugador: " + defensas.get(i).getNombre());
 				combos.get(contadorCombos).setSelectedIndex(contadorJugadores);
 				contadorCombos++;
-				System.out.println("Contador pasa a ser: " + contadorJugadores);
 			}
 
 			contadorJugadores++;
@@ -171,10 +180,8 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		{
 			if(medios.get(i).isAlineado())
 			{
-				System.out.println("Jugador: " + medios.get(i).getNombre());
 				combos.get(contadorCombos).setSelectedIndex(contadorJugadores);
 				contadorCombos++;
-				System.out.println("Contador pasa a ser: " + contadorJugadores);
 			}
 
 			contadorJugadores++;
@@ -186,10 +193,8 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		{
 			if(delanteros.get(i).isAlineado())
 			{
-				System.out.println("Jugador: " + delanteros.get(i).getNombre());
 				combos.get(contadorCombos).setSelectedIndex(contadorJugadores);
 				contadorCombos++;
-				System.out.println("Contador pasa a ser: " + contadorJugadores);
 			}
 
 			contadorJugadores++;
@@ -272,7 +277,10 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 				break;
 	    }
 	}
-	
+
+	/**
+	 * Vacía los paneles de la formación
+	 */
 	public void limpiar()
 	{
 		pPortero.removeAll();
@@ -284,55 +292,11 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		pFormacion.revalidate();
 		pFormacion.repaint();
 	}
-	
-/**	public void formarTitulares(String formacion)
-	{
-		int def= Integer.parseInt(""+formacion.charAt(0));
-		int med= Integer.parseInt(""+formacion.charAt(2));
-		int del= Integer.parseInt(""+formacion.charAt(4));
-		
-		if (def>4|med>4|del>4)
-			flowLayout.setVgap(90);
-		else
-			flowLayout.setVgap(140);
 
-		comboBox = new JComboBox();
-		pPortero.add(comboBox);
-		comboBox.addItem(porteros.get(0).getNombre());
-		combos.add(comboBox);
-
-		for (int i=0; i<def; i++)
-		{
-			comboBox = new JComboBox();
-			combos.add(comboBox);
-			pDefensa.add(comboBox);
-			comboBox.addItem(defensas.get(i).getNombre());
-		}
-		pDefensa.setLayout(new GridLayout(def, 1, 100, 100));
-
-		for (int i=0; i<med; i++)
-		{
-			comboBox = new JComboBox();
-			combos.add(comboBox);
-			pMedio.add(comboBox);
-			comboBox.addItem(medios.get(i).getNombre());
-		}
-		pMedio.setLayout(new GridLayout(med, 1, 100, 100));
-
-		for (int i=0; i<del; i++)
-		{
-			comboBox = new JComboBox();
-			combos.add(comboBox);
-			pDelantero.add(comboBox);
-			comboBox.addItem(delanteros.get(i).getNombre());
-		}
-		pDelantero.setLayout(new GridLayout(del, 1, 100, 100));
-
-		pFormacion.revalidate();
-		pFormacion.repaint();
-	} **/
-	
-	
+	/**
+	 * Popula los combo boxes con todos los jugadores
+	 * @param formacion Recibe la formación del usuario
+	 */
 	public void formar(String formacion) 
 	{
 		limpiar();
@@ -393,7 +357,10 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 		pFormacion.revalidate();
 		pFormacion.repaint();		
 	}
-	
+
+	/**
+	 * Guarda la alineación del usuario
+	 */
 	public void guardarFormacion()
 	{
 		for (int i=0; i<plantilla.size();i++)

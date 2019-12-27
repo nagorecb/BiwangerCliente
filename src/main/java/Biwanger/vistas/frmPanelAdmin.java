@@ -1,12 +1,17 @@
 package Biwanger.vistas;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import Biwanger.controladores.clsController;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Ventana principal del administrador. Le permite acceder a sus funcionalidades:
+ * - Premiar a los tres usuarios con mayor puntuación
+ * - Introducir puntuación de jugadores
+ * - Añadir nuevos jugadores en el sistema
+ */
 public class frmPanelAdmin extends JFrame
 {
     private static final long serialVersionUID = 1L;
@@ -20,7 +25,8 @@ public class frmPanelAdmin extends JFrame
     clsController controller;
 
     /**
-     * Constructor de la ventana de premiar tres mejores
+     * Constructor de la ventana principal del administrador
+     * @param controller Recibe el controlador para añadir funcionalidad
      */
     public frmPanelAdmin(final clsController controller)
     {

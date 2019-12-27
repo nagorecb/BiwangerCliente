@@ -1,20 +1,11 @@
 package Biwanger.vistas;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Handler;
 import java.util.logging.Logger;
-
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,14 +13,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
-
 import Biwanger.controladores.*;
 import java.awt.Font;
 
-
+/**
+ * Ventana de registro. Permite registrarse al usuario.
+ */
 public class frmRegistro extends JFrame implements ActionListener
 {
     private static Logger logger = Logger.getLogger(frmRegistro.class.getName());
@@ -59,6 +50,8 @@ public class frmRegistro extends JFrame implements ActionListener
 
     /**
      * Constructor de la ventana de registro
+     * @param frame Recibe la ventana principal desde el que ha sido lanzado
+     * @param controller Recibe el controlador para añadir funcionalidad
      */
     public frmRegistro (JFrame frame, clsController controller)
     {

@@ -14,6 +14,9 @@ import javax.swing.*;
 import Biwanger.controladores.clsController;
 import Biwanger.objetosDominio.clsJugador;
 
+/**
+ * Ventana que permite al administrador añadir nuevos jugadores en el sistema.
+ */
 public class frmCrearJugador extends JFrame implements ActionListener {
 
 	private clsController controller;
@@ -34,6 +37,11 @@ public class frmCrearJugador extends JFrame implements ActionListener {
 	private JComboBox comboPosicion;
 	private JComboBox comboEstado;
 
+	/**
+	 * Constructor de la ventana que permite al administrador añadir nuevos jugadores en el sistema.
+	 * @param frame Recibe la ventana principal del que se le ha llamado
+	 * @param controller Recibe el controlador para añadir la funcionalidad
+	 */
 	public frmCrearJugador(JFrame frame, clsController controller)
 	{
 		this.controller = controller;

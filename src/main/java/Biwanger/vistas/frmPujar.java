@@ -31,6 +31,9 @@ import java.util.ArrayList;
 
 import javax.swing.JLabel;
 
+/**
+ * Ventana que permite pujar al usuario
+ */
 public class frmPujar extends JFrame implements ActionListener, ListSelectionListener
 {
     private int altura = 800;
@@ -53,7 +56,13 @@ public class frmPujar extends JFrame implements ActionListener, ListSelectionLis
 
     private JFrame panelUsuario;
 
-    public frmPujar (JFrame frame, clsController controller, clsUsuario usuario)//Hay que pasar de Inicio de sesion y registro el usuario a la pantalla principal, y que esta le pase el usuario a las que las necesiten
+    /**
+     * Constructor de la ventana de pujar
+     * @param frame Recibe la ventana principal desde el que ha sido lanzado
+     * @param controller Recibe el controlador para añadir la funcionalidad
+     * @param usuario Recibe el usuario que quiere realizar la puja
+     */
+    public frmPujar (JFrame frame, clsController controller, clsUsuario usuario)
     {
         this.usuario = usuario;
         this.controller = controller;
@@ -206,6 +215,11 @@ public class frmPujar extends JFrame implements ActionListener, ListSelectionLis
         }
     }
 
+    /**
+     * Realiza el parseo de String a Double
+     * @param texto Recibe un String con el precio
+     * @return Devuelve un Double con el precio
+     */
     public boolean parseoPrecio (String texto)
     {
         try {

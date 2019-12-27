@@ -7,21 +7,17 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Handler;
-import java.util.logging.Logger;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
+/**
+ * Ventana que permite premiar a los tres usuarios con mayor puntuación.
+ */
 public class frPremiar extends JFrame implements ActionListener
 {
 
@@ -38,7 +34,11 @@ public class frPremiar extends JFrame implements ActionListener
     private JFrame panelAdmin;
     private ArrayList<clsUsuario> listaUsuarios;
 
-
+	/**
+	 * Constructor de la ventana que permite premiar a los tres usuarios con mayor puntuación.
+	 * @param frame Recibe la ventana principal desde el que ha sido lanzado
+	 * @param controller Recibe el controlador para añadir funcionalidad
+	 */
 	public frPremiar(JFrame frame, clsController controller)
 	{
 		this.controller = controller;

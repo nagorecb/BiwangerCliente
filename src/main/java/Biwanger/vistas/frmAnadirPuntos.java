@@ -10,6 +10,9 @@ import javax.swing.*;
 import Biwanger.controladores.clsController;
 import Biwanger.objetosDominio.clsJugador;
 
+/**
+ * Ventana que permite al administrador añadir puntuación a los jugadores.
+ */
 public class frmAnadirPuntos extends JFrame implements ActionListener
 {
 	private Dimension screenSize;
@@ -30,6 +33,11 @@ public class frmAnadirPuntos extends JFrame implements ActionListener
 
 	private JFrame panelAdmin;
 
+	/**
+	 * Constructor de la ventana que permite al administrador añadir puntuación a los jugadores.
+	 * @param frame Recibe la ventana principal del que se le ha llamado
+	 * @param controller Recibe el controlador para añadir la funcionalidad
+	 */
 	public frmAnadirPuntos (JFrame frame, clsController controller)
 	{
 		panelAdmin = frame;
