@@ -29,7 +29,7 @@ public class frPremiar extends JFrame implements ActionListener
     private JTable tabla;
     private DefaultTableModel tableModel;
 
-    clsController controller;
+    private clsController controller;
 
     private JFrame panelAdmin;
     private ArrayList<clsUsuario> listaUsuarios;

@@ -98,7 +98,9 @@ public class frmPanelUsuario extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-
+                frmClasificacionUsuarios ventana = new frmClasificacionUsuarios(frame, controller);
+                ventana.setVisible(true);
+                setVisible(false);
             }
         });
 
@@ -106,7 +108,9 @@ public class frmPanelUsuario extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-
+                frmClasificacionEquipo ventana = new frmClasificacionEquipo(frame, controller, usuario);
+                ventana.setVisible(true);
+                setVisible(false);
             }
         });
 
