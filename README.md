@@ -67,7 +67,7 @@ Este comando hará lo siguiente:
 Se ha desarrollado el proyecto mediante la metodología ágil SCRUM, utilizando la herramienta de planificación de [YouTrack](https://www.jetbrains.com/youtrack/promo/?gclid=CjwKCAiA3abwBRBqEiwAKwICAx-iax3CyO-rPM1nMA33Wd8NCXAqCKvi4mXVZ0AnIu7QBkPE68GhqxoCLIkQAvD_BwE). Los colaboradores han sido:
 
 * Nagore Beltrán, [nagorecb](https://github.com/nagorecb)
-* ![MaiderC](https://avatars0.githubusercontent.com/u/32567027?s=60&v=4 | width = 20)Maider Calzada Aláez, [MaiderC](https://github.com/MaiderC)
+* <img " src="https://avatars0.githubusercontent.com/u/32567027?s=60&v=4"width=20>Maider Calzada Aláez, [MaiderC](https://github.com/MaiderC)
 * Sara Olaizola Alcántara, [saraolaizola](https://github.com/saraolaizola)
 * Hodei Olaskoaga Apezetxea, [HodeiOA](https://github.com/HodeiOA)
 
