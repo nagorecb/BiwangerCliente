@@ -22,6 +22,7 @@ $ mvn clean compile exec:java -Pclient
  ### Test 🔎
 
 Se han realizado testeos de todo el proyecto. Para ello, se han utilizado las siguientes herramientas:
+
 | Herramienta | Uso |
 | --- | --- |
 | [JUnit 4](https://junit.org/junit4/) | Realización de test unitarios |
@@ -29,6 +30,7 @@ Se han realizado testeos de todo el proyecto. Para ello, se han utilizado las si
 | [Contiperf](https://mvnrepository.com/artifact/org.databene/contiperf) | Evaluación del rendimiento de las partes críticas |
 | [JaCoCo](https://www.eclemma.org/jacoco/) |Comprobación de la cobertura de código de los test |
 | [Travis CI](https://travis-ci.org/) |Para integración continua |
+
 
 Para ejecutar dichos test, utilizamos el comando:
 ```sh
