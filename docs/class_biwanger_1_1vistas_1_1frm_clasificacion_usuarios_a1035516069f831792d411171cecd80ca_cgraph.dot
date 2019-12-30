@@ -1,0 +1,14 @@
+digraph "Biwanger.vistas.frmClasificacionUsuarios.frmClasificacionUsuarios"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Biwanger.vistas.frmClasificacion\lUsuarios.frmClasificacionUsuarios",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Biwanger.controladores.cls\lController.clasificacionUsuarios",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1controladores_1_1cls_controller.html#af1ee72f859fa8b1958ba6fb342e8d9f1",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Biwanger.objetosDominio.cls\lUsuarioLista.getlUsuarios",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1objetos_dominio_1_1cls_usuario_lista.html#a77a835f4938bb2a5a5ac0d1a68a94214",tooltip=" "];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Biwanger.Remote.clsService\lLocator.getservice",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1_remote_1_1cls_service_locator.html#ab5887258804ee4871414885b9482a13b",tooltip=" "];
+}

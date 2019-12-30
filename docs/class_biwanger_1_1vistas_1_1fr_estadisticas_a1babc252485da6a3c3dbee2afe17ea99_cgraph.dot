@@ -1,0 +1,36 @@
+digraph "Biwanger.vistas.frEstadisticas.frEstadisticas"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Biwanger.vistas.frEstadisticas.fr\lEstadisticas",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Biwanger.objetosDominio.cls\lJugador.getEquipo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1objetos_dominio_1_1cls_jugador.html#ac6dafea9bb7b4a2969c16d989d3d8470",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Biwanger.objetosDominio.cls\lJugador.getEstado",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1objetos_dominio_1_1cls_jugador.html#a6abe273ae327cc9569f3fa20d6b8b4e5",tooltip=" "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Biwanger.objetosDominio.cls\lJugador.getNombre",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1objetos_dominio_1_1cls_jugador.html#ad045f4d9b485b7933c78ed9b93bd0e2a",tooltip=" "];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Biwanger.objetosDominio.cls\lJugador.getNumAsistencias",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1objetos_dominio_1_1cls_jugador.html#a95131e00b8151753aad11eebd9e4293d",tooltip=" "];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Biwanger.objetosDominio.cls\lJugador.getNumGoles",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1objetos_dominio_1_1cls_jugador.html#a92fb0e7d80c4f4fff025767aaa7aff4c",tooltip=" "];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Biwanger.objetosDominio.cls\lJugador.getNumPartidosJugados",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1objetos_dominio_1_1cls_jugador.html#ae6a6471935661a6f459713a112fc98fb",tooltip=" "];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Biwanger.objetosDominio.cls\lJugador.getNumTarjetasAmarillas",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1objetos_dominio_1_1cls_jugador.html#ad858f535a9becd6fc71e524962abb5ba",tooltip=" "];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Biwanger.objetosDominio.cls\lJugador.getNumTarjetasRojas",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1objetos_dominio_1_1cls_jugador.html#a6c602443e21062558f4ef7db20c3743f",tooltip=" "];
+  Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Biwanger.objetosDominio.cls\lJugador.getPosicion",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1objetos_dominio_1_1cls_jugador.html#aff3093573faf0d914b8ca7303b5e3eff",tooltip=" "];
+  Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="Biwanger.objetosDominio.cls\lJugador.getPuntos",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1objetos_dominio_1_1cls_jugador.html#a71a3b95622b10a36b2b9637833e9c628",tooltip=" "];
+  Node1 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="Biwanger.controladores.cls\lController.obtenerPlantilla",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1controladores_1_1cls_controller.html#a5df708f28d5e8f20eca5fcb4f1492e80",tooltip=" "];
+  Node12 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="Biwanger.objetosDominio.cls\lUsuario.getEmail",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1objetos_dominio_1_1cls_usuario.html#a7a2571ffb1600ef13c95a684b53a4fbb",tooltip=" "];
+  Node12 -> Node14 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="Biwanger.objetosDominio.cls\lJugadorLista.getlJugadores",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1objetos_dominio_1_1cls_jugador_lista.html#a186bef2cf28c954cc1dfe6c20fa6b35d",tooltip=" "];
+  Node12 -> Node15 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="Biwanger.Remote.clsService\lLocator.getservice",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1_remote_1_1cls_service_locator.html#ab5887258804ee4871414885b9482a13b",tooltip=" "];
+}

@@ -1,0 +1,14 @@
+digraph "Biwanger.objetosDominio.clsJugador.getEstado"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Biwanger.objetosDominio.cls\lJugador.getEstado",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Biwanger.vistas.frEstadisticas.fr\lEstadisticas",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1vistas_1_1fr_estadisticas.html#a1babc252485da6a3c3dbee2afe17ea99",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Biwanger.controladores.cls\lController.guardarNuevoJugador",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1controladores_1_1cls_controller.html#aadd128e70163f055043799c14304f904",tooltip=" "];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Biwanger.vistas.frmCrear\lJugador.actionPerformed",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1vistas_1_1frm_crear_jugador.html#a36d4f058ab4b0a242eb43bf14110d085",tooltip=" "];
+}
