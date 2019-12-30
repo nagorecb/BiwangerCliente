@@ -57,7 +57,9 @@ $ mvn site
 Este comando hará lo siguiente:
 * Genera, en la carpeta target, dashboards para los plugins añadidos en la parte de reporting del POM (en la carpeta site): 
         - JaCoCo
+        
         - Doxygen
+        
         - Contiperf
 
 * Genera la documentación completa en la carpeta doc, de manera que pueda ser accedida desde el repositorio de GitHb, y desde la página http://nagorecb.github.io/BiwangerCliente.
@@ -67,7 +69,7 @@ Este comando hará lo siguiente:
 Se ha desarrollado el proyecto mediante la metodología ágil SCRUM, utilizando la herramienta de planificación de [YouTrack](https://www.jetbrains.com/youtrack/promo/?gclid=CjwKCAiA3abwBRBqEiwAKwICAx-iax3CyO-rPM1nMA33Wd8NCXAqCKvi4mXVZ0AnIu7QBkPE68GhqxoCLIkQAvD_BwE). Los colaboradores han sido:
 
 * Nagore Beltrán, [nagorecb](https://github.com/nagorecb)
-* <img " src="https://avatars0.githubusercontent.com/u/32567027?s=60&v=4"width=20>Maider Calzada Aláez, [MaiderC](https://github.com/MaiderC)
+* Maider Calzada Aláez, [MaiderC](https://github.com/MaiderC)
 * Sara Olaizola Alcántara, [saraolaizola](https://github.com/saraolaizola)
 * Hodei Olaskoaga Apezetxea, [HodeiOA](https://github.com/HodeiOA)
 
