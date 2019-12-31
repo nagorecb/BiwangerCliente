@@ -7,8 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Handler;
-import java.util.logging.Logger;
 
 /**
  * Ventana principal del usuario. Le permite acceder a su funcionalidad:
@@ -17,10 +15,6 @@ import java.util.logging.Logger;
  */
 public class frmPanelUsuario extends JFrame
 {
-    private static Logger logger = Logger.getLogger(frmPanelUsuario.class.getName());
-    private static Handler handlerPantalla;
-    private static Handler handlerArchivo;
-
     private static final long serialVersionUID = 1L;
     private JPanel pPrincipal;
     private PanelConFondo pFoto;
@@ -29,8 +23,6 @@ public class frmPanelUsuario extends JFrame
 
     private int altura = 800;
     private int anchura = 1066;
-    private int x = 100;
-    private int y = 100;
 
     clsController controller;
 
@@ -41,12 +33,13 @@ public class frmPanelUsuario extends JFrame
      */
     public frmPanelUsuario(final clsController controller, clsUsuario usuario)
     {
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.usuario = usuario;
         this.controller = controller;
         frame = this;
 
         setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
-        setSize(1066, 800);
+        setSize(anchura, altura);
         setResizable(false);
 
         pPrincipal = new JPanel();

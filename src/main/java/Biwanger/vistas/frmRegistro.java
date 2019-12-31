@@ -35,6 +35,7 @@ public class frmRegistro extends JFrame implements ActionListener
     private JLabel lbPasswordConfirm;
 
     private JButton btnRegistro;
+    private JButton btnVolver;
 
     private JPanel panelUsuario;
     private JPanel panelBotonera;
@@ -66,9 +67,24 @@ public class frmRegistro extends JFrame implements ActionListener
         setResizable(false);
         setTitle("Biwanger Fantasy - Registro");
 
+        getContentPane().setLayout(null);
+
+        JPanel panel = new JPanel();
+        panel.setBounds(0, 0, 597, 332);
+        getContentPane().add(panel);
+        panel.setLayout(null);
+
+        //Arriba
+        btnVolver = new JButton("Volver");
+        btnVolver.setBounds(0, 0, 89, 23);
+        panel.add(btnVolver);
+        btnVolver.setActionCommand("VOLVER");
+        btnVolver.addActionListener(this);
+
         //Panel de usuario
         panelUsuario = new JPanel();
-        panelUsuario.setBounds(0, 0, 609, 219);
+        panelUsuario.setBounds(0, 22, 597, 222);
+        panel.add(panelUsuario);
         panelUsuario.setLayout(null);
 
         lbEmail = new JLabel("Email:");
@@ -107,19 +123,15 @@ public class frmRegistro extends JFrame implements ActionListener
 
         //Panel botonera
         panelBotonera = new JPanel();
-        panelBotonera.setBounds(0, 221, 594, 100);
+        panelBotonera.setBounds(0, 243, 594, 89);
+        panel.add(panelBotonera);
         panelBotonera.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
         btnRegistro = new JButton("Registrarse");
         btnRegistro.setFont(new Font("Tahoma", Font.PLAIN, 23));
         panelBotonera.add(btnRegistro);
-
         btnRegistro.setActionCommand("REGISTRO");
         btnRegistro.addActionListener(this);
-        getContentPane().setLayout(null);
-
-        this.getContentPane().add(panelUsuario);
-        this.getContentPane().add(panelBotonera);
     }
 
     @Override
@@ -127,6 +139,12 @@ public class frmRegistro extends JFrame implements ActionListener
     {
         switch(e.getActionCommand())
         {
+            case "VOLVER":
+            {
+                ventanaInicio.setVisible(true);
+                this.dispose();
+            }
+            break;
             case "REGISTRO":
             {
                 String email = tfEmail.getText();
@@ -187,6 +205,7 @@ public class frmRegistro extends JFrame implements ActionListener
                     }
                 }
             }
+            break;
 
             default:
                 break;

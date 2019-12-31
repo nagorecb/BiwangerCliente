@@ -49,8 +49,8 @@ public class frPremiar extends JFrame implements ActionListener
 		setSize(1066, 800);
 		setResizable(false);
 
-		pPrincipal= new JPanel();
-		pPrincipal.setBorder(new EmptyBorder(0, 0, 0, 0));
+		pPrincipal = new PanelConFondo("src/main/java/resources/fondo.jpg");
+//		pPrincipal.setBorder(new EmptyBorder(0, 0, 0, 0));
 		pPrincipal.setLayout(new BorderLayout(0, 0));
         setContentPane(pPrincipal);
         
@@ -99,6 +99,8 @@ public class frPremiar extends JFrame implements ActionListener
 		btnVolver.addActionListener(this);
 		panel.add(btnVolver, BorderLayout.WEST);
 
+		panel.setOpaque(false);
+		pTabla.setOpaque(false);
 	}
 
 	@Override

@@ -4,23 +4,15 @@ import Biwanger.controladores.clsController;
 import Biwanger.objetosDominio.clsJugador;
 import Biwanger.objetosDominio.clsPuja;
 import Biwanger.objetosDominio.clsUsuario;
-import jdk.nashorn.internal.ir.LiteralNode;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
 
-// *
-// * Unit test for clsController.
-// */
 @RunWith(MockitoJUnitRunner.class)
 public class clsControllerTest
 {
@@ -76,8 +68,8 @@ public class clsControllerTest
     @Test
     public void test_premiarTresMejores()
     {
-       ArrayList<clsUsuario>listaUsuarios=mockedController.premiarTresMejores();
-       assertEquals(0, listaUsuarios.size());
+        ArrayList<clsUsuario>listaUsuarios=mockedController.premiarTresMejores();
+        assertEquals(0, listaUsuarios.size());
     }
     @Test
     public void test_mostrarMercado()

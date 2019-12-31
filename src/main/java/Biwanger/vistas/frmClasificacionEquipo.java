@@ -33,18 +33,19 @@ public class frmClasificacionEquipo extends JFrame implements ActionListener
         this.controller = controller;
         panelUsuario = frame;
 
+        setUndecorated(true);
         setSize(1066, 800);
         setResizable(false);
 
-        pPrincipal = new JPanel();
-        pPrincipal.setBorder(new EmptyBorder(0,0,0,0));
+        pPrincipal = new PanelConFondo ("src/main/java/resources/foto.jpg");
+        pPrincipal.setBorder(new EmptyBorder(40,40,40,40));
         pPrincipal.setLayout(new BorderLayout(0,0));
-        setContentPane(pPrincipal);
+        getContentPane().add(pPrincipal, BorderLayout.CENTER);
 
         lJugadores = controller.clasificaconEquipo(usuario.getEmail());
 
         pTabla = new JPanel();
-        pTabla.setBorder(new EmptyBorder(40,40,40,40));
+       // pTabla.setBorder(new EmptyBorder(40,40,40,40));
         pTabla.setLayout(new BorderLayout(0,0));
 
         String[] col = {"Jugador", "Puntuación"};

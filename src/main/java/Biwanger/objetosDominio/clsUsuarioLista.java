@@ -2,32 +2,51 @@ package Biwanger.objetosDominio;
 
 import java.util.ArrayList;
 
+/**
+ * @brief Clase del objeto lista de usuarios
+ * @details Clase necesaria para intercambiar listas de usuarios entre cliente y servidor
+ */
 public class clsUsuarioLista
 {
-    private ArrayList<clsUsuario> lUsuarios;
+	private ArrayList<clsUsuario> lUsuarios;
 
-    public clsUsuarioLista(ArrayList param)
-    {
-        lUsuarios = param;
-    }
+	/**
+	 * Constructor de la lista de usuarios con parametro
+	 * @param param lista de usuarios
+	 */
+	public clsUsuarioLista(ArrayList param)
+	{
+		lUsuarios = param;
+	}
 
-    public clsUsuarioLista()
-    {
+	/**
+	 * Constructor de lista sin parametros
+	 */
+	public clsUsuarioLista()
+	{
 
-    }
+	}
 
-    public ArrayList<clsUsuario> getlUsuarios()
-    {
-        ArrayList<clsUsuario> lista = new ArrayList<clsUsuario>();
+	/**
+	 * Método que devuelve una lista de usuarios
+	 * @return lista de usuarios
+	 */
+	public ArrayList<clsUsuario> getlUsuarios()
+	{
+		ArrayList<clsUsuario> lista = new ArrayList<clsUsuario>();
 
-        for(clsUsuario aux: lUsuarios)
-        {
-            lista.add(aux);
-        }
+		for(clsUsuario aux: lUsuarios)
+		{
+			lista.add(aux);
+		}
 
-        return lista;
-    }
+		return lista;
+	}
 
+	/**
+	 * Método que genera un número único para identificar al objeto
+	 * @return el hash del identificador de la lista de usuarios
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -36,6 +55,11 @@ public class clsUsuarioLista
 		return result;
 	}
 
+	/**
+	 * Método que compara dos objetos
+	 * @param obj objeto que se pretende comparar con el actual
+	 * @return true si son el mismo objeto, false si no lo son
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -52,6 +76,5 @@ public class clsUsuarioLista
 			return false;
 		return true;
 	}
-    
     
 }

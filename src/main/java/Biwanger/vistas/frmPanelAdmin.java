@@ -30,7 +30,7 @@ public class frmPanelAdmin extends JFrame
      */
     public frmPanelAdmin(final clsController controller)
     {
-        setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(1066, 800);
         setResizable(false);
         frame = this;
