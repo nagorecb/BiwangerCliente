@@ -316,11 +316,4 @@ public class clsController
 
         return lJugadores.getlJugadores();
     }
-
-    public void hardcode()
-    {
-        WebTarget getRequestController = sl.getservice().path("resource/hardcode");
-        Invocation.Builder invocationBuilder = getRequestController.request(MediaType.APPLICATION_JSON);
-        Response response = invocationBuilder.get();
-    }
 }
