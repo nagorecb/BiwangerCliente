@@ -300,6 +300,7 @@ public class frModificarAlineacion extends JFrame implements ActionListener
 	public void formar(String formacion) 
 	{
 		limpiar();
+		combos.clear();
 		
 		int def= Integer.parseInt(""+formacion.charAt(0));
 		int med= Integer.parseInt(""+formacion.charAt(2));
