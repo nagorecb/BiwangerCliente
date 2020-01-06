@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['limpiar_249',['limpiar',['../class_biwanger_1_1vistas_1_1fr_modificar_alineacion.html#a2b6559af54d374d48b82604596c73140',1,'Biwanger::vistas::frModificarAlineacion']]]
+  ['limpiar_253',['limpiar',['../class_biwanger_1_1vistas_1_1fr_modificar_alineacion.html#a2b6559af54d374d48b82604596c73140',1,'Biwanger::vistas::frModificarAlineacion']]]
 ];

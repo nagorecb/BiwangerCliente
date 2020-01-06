@@ -5,7 +5,6 @@ var class_biwanger_1_1controladores_1_1cls_controller =
     [ "clasificacionUsuarios", "class_biwanger_1_1controladores_1_1cls_controller.html#af1ee72f859fa8b1958ba6fb342e8d9f1", null ],
     [ "clasificaconEquipo", "class_biwanger_1_1controladores_1_1cls_controller.html#a9cf607243fa14b1e6eda7028c41a3d73", null ],
     [ "guardarNuevoJugador", "class_biwanger_1_1controladores_1_1cls_controller.html#aadd128e70163f055043799c14304f904", null ],
-    [ "hardcode", "class_biwanger_1_1controladores_1_1cls_controller.html#a9deadc3a0a322aef55c200c6bac548aa", null ],
     [ "inicioSesion", "class_biwanger_1_1controladores_1_1cls_controller.html#ab2825c933acc7feb5e5ca62e347ddcc9", null ],
     [ "modificarAlineacion", "class_biwanger_1_1controladores_1_1cls_controller.html#aefb09ea1c3bd04858e27c15ea4ac55f5", null ],
     [ "modificarFormacion", "class_biwanger_1_1controladores_1_1cls_controller.html#a610204b58f50fc01acf0812ac6e0ec05", null ],

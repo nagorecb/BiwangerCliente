@@ -374,85 +374,86 @@ $(document).ready(function(){initNavTree('fr_modificar_alineacion_8java_source.h
 <div class="line"><a name="l00300"></a><span class="lineno"><a class="line" href="class_biwanger_1_1vistas_1_1fr_modificar_alineacion.html#aca9a98a0470e530a70aed4634e64f553">  300</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_biwanger_1_1vistas_1_1fr_modificar_alineacion.html#aca9a98a0470e530a70aed4634e64f553">formar</a>(String formacion) </div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    {</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <a class="code" href="class_biwanger_1_1vistas_1_1fr_modificar_alineacion.html#a2b6559af54d374d48b82604596c73140">limpiar</a>();</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        </div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        <span class="keywordtype">int</span> def= Integer.parseInt(<span class="stringliteral">&quot;&quot;</span>+formacion.charAt(0));</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <span class="keywordtype">int</span> med= Integer.parseInt(<span class="stringliteral">&quot;&quot;</span>+formacion.charAt(2));</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="keywordtype">int</span> del= Integer.parseInt(<span class="stringliteral">&quot;&quot;</span>+formacion.charAt(4));</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        </div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keywordflow">if</span> (def&gt;4|med&gt;4|del&gt;4)</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;            flowLayout.setVgap(90);</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;            flowLayout.setVgap(140);</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        </div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        comboBox = <span class="keyword">new</span> JComboBox();</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        combos.add(comboBox);</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;porteros.size();i++)</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        {</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;            pPortero.add(comboBox);</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;            comboBox.addItem(porteros.get(i).getNombre());</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        }</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        </div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;def; i++)</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        {</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;            comboBox = <span class="keyword">new</span> JComboBox();</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;            combos.add(comboBox);</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;            pDefensa.add(comboBox);</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;defensas.size();j++)</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;            {</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;                comboBox.addItem(defensas.get(j).getNombre());</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;            }</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        }</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        pDefensa.setLayout(<span class="keyword">new</span> GridLayout(def, 1, 100, 100));</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        </div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;med; i++)</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        {</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;            comboBox = <span class="keyword">new</span> JComboBox();</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;            combos.add(comboBox);</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;            pMedio.add(comboBox);</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;medios.size();j++)</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;            {</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;                comboBox.addItem(medios.get(j).getNombre());</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;            }</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        }</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        pMedio.setLayout(<span class="keyword">new</span> GridLayout(med, 1, 100, 100));</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        </div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;del; i++)</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        {</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;            comboBox = <span class="keyword">new</span> JComboBox();</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;            combos.add(comboBox);</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;            pDelantero.add(comboBox);</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;delanteros.size();j++)</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;            {</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                comboBox.addItem(delanteros.get(j).getNombre());</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;            }</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        }</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        pDelantero.setLayout(<span class="keyword">new</span> GridLayout(del, 1, 100, 100));</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        </div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        pFormacion.revalidate();</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        pFormacion.repaint();       </div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    }</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
-<div class="line"><a name="l00364"></a><span class="lineno"><a class="line" href="class_biwanger_1_1vistas_1_1fr_modificar_alineacion.html#a01ee6f4ddd8341ffcb97b7b4e8385c4d">  364</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_biwanger_1_1vistas_1_1fr_modificar_alineacion.html#a01ee6f4ddd8341ffcb97b7b4e8385c4d">guardarFormacion</a>()</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    {</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;plantilla.size();i++)</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        {</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            plantilla.get(i).setAlineado(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            </div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;            <span class="keywordflow">for</span> (JComboBox comboBox : combos)</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;            {</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                <span class="keywordflow">if</span>(plantilla.get(i).getNombre()==comboBox.getSelectedItem())</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                {</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                    System.out.println(plantilla.get(i));</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;                    plantilla.get(i).setAlineado(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                }</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                </div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;            }</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        }</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    }</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;}</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        combos.clear();</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        </div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <span class="keywordtype">int</span> def= Integer.parseInt(<span class="stringliteral">&quot;&quot;</span>+formacion.charAt(0));</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="keywordtype">int</span> med= Integer.parseInt(<span class="stringliteral">&quot;&quot;</span>+formacion.charAt(2));</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <span class="keywordtype">int</span> del= Integer.parseInt(<span class="stringliteral">&quot;&quot;</span>+formacion.charAt(4));</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        </div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <span class="keywordflow">if</span> (def&gt;4|med&gt;4|del&gt;4)</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;            flowLayout.setVgap(90);</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;            flowLayout.setVgap(140);</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        </div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        comboBox = <span class="keyword">new</span> JComboBox();</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        combos.add(comboBox);</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;porteros.size();i++)</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        {</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;            pPortero.add(comboBox);</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;            comboBox.addItem(porteros.get(i).getNombre());</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        }</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        </div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;def; i++)</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        {</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;            comboBox = <span class="keyword">new</span> JComboBox();</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;            combos.add(comboBox);</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;            pDefensa.add(comboBox);</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;defensas.size();j++)</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;            {</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                comboBox.addItem(defensas.get(j).getNombre());</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;            }</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        }</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        pDefensa.setLayout(<span class="keyword">new</span> GridLayout(def, 1, 100, 100));</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        </div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;med; i++)</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        {</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;            comboBox = <span class="keyword">new</span> JComboBox();</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;            combos.add(comboBox);</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;            pMedio.add(comboBox);</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;medios.size();j++)</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;            {</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;                comboBox.addItem(medios.get(j).getNombre());</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;            }</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        }</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        pMedio.setLayout(<span class="keyword">new</span> GridLayout(med, 1, 100, 100));</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        </div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;del; i++)</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        {</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;            comboBox = <span class="keyword">new</span> JComboBox();</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;            combos.add(comboBox);</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            pDelantero.add(comboBox);</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;delanteros.size();j++)</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;            {</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                comboBox.addItem(delanteros.get(j).getNombre());</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;            }</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        }</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        pDelantero.setLayout(<span class="keyword">new</span> GridLayout(del, 1, 100, 100));</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        </div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        pFormacion.revalidate();</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        pFormacion.repaint();       </div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    }</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160; </div>
+<div class="line"><a name="l00365"></a><span class="lineno"><a class="line" href="class_biwanger_1_1vistas_1_1fr_modificar_alineacion.html#a01ee6f4ddd8341ffcb97b7b4e8385c4d">  365</a></span>&#160;    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="class_biwanger_1_1vistas_1_1fr_modificar_alineacion.html#a01ee6f4ddd8341ffcb97b7b4e8385c4d">guardarFormacion</a>()</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    {</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;plantilla.size();i++)</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        {</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            plantilla.get(i).setAlineado(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;            </div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;            <span class="keywordflow">for</span> (JComboBox comboBox : combos)</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;            {</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                <span class="keywordflow">if</span>(plantilla.get(i).getNombre()==comboBox.getSelectedItem())</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                {</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;                    System.out.println(plantilla.get(i));</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                    plantilla.get(i).setAlineado(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                }</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                </div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;            }</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;        }</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    }</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_biwanger_1_1objetos_dominio_1_1cls_usuario_html_a222acd8717990100f82a8d30b50cdca9"><div class="ttname"><a href="class_biwanger_1_1objetos_dominio_1_1cls_usuario.html#a222acd8717990100f82a8d30b50cdca9">Biwanger.objetosDominio.clsUsuario.setFormacion</a></div><div class="ttdeci">void setFormacion(String formacion)</div><div class="ttdef"><b>Definition:</b> <a href="cls_usuario_8java_source.html#l00070">clsUsuario.java:70</a></div></div>
+<div class="ttc" id="aclass_biwanger_1_1objetos_dominio_1_1cls_usuario_html_a222acd8717990100f82a8d30b50cdca9"><div class="ttname"><a href="class_biwanger_1_1objetos_dominio_1_1cls_usuario.html#a222acd8717990100f82a8d30b50cdca9">Biwanger.objetosDominio.clsUsuario.setFormacion</a></div><div class="ttdeci">void setFormacion(String formacion)</div><div class="ttdef"><b>Definition:</b> <a href="cls_usuario_8java_source.html#l00122">clsUsuario.java:122</a></div></div>
 <div class="ttc" id="anamespace_biwanger_1_1objetos_dominio_html"><div class="ttname"><a href="namespace_biwanger_1_1objetos_dominio.html">Biwanger.objetosDominio</a></div><div class="ttdef"><b>Definition:</b> <a href="cls_jugador_8java_source.html#l00001">clsJugador.java:1</a></div></div>
 <div class="ttc" id="anamespace_biwanger_html"><div class="ttname"><a href="namespace_biwanger.html">Biwanger</a></div></div>
 <div class="ttc" id="aclass_biwanger_1_1controladores_1_1cls_controller_html_a610204b58f50fc01acf0812ac6e0ec05"><div class="ttname"><a href="class_biwanger_1_1controladores_1_1cls_controller.html#a610204b58f50fc01acf0812ac6e0ec05">Biwanger.controladores.clsController.modificarFormacion</a></div><div class="ttdeci">void modificarFormacion(clsUsuario usuario)</div><div class="ttdef"><b>Definition:</b> <a href="cls_controller_8java_source.html#l00113">clsController.java:113</a></div></div>
@@ -461,22 +462,22 @@ $(document).ready(function(){initNavTree('fr_modificar_alineacion_8java_source.h
 <div class="ttc" id="aclass_biwanger_1_1vistas_1_1fr_modificar_alineacion_html_a08221ec1a45663ef5f49bb1635137e8e"><div class="ttname"><a href="class_biwanger_1_1vistas_1_1fr_modificar_alineacion.html#a08221ec1a45663ef5f49bb1635137e8e">Biwanger.vistas.frModificarAlineacion.titulares</a></div><div class="ttdeci">void titulares()</div><div class="ttdef"><b>Definition:</b> <a href="fr_modificar_alineacion_8java_source.html#l00148">frModificarAlineacion.java:148</a></div></div>
 <div class="ttc" id="aclass_biwanger_1_1vistas_1_1fr_modificar_alineacion_html_aca9a98a0470e530a70aed4634e64f553"><div class="ttname"><a href="class_biwanger_1_1vistas_1_1fr_modificar_alineacion.html#aca9a98a0470e530a70aed4634e64f553">Biwanger.vistas.frModificarAlineacion.formar</a></div><div class="ttdeci">void formar(String formacion)</div><div class="ttdef"><b>Definition:</b> <a href="fr_modificar_alineacion_8java_source.html#l00300">frModificarAlineacion.java:300</a></div></div>
 <div class="ttc" id="aclass_biwanger_1_1controladores_1_1cls_controller_html_a5df708f28d5e8f20eca5fcb4f1492e80"><div class="ttname"><a href="class_biwanger_1_1controladores_1_1cls_controller.html#a5df708f28d5e8f20eca5fcb4f1492e80">Biwanger.controladores.clsController.obtenerPlantilla</a></div><div class="ttdeci">ArrayList&lt; clsJugador &gt; obtenerPlantilla(clsUsuario usuario)</div><div class="ttdef"><b>Definition:</b> <a href="cls_controller_8java_source.html#l00300">clsController.java:300</a></div></div>
-<div class="ttc" id="aclass_biwanger_1_1objetos_dominio_1_1cls_jugador_html"><div class="ttname"><a href="class_biwanger_1_1objetos_dominio_1_1cls_jugador.html">Biwanger.objetosDominio.clsJugador</a></div><div class="ttdef"><b>Definition:</b> <a href="cls_jugador_8java_source.html#l00008">clsJugador.java:8</a></div></div>
-<div class="ttc" id="aclass_biwanger_1_1objetos_dominio_1_1cls_usuario_html"><div class="ttname"><a href="class_biwanger_1_1objetos_dominio_1_1cls_usuario.html">Biwanger.objetosDominio.clsUsuario</a></div><div class="ttdef"><b>Definition:</b> <a href="cls_usuario_8java_source.html#l00007">clsUsuario.java:7</a></div></div>
+<div class="ttc" id="aclass_biwanger_1_1objetos_dominio_1_1cls_jugador_html"><div class="ttname"><a href="class_biwanger_1_1objetos_dominio_1_1cls_jugador.html">Biwanger.objetosDominio.clsJugador</a></div><div class="ttdoc">Clase del objeto Jugador.</div><div class="ttdef"><b>Definition:</b> <a href="cls_jugador_8java_source.html#l00010">clsJugador.java:10</a></div></div>
+<div class="ttc" id="aclass_biwanger_1_1objetos_dominio_1_1cls_usuario_html"><div class="ttname"><a href="class_biwanger_1_1objetos_dominio_1_1cls_usuario.html">Biwanger.objetosDominio.clsUsuario</a></div><div class="ttdoc">Clase del objeto Usuario.</div><div class="ttdef"><b>Definition:</b> <a href="cls_usuario_8java_source.html#l00008">clsUsuario.java:8</a></div></div>
 <div class="ttc" id="aclass_biwanger_1_1vistas_1_1fr_modificar_alineacion_html"><div class="ttname"><a href="class_biwanger_1_1vistas_1_1fr_modificar_alineacion.html">Biwanger.vistas.frModificarAlineacion</a></div><div class="ttdef"><b>Definition:</b> <a href="fr_modificar_alineacion_8java_source.html#l00024">frModificarAlineacion.java:24</a></div></div>
 <div class="ttc" id="aclass_biwanger_1_1controladores_1_1cls_controller_html"><div class="ttname"><a href="class_biwanger_1_1controladores_1_1cls_controller.html">Biwanger.controladores.clsController</a></div><div class="ttdef"><b>Definition:</b> <a href="cls_controller_8java_source.html#l00017">clsController.java:17</a></div></div>
-<div class="ttc" id="aclass_biwanger_1_1objetos_dominio_1_1cls_usuario_html_aaceff17866c0fc02443290125e1faf98"><div class="ttname"><a href="class_biwanger_1_1objetos_dominio_1_1cls_usuario.html#aaceff17866c0fc02443290125e1faf98">Biwanger.objetosDominio.clsUsuario.getFormacion</a></div><div class="ttdeci">String getFormacion()</div><div class="ttdef"><b>Definition:</b> <a href="cls_usuario_8java_source.html#l00066">clsUsuario.java:66</a></div></div>
+<div class="ttc" id="aclass_biwanger_1_1objetos_dominio_1_1cls_usuario_html_aaceff17866c0fc02443290125e1faf98"><div class="ttname"><a href="class_biwanger_1_1objetos_dominio_1_1cls_usuario.html#aaceff17866c0fc02443290125e1faf98">Biwanger.objetosDominio.clsUsuario.getFormacion</a></div><div class="ttdeci">String getFormacion()</div><div class="ttdef"><b>Definition:</b> <a href="cls_usuario_8java_source.html#l00114">clsUsuario.java:114</a></div></div>
 <div class="ttc" id="aclass_biwanger_1_1controladores_1_1cls_controller_html_aefb09ea1c3bd04858e27c15ea4ac55f5"><div class="ttname"><a href="class_biwanger_1_1controladores_1_1cls_controller.html#aefb09ea1c3bd04858e27c15ea4ac55f5">Biwanger.controladores.clsController.modificarAlineacion</a></div><div class="ttdeci">void modificarAlineacion(ArrayList&lt; clsJugador &gt; plantilla)</div><div class="ttdef"><b>Definition:</b> <a href="cls_controller_8java_source.html#l00095">clsController.java:95</a></div></div>
 <div class="ttc" id="aclass_biwanger_1_1vistas_1_1_panel_con_fondo_html"><div class="ttname"><a href="class_biwanger_1_1vistas_1_1_panel_con_fondo.html">Biwanger.vistas.PanelConFondo</a></div><div class="ttdef"><b>Definition:</b> <a href="_panel_con_fondo_8java_source.html#l00010">PanelConFondo.java:10</a></div></div>
-<div class="ttc" id="aclass_biwanger_1_1objetos_dominio_1_1cls_usuario_html_a35c50461dc19d5ab9b9016841695be22"><div class="ttname"><a href="class_biwanger_1_1objetos_dominio_1_1cls_usuario.html#a35c50461dc19d5ab9b9016841695be22">Biwanger.objetosDominio.clsUsuario.getPosicion</a></div><div class="ttdeci">ArrayList&lt; clsJugador &gt; getPosicion(String posicion, ArrayList&lt; clsJugador &gt; plantilla)</div><div class="ttdef"><b>Definition:</b> <a href="cls_usuario_8java_source.html#l00074">clsUsuario.java:74</a></div></div>
+<div class="ttc" id="aclass_biwanger_1_1objetos_dominio_1_1cls_usuario_html_a35c50461dc19d5ab9b9016841695be22"><div class="ttname"><a href="class_biwanger_1_1objetos_dominio_1_1cls_usuario.html#a35c50461dc19d5ab9b9016841695be22">Biwanger.objetosDominio.clsUsuario.getPosicion</a></div><div class="ttdeci">ArrayList&lt; clsJugador &gt; getPosicion(String posicion, ArrayList&lt; clsJugador &gt; plantilla)</div><div class="ttdef"><b>Definition:</b> <a href="cls_usuario_8java_source.html#l00149">clsUsuario.java:149</a></div></div>
 <div class="ttc" id="anamespace_biwanger_1_1controladores_html"><div class="ttname"><a href="namespace_biwanger_1_1controladores.html">Biwanger.controladores</a></div><div class="ttdef"><b>Definition:</b> <a href="cls_controller_8java_source.html#l00001">clsController.java:1</a></div></div>
-<div class="ttc" id="aclass_biwanger_1_1vistas_1_1fr_modificar_alineacion_html_a01ee6f4ddd8341ffcb97b7b4e8385c4d"><div class="ttname"><a href="class_biwanger_1_1vistas_1_1fr_modificar_alineacion.html#a01ee6f4ddd8341ffcb97b7b4e8385c4d">Biwanger.vistas.frModificarAlineacion.guardarFormacion</a></div><div class="ttdeci">void guardarFormacion()</div><div class="ttdef"><b>Definition:</b> <a href="fr_modificar_alineacion_8java_source.html#l00364">frModificarAlineacion.java:364</a></div></div>
+<div class="ttc" id="aclass_biwanger_1_1vistas_1_1fr_modificar_alineacion_html_a01ee6f4ddd8341ffcb97b7b4e8385c4d"><div class="ttname"><a href="class_biwanger_1_1vistas_1_1fr_modificar_alineacion.html#a01ee6f4ddd8341ffcb97b7b4e8385c4d">Biwanger.vistas.frModificarAlineacion.guardarFormacion</a></div><div class="ttdeci">void guardarFormacion()</div><div class="ttdef"><b>Definition:</b> <a href="fr_modificar_alineacion_8java_source.html#l00365">frModificarAlineacion.java:365</a></div></div>
 <div class="ttc" id="aclass_biwanger_1_1vistas_1_1fr_modificar_alineacion_html_a2b6559af54d374d48b82604596c73140"><div class="ttname"><a href="class_biwanger_1_1vistas_1_1fr_modificar_alineacion.html#a2b6559af54d374d48b82604596c73140">Biwanger.vistas.frModificarAlineacion.limpiar</a></div><div class="ttdeci">void limpiar()</div><div class="ttdef"><b>Definition:</b> <a href="fr_modificar_alineacion_8java_source.html#l00284">frModificarAlineacion.java:284</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_5eb159725f84c66aafd839904a4acdd0.html">main</a></li><li class="navelem"><a class="el" href="dir_fd3f6763802dee1ad875f6c80eac0bda.html">java</a></li><li class="navelem"><a class="el" href="dir_04b3c744f5e4338ec0148f0ea5c41e8c.html">Biwanger</a></li><li class="navelem"><a class="el" href="dir_2cbd7c7f6c97c983a5ca6473d65683c0.html">vistas</a></li><li class="navelem"><a class="el" href="fr_modificar_alineacion_8java.html">frModificarAlineacion.java</a></li>
-    <li class="footer">Generado el Lunes, 30 de Diciembre de 2019 11:37:46 para BiwangerFantasy Cliente por
+    <li class="footer">Generado el Lunes, 6 de Enero de 2020 12:46:44 para BiwangerFantasy Cliente por
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
   </ul>
