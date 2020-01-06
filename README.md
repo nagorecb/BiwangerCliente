@@ -55,13 +55,12 @@ Para generar dicha documentación, se debe ejecutar el comando de site:
 $ mvn site
 ```
 Este comando hará lo siguiente:
-* Genera, en la carpeta target, dashboards para los plugins añadidos en la parte de reporting del POM (en la carpeta site): 
+* Generará, en la carpeta target, dashboards para los plugins añadidos en la parte de reporting del POM (en la carpeta site): 
 
         - JaCoCo        
         - Doxygen        
-        - Contiperf
 
-* Genera la documentación completa en la carpeta doc, de manera que pueda ser accedida desde el repositorio de GitHb, y desde la página http://nagorecb.github.io/BiwangerCliente.
+* Generará la documentación completa en la carpeta doc, de manera que pueda ser accedida desde el repositorio de GitHb, y desde la página http://nagorecb.github.io/BiwangerCliente.
 
 ### Equipo 💻
 
