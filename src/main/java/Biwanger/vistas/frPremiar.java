@@ -115,10 +115,7 @@ public class frPremiar extends JFrame implements ActionListener
 					listaUsuarios = controller.premiarTresMejores();
 
 					double fondos;
-	                int num;
-
-	                if (listaUsuarios.size()>3)	num = 3;
-                	else num = listaUsuarios.size();
+	                int num = listaUsuarios.size();
                 	
                 	for (int i =0; i<num;i++)
   	                {
