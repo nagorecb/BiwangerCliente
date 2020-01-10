@@ -1,12 +1,14 @@
 package Biwanger.vistas;
 
 import Biwanger.controladores.clsController;
+import Biwanger.objetosDominio.clsJugador;
 import Biwanger.objetosDominio.clsUsuario;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * Ventana principal del usuario. Le permite acceder a su funcionalidad:
@@ -101,9 +103,20 @@ public class frmPanelUsuario extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                frmClasificacionEquipo ventana = new frmClasificacionEquipo(frame, controller, usuario);
-                ventana.setVisible(true);
-                setVisible(false);
+                ArrayList<clsJugador> plantilla = controller.obtenerPlantilla(usuario);
+
+                if(plantilla.size() == 0)
+                {
+                    JOptionPane.showMessageDialog((Component) e.getSource(),
+                            "No tienes jugadores en tu plantilla",
+                            "Jugadores insuficientes",
+                            JOptionPane.WARNING_MESSAGE);
+                }
+                else {
+                    frmClasificacionEquipo ventana = new frmClasificacionEquipo(frame, controller, usuario);
+                    ventana.setVisible(true);
+                    setVisible(false);
+                }
             }
         });
 
@@ -112,9 +125,21 @@ public class frmPanelUsuario extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                frConsultarAlineacion ventana = new frConsultarAlineacion (frame, controller, usuario);
-                ventana.setVisible(true);
-                setVisible(false);
+                ArrayList<clsJugador> plantilla = controller.obtenerPlantilla(usuario);
+
+                if(plantilla.size() < 12)
+                {
+                    JOptionPane.showMessageDialog((Component) e.getSource(),
+                            "Necesitas tener al menos 11 jugadores en tu plantilla para gestionar la alineación",
+                            "Jugadores insuficientes",
+                            JOptionPane.WARNING_MESSAGE);
+                }
+                else
+                {
+                    frConsultarAlineacion ventana = new frConsultarAlineacion(frame, controller, usuario);
+                    ventana.setVisible(true);
+                    setVisible(false);
+                }
             }
         });
 
@@ -123,9 +148,20 @@ public class frmPanelUsuario extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                frModificarAlineacion ventana = new frModificarAlineacion (frame, controller, usuario);
-                ventana.setVisible(true);
-                setVisible(false);
+                ArrayList<clsJugador> plantilla = controller.obtenerPlantilla(usuario);
+
+                if(plantilla.size() < 12)
+                {
+                    JOptionPane.showMessageDialog((Component) e.getSource(),
+                            "Necesitas tener al menos 11 jugadores en tu plantilla para gestionar la alineación",
+                            "Jugadores insuficientes",
+                            JOptionPane.WARNING_MESSAGE);
+                }
+                else {
+                    frModificarAlineacion ventana = new frModificarAlineacion(frame, controller, usuario);
+                    ventana.setVisible(true);
+                    setVisible(false);
+                }
             }
         });
 
