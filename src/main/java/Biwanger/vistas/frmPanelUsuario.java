@@ -67,7 +67,7 @@ public class frmPanelUsuario extends JFrame
 
         JMenu mnClasificacin = new JMenu("Clasificacion");
         menuBar.add(mnClasificacin);
-        JMenuItem mntmTotal = new JMenuItem("Total");
+        JMenuItem mntmTotal = new JMenuItem("Usuarios");
         mnClasificacin.add(mntmTotal);
         JMenuItem mntmMiEquipo_1 = new JMenuItem("Mi equipo");
         mnClasificacin.add(mntmMiEquipo_1);

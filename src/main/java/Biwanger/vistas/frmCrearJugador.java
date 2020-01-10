@@ -192,7 +192,7 @@ public class frmCrearJugador extends JFrame implements ActionListener {
 					nuevoJugador.setEquipo(equipo);
 					nuevoJugador.setEnVenta(true);
 					LocalDateTime fecha = LocalDateTime.now();
-					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+					DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
 					nuevoJugador.setFechaVenta(fecha.format(formatter));
 					nuevoJugador.setEstado(estado);
 

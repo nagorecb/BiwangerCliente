@@ -63,7 +63,7 @@ public class frmPanelAdmin extends JFrame
         mntmIntroducirPuntuacionJornada = new JMenuItem("Introducir puntuacion jornada");
         mnMenu.add(mntmIntroducirPuntuacionJornada);
 
-        mntmGestionDeMercado = new JMenuItem("Gestion de mercado");
+        mntmGestionDeMercado = new JMenuItem("crear jugador");
         mnMenu.add(mntmGestionDeMercado);
 
 

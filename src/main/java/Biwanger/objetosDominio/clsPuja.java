@@ -34,7 +34,7 @@ public class clsPuja {
 		this.emailUsuarioPuja = usuarioPuja;
 		this.IdJugadorPuja = jugadorPuja;
 		this.oferta = oferta;
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
 		LocalDateTime fecha = LocalDateTime.now();
 		this.fecha = fecha.format(formatter);
 	}
