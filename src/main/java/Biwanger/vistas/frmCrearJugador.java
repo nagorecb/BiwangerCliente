@@ -21,13 +21,15 @@ public class frmCrearJugador extends JFrame implements ActionListener {
 	private JFrame frame;
 
 	private JPanel pPrincipal,panelFormulario, panelGuardar, pNombre, pPosicion, pPrecio, pEquipo, pEstado, pBotonera;
-	private JTextField textFieldNombre, textFieldPosicion, textFieldPrecio, textFieldEquipo;
+	private JTextField textFieldNombre, textFieldPrecio, textFieldEquipo;
 	private JLabel lblNombre, lblPosicion, lblPrecio, lblEquipo, lblEstado, lblCrearNuevoJugador;
 	private JButton botonGuardar, btnVolver;
 	private JComboBox comboPosicion, comboEstado;
 
 	private int anchura = 1066;
 	private int altura = 800;
+
+	double precio;
 
 	/**
 	 * Constructor de la ventana que permite al administrador añadir nuevos jugadores en el sistema.
@@ -164,11 +166,11 @@ public class frmCrearJugador extends JFrame implements ActionListener {
 			{
 				String nombre = textFieldNombre.getText();
 				String posicion = (String) comboPosicion.getSelectedItem();
-				String precio = textFieldPrecio.getText();
+				String precioString = textFieldPrecio.getText();
 				String equipo = textFieldEquipo.getText();
 				String estado = (String) comboEstado.getSelectedItem();
 
-				if(!soloLetras(nombre)||!isDouble(precio))
+				if(!soloLetras(nombre)||parseoPrecio(precioString))
 				{
 					JOptionPane.showMessageDialog(this,
 							"Introduzca valores correctos",
@@ -176,7 +178,8 @@ public class frmCrearJugador extends JFrame implements ActionListener {
 							JOptionPane.WARNING_MESSAGE);
 				}
 
-				else if (nombre.equals("")||posicion.equals("")||precio.equals("")||equipo.equals("")||estado.equals(""))
+
+				else if (nombre.equals("")||posicion.equals("")||precioString.equals("")||equipo.equals("")||estado.equals(""))
 				{
 					JOptionPane.showMessageDialog(this,
 							"Rellene todos los campos",
@@ -188,7 +191,7 @@ public class frmCrearJugador extends JFrame implements ActionListener {
 					clsJugador nuevoJugador = new clsJugador();
 					nuevoJugador.setNombre(nombre);
 					nuevoJugador.setPosicion(posicion);
-					nuevoJugador.setPrecio(Integer.valueOf(precio));
+					nuevoJugador.setPrecio(precio);
 					nuevoJugador.setEquipo(equipo);
 					nuevoJugador.setEnVenta(true);
 					LocalDateTime fecha = LocalDateTime.now();
@@ -247,5 +250,22 @@ public class frmCrearJugador extends JFrame implements ActionListener {
 				return false; //Se ha encontrado un caracter que no es letra
 		}
 		return true;
+	}
+
+	/**
+	 * Realiza el parseo de String a Double
+	 * @param texto Recibe un String con el precio
+	 * @return Devuelve un Double con el precio
+	 */
+	public boolean parseoPrecio (String texto)
+	{
+		try {
+			precio = Double.parseDouble(texto);
+			return true;
+		}
+		catch( NumberFormatException e1 ) {
+
+			return false;
+		}
 	}
 }

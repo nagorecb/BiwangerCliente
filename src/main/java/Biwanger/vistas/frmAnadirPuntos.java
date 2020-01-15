@@ -109,12 +109,18 @@ public class frmAnadirPuntos extends JFrame implements ActionListener {
 		pPuntos.add(pTexto, gbc_pTexto);
 		lblPuntos = new JLabel("Puntos a añadir:");
 		pTexto.add(lblPuntos);
+		JLabel lblTarjetas = new JLabel("Tarjetas amarillas a añadir:");
+		pTexto.add(lblTarjetas);
 
 		tfPuntos = new JTextField();
 		tfPuntos.addActionListener(this);
 		tfPuntos.setActionCommand("Puntos");
 		pTexto.add(tfPuntos);
 		tfPuntos.setColumns(10);
+
+		JTextField tfTarjetas = new JTextField();
+		pTexto.add(tfTarjetas);
+		tfTarjetas.setColumns(10);
 
 		btnPuntos = new JButton("Añadir puntos");
 		btnPuntos.addActionListener(this);
