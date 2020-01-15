@@ -14,7 +14,7 @@ digraph "Biwanger.vistas.frModificarAlineacion"
   Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" medios\ndefensas\nplantilla\ndelanteros" ,fontname="Helvetica"];
   Node5 [label="ArrayList\< Biwanger.objetos\lDominio.clsJugador \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node6 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" controller" ,fontname="Helvetica"];
-  Node6 [label="Biwanger.controladores.cls\lController",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1controladores_1_1cls_controller.html",tooltip=" "];
+  Node6 [label="Biwanger.controladores.cls\lController",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1controladores_1_1cls_controller.html",tooltip="Clase para la conexión y comunicación con la parte servidora del proyecto."];
   Node7 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" pCampo\npMedio\npDefensa\npFormacion\nsuperior\npPortero\npDelantero" ,fontname="Helvetica"];
   Node7 [label="JPanel",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
 }

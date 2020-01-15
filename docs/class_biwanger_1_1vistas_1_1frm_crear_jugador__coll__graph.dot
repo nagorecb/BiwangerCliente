@@ -10,7 +10,7 @@ digraph "Biwanger.vistas.frmCrearJugador"
   Node3 [label="ActionListener",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" btnVolver" ,fontname="Helvetica"];
   Node4 [label="JButton",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" textFieldPrecio\ntextFieldEquipo\ntextFieldPosicion" ,fontname="Helvetica"];
+  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" textFieldPrecio\ntextFieldEquipo" ,fontname="Helvetica"];
   Node5 [label="JTextField",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node6 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" comboEstado" ,fontname="Helvetica"];
   Node6 [label="JComboBox",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];

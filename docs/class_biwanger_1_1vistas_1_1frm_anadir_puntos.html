@@ -114,8 +114,8 @@ Métodos públicos</h2></td></tr>
 <tr class="separator:ae98f4b80c64cf139e5d2e73dfaa1452d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d4cdb4dd0ab7d4746304a424dbd65bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_biwanger_1_1vistas_1_1frm_anadir_puntos.html#a9d4cdb4dd0ab7d4746304a424dbd65bb">actionPerformed</a> (ActionEvent e)</td></tr>
 <tr class="separator:a9d4cdb4dd0ab7d4746304a424dbd65bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fe470523fc61f861347f1a5ad10b85d"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_biwanger_1_1vistas_1_1frm_anadir_puntos.html#a0fe470523fc61f861347f1a5ad10b85d">isNumeric</a> (String texto)</td></tr>
-<tr class="separator:a0fe470523fc61f861347f1a5ad10b85d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4993e7b99cfd2c1b7e882e164830493"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_biwanger_1_1vistas_1_1frm_anadir_puntos.html#ae4993e7b99cfd2c1b7e882e164830493">isNumeric</a> (String texto, String cambio)</td></tr>
+<tr class="separator:ae4993e7b99cfd2c1b7e882e164830493"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
 <div class="textblock"><p>Ventana que permite al administrador añadir puntuación a los jugadores. </p>
@@ -155,7 +155,7 @@ Métodos públicos</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definición en la línea <a class="el" href="frm_anadir_puntos_8java_source.html#l00041">41</a> del archivo <a class="el" href="frm_anadir_puntos_8java_source.html">frmAnadirPuntos.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="frm_anadir_puntos_8java_source.html#l00046">46</a> del archivo <a class="el" href="frm_anadir_puntos_8java_source.html">frmAnadirPuntos.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas para esta función:</div>
 <div class="dyncontent">
@@ -182,7 +182,7 @@ Gráfico de llamadas para esta función:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="frm_anadir_puntos_8java_source.html#l00132">132</a> del archivo <a class="el" href="frm_anadir_puntos_8java_source.html">frmAnadirPuntos.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="frm_anadir_puntos_8java_source.html#l00196">196</a> del archivo <a class="el" href="frm_anadir_puntos_8java_source.html">frmAnadirPuntos.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas para esta función:</div>
 <div class="dyncontent">
@@ -192,8 +192,8 @@ Gráfico de llamadas para esta función:</div>
 
 </div>
 </div>
-<a id="a0fe470523fc61f861347f1a5ad10b85d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fe470523fc61f861347f1a5ad10b85d">&#9670;&nbsp;</a></span>isNumeric()</h2>
+<a id="ae4993e7b99cfd2c1b7e882e164830493"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4993e7b99cfd2c1b7e882e164830493">&#9670;&nbsp;</a></span>isNumeric()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -202,24 +202,35 @@ Gráfico de llamadas para esta función:</div>
           <td class="memname">boolean Biwanger.vistas.frmAnadirPuntos.isNumeric </td>
           <td>(</td>
           <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>texto</em></td><td>)</td>
+          <td class="paramname"><em>texto</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>cambio</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Realiza el parseo de String a Integer </p><dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">texto</td><td>Recibe un String con los puntos </td></tr>
+    <tr><td class="paramname">cambio</td><td>define qué se parsea </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Devuelve</dt><dd>Devuelve un true en caso de que sea Integer, false en caso contrario </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="frm_anadir_puntos_8java_source.html#l00179">179</a> del archivo <a class="el" href="frm_anadir_puntos_8java_source.html">frmAnadirPuntos.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="frm_anadir_puntos_8java_source.html#l00244">244</a> del archivo <a class="el" href="frm_anadir_puntos_8java_source.html">frmAnadirPuntos.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas a esta función:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_biwanger_1_1vistas_1_1frm_anadir_puntos_a0fe470523fc61f861347f1a5ad10b85d_icgraph.png" border="0" usemap="#class_biwanger_1_1vistas_1_1frm_anadir_puntos_a0fe470523fc61f861347f1a5ad10b85d_icgraph" alt=""/></div>
+<div class="center"><img src="class_biwanger_1_1vistas_1_1frm_anadir_puntos_ae4993e7b99cfd2c1b7e882e164830493_icgraph.png" border="0" usemap="#class_biwanger_1_1vistas_1_1frm_anadir_puntos_ae4993e7b99cfd2c1b7e882e164830493_icgraph" alt=""/></div>
 <!-- MAP 4 -->
 </div>
 
@@ -234,7 +245,7 @@ Gráfico de llamadas a esta función:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_biwanger.html">Biwanger</a></li><li class="navelem"><a class="el" href="namespace_biwanger_1_1vistas.html">vistas</a></li><li class="navelem"><a class="el" href="class_biwanger_1_1vistas_1_1frm_anadir_puntos.html">frmAnadirPuntos</a></li>
-    <li class="footer">Generado el Lunes, 6 de Enero de 2020 12:46:51 para BiwangerFantasy Cliente por
+    <li class="footer">Generado el Miércoles, 15 de Enero de 2020 17:15:58 para BiwangerFantasy Cliente por
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
   </ul>

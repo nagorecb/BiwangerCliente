@@ -1,7 +1,7 @@
 var class_biwanger_1_1controladores_1_1cls_controller =
 [
     [ "clsController", "class_biwanger_1_1controladores_1_1cls_controller.html#a9d9891cdca70cdbeb120195c3c79dcd6", null ],
-    [ "anadirPuntos", "class_biwanger_1_1controladores_1_1cls_controller.html#ad3f09ffeb5d5b550480a6663aad88bfc", null ],
+    [ "anadirPuntos", "class_biwanger_1_1controladores_1_1cls_controller.html#ab1f3a1590cde1a17a20176a6f084dee0", null ],
     [ "clasificacionUsuarios", "class_biwanger_1_1controladores_1_1cls_controller.html#af1ee72f859fa8b1958ba6fb342e8d9f1", null ],
     [ "clasificaconEquipo", "class_biwanger_1_1controladores_1_1cls_controller.html#a9cf607243fa14b1e6eda7028c41a3d73", null ],
     [ "guardarNuevoJugador", "class_biwanger_1_1controladores_1_1cls_controller.html#aadd128e70163f055043799c14304f904", null ],

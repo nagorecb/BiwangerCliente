@@ -6,11 +6,11 @@ digraph "Biwanger.vistas.frmAnadirPuntos.actionPerformed"
   rankdir="LR";
   Node1 [label="Biwanger.vistas.frmAnadir\lPuntos.actionPerformed",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="Biwanger.controladores.cls\lController.anadirPuntos",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1controladores_1_1cls_controller.html#ad3f09ffeb5d5b550480a6663aad88bfc",tooltip=" "];
+  Node2 [label="Biwanger.controladores.cls\lController.anadirPuntos",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1controladores_1_1cls_controller.html#ab1f3a1590cde1a17a20176a6f084dee0",tooltip=" "];
   Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node3 [label="Biwanger.objetosDominio.cls\lJugador.getId",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1objetos_dominio_1_1cls_jugador.html#af96beb689a99bf25e4d3313bd309fb82",tooltip=" "];
   Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node4 [label="Biwanger.Remote.clsService\lLocator.getservice",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1_remote_1_1cls_service_locator.html#ab5887258804ee4871414885b9482a13b",tooltip=" "];
   Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="Biwanger.vistas.frmAnadir\lPuntos.isNumeric",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1vistas_1_1frm_anadir_puntos.html#a0fe470523fc61f861347f1a5ad10b85d",tooltip=" "];
+  Node5 [label="Biwanger.vistas.frmAnadir\lPuntos.isNumeric",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_biwanger_1_1vistas_1_1frm_anadir_puntos.html#ae4993e7b99cfd2c1b7e882e164830493",tooltip=" "];
 }

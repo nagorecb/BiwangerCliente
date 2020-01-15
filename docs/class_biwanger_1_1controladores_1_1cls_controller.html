@@ -95,6 +95,9 @@ $(document).ready(function(){initNavTree('class_biwanger_1_1controladores_1_1cls
 <div class="title">Referencia de la Clase Biwanger.controladores.clsController</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Clase para la conexión y comunicación con la parte servidora del proyecto.  
+ <a href="class_biwanger_1_1controladores_1_1cls_controller.html#details">Más...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos públicos</h2></td></tr>
@@ -116,8 +119,8 @@ Métodos públicos</h2></td></tr>
 <tr class="separator:a3e0625cf7f356ea3369fa16e3337ab2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a314bb6657cce78b07c3b433f82f2be71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_biwanger_1_1controladores_1_1cls_controller.html#a314bb6657cce78b07c3b433f82f2be71">venderJugador</a> (double precio, <a class="el" href="class_biwanger_1_1objetos_dominio_1_1cls_jugador.html">clsJugador</a> jugadorVenta)</td></tr>
 <tr class="separator:a314bb6657cce78b07c3b433f82f2be71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3f09ffeb5d5b550480a6663aad88bfc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_biwanger_1_1controladores_1_1cls_controller.html#ad3f09ffeb5d5b550480a6663aad88bfc">anadirPuntos</a> (<a class="el" href="class_biwanger_1_1objetos_dominio_1_1cls_jugador.html">clsJugador</a> jugador, int puntos)</td></tr>
-<tr class="separator:ad3f09ffeb5d5b550480a6663aad88bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1f3a1590cde1a17a20176a6f084dee0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_biwanger_1_1controladores_1_1cls_controller.html#ab1f3a1590cde1a17a20176a6f084dee0">anadirPuntos</a> (<a class="el" href="class_biwanger_1_1objetos_dominio_1_1cls_jugador.html">clsJugador</a> jugador, int puntos, int asistencias, int goles, int partidos, int TA, int TR)</td></tr>
+<tr class="separator:ab1f3a1590cde1a17a20176a6f084dee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadd128e70163f055043799c14304f904"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_biwanger_1_1controladores_1_1cls_controller.html#aadd128e70163f055043799c14304f904">guardarNuevoJugador</a> (<a class="el" href="class_biwanger_1_1objetos_dominio_1_1cls_jugador.html">clsJugador</a> nuevoJugador)</td></tr>
 <tr class="separator:aadd128e70163f055043799c14304f904"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e35592049704e990f546b22984a3dff"><td class="memItemLeft" align="right" valign="top">ArrayList&lt; <a class="el" href="class_biwanger_1_1objetos_dominio_1_1cls_usuario.html">clsUsuario</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_biwanger_1_1controladores_1_1cls_controller.html#a1e35592049704e990f546b22984a3dff">obtenerTodosUsuarios</a> ()</td></tr>
@@ -132,8 +135,9 @@ Métodos públicos</h2></td></tr>
 <tr class="separator:a5df708f28d5e8f20eca5fcb4f1492e80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
-<div class="textblock">
-<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00017">17</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
+<div class="textblock"><p>Clase para la conexión y comunicación con la parte servidora del proyecto. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00020">20</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
 </div><h2 class="groupheader">Documentación del constructor y destructor</h2>
 <a id="a9d9891cdca70cdbeb120195c3c79dcd6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9d9891cdca70cdbeb120195c3c79dcd6">&#9670;&nbsp;</a></span>clsController()</h2>
@@ -160,8 +164,16 @@ Métodos públicos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructor de la clase <a class="el" href="class_biwanger_1_1controladores_1_1cls_controller.html" title="Clase para la conexión y comunicación con la parte servidora del proyecto.">clsController</a> en el que se inicializa el Service Locator, indicandole el hostname y el puerto. Asimismo, arranca la aplicación en la vista "Inicio de sesión".</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hostname</td><td>Nombre del host </td></tr>
+    <tr><td class="paramname">port</td><td>Puerto </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00021">21</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00031">31</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas para esta función:</div>
 <div class="dyncontent">
@@ -171,8 +183,8 @@ Gráfico de llamadas para esta función:</div>
 </div>
 </div>
 <h2 class="groupheader">Documentación de las funciones miembro</h2>
-<a id="ad3f09ffeb5d5b550480a6663aad88bfc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3f09ffeb5d5b550480a6663aad88bfc">&#9670;&nbsp;</a></span>anadirPuntos()</h2>
+<a id="ab1f3a1590cde1a17a20176a6f084dee0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1f3a1590cde1a17a20176a6f084dee0">&#9670;&nbsp;</a></span>anadirPuntos()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -187,7 +199,37 @@ Gráfico de llamadas para esta función:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>puntos</em>&#160;</td>
+          <td class="paramname"><em>puntos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>asistencias</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>goles</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>partidos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>TA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>TR</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -196,17 +238,29 @@ Gráfico de llamadas para esta función:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Método para registrar cambios en los jugadores tras la jornada </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jugador</td><td>Jugador al que se le añadirán los puntos </td></tr>
+    <tr><td class="paramname">puntos</td><td>puntos a sumar </td></tr>
+    <tr><td class="paramname">asistencias</td><td>asistenacias a sumar </td></tr>
+    <tr><td class="paramname">goles</td><td>goles a sumar </td></tr>
+    <tr><td class="paramname">partidos</td><td>partidos a sumar </td></tr>
+    <tr><td class="paramname">TA</td><td>tarjetas amarillas a sumar </td></tr>
+    <tr><td class="paramname">TR</td><td>tarjetas rojas a sumar </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00186">186</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00248">248</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas para esta función:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_biwanger_1_1controladores_1_1cls_controller_ad3f09ffeb5d5b550480a6663aad88bfc_cgraph.png" border="0" usemap="#class_biwanger_1_1controladores_1_1cls_controller_ad3f09ffeb5d5b550480a6663aad88bfc_cgraph" alt=""/></div>
+<div class="center"><img src="class_biwanger_1_1controladores_1_1cls_controller_ab1f3a1590cde1a17a20176a6f084dee0_cgraph.png" border="0" usemap="#class_biwanger_1_1controladores_1_1cls_controller_ab1f3a1590cde1a17a20176a6f084dee0_cgraph" alt=""/></div>
 </div>
 <div class="dynheader">
 Gráfico de llamadas a esta función:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_biwanger_1_1controladores_1_1cls_controller_ad3f09ffeb5d5b550480a6663aad88bfc_icgraph.png" border="0" usemap="#class_biwanger_1_1controladores_1_1cls_controller_ad3f09ffeb5d5b550480a6663aad88bfc_icgraph" alt=""/></div>
+<div class="center"><img src="class_biwanger_1_1controladores_1_1cls_controller_ab1f3a1590cde1a17a20176a6f084dee0_icgraph.png" border="0" usemap="#class_biwanger_1_1controladores_1_1cls_controller_ab1f3a1590cde1a17a20176a6f084dee0_icgraph" alt=""/></div>
 </div>
 
 </div>
@@ -225,8 +279,9 @@ Gráfico de llamadas a esta función:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Método que realiza la petición para obtener la clasificación de los usuarios registrados en el sistema </p><dl class="section return"><dt>Devuelve</dt><dd>Lista de usuarios ordenada en base a su puntuación actual </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00280">280</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00368">368</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas para esta función:</div>
 <div class="dyncontent">
@@ -255,8 +310,15 @@ Gráfico de llamadas a esta función:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Método que realiza la petición para obtener la clasificación de jugadores de un usuario </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>Dirección de correo electrónico identificativo del usuario </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Lista de jugadores del usuario ordenada </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00260">260</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00345">345</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas para esta función:</div>
 <div class="dyncontent">
@@ -285,8 +347,15 @@ Gráfico de llamadas a esta función:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Método que se encarga de guardar en el sistema un nuevo jugador</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nuevoJugador</td><td>Datos del nuevo jugador a guardar </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00203">203</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00274">274</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas para esta función:</div>
 <div class="dyncontent">
@@ -325,8 +394,17 @@ Gráfico de llamadas a esta función:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Método para el inicio de sesión en la aplicación, indicando el email introducido por el usuario y la contraseña.</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>Dirección de correo electrónico identificativo del usuario </td></tr>
+    <tr><td class="paramname">password</td><td>Contraseña </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>usuario correspondiente al email y contraseña indicados </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00030">30</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00047">47</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas para esta función:</div>
 <div class="dyncontent">
@@ -355,8 +433,14 @@ Gráfico de llamadas a esta función:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Método que modifica la alineación de un usuario, indicando los jugadores que este desea que formen parte de la alineación. </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plantilla</td><td>Lista de jugadores </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00095">95</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00129">129</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas para esta función:</div>
 <div class="dyncontent">
@@ -385,8 +469,14 @@ Gráfico de llamadas a esta función:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Método que modifica la formación de un usuario dado </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">usuario</td><td>Usuario cuya formación se procederá a modificar </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00113">113</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00151">151</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas para esta función:</div>
 <div class="dyncontent">
@@ -414,8 +504,9 @@ Gráfico de llamadas a esta función:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Metodo para mostrar los jugadores que forman parte actualmente del mercado de fichajes </p><dl class="section return"><dt>Devuelve</dt><dd>Lista de jugadores que están actualmente en venta </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00129">129</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00171">171</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas para esta función:</div>
 <div class="dyncontent">
@@ -444,8 +535,15 @@ Gráfico de llamadas a esta función:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Método que realiza la petición para obtener la plantilla de un usuario dado </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">usuario</td><td>Usuario del que se desea obtener la plantilla </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Lista de jugadores que conforman la plantilla </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00300">300</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00392">392</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas para esta función:</div>
 <div class="dyncontent">
@@ -473,8 +571,10 @@ Gráfico de llamadas a esta función:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Método que devuelve la lista de usuarios registrados en el sistema</p>
+<dl class="section return"><dt>Devuelve</dt><dd>Lista de usuarios del sistema </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00240">240</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00320">320</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas para esta función:</div>
 <div class="dyncontent">
@@ -502,8 +602,10 @@ Gráfico de llamadas a esta función:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Método que devuelve la lista de usuarios registrados en el sistema</p>
+<dl class="section return"><dt>Devuelve</dt><dd>Lista de usuarios del sistema </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00220">220</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00295">295</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas para esta función:</div>
 <div class="dyncontent">
@@ -531,8 +633,10 @@ Gráfico de llamadas a esta función:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Método que premia a los tres mejores usuarios de la jornada</p>
+<dl class="section return"><dt>Devuelve</dt><dd>lista de usuarios del sistema </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00076">76</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00105">105</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas para esta función:</div>
 <div class="dyncontent">
@@ -561,8 +665,15 @@ Gráfico de llamadas a esta función:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Método que registra una nueva puja en el sistema </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">puja</td><td>Puja a guardar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Booleano que indica si la puja se ha almacenado correctamente en el sistema o no </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00149">149</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00196">196</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas para esta función:</div>
 <div class="dyncontent">
@@ -601,8 +712,17 @@ Gráfico de llamadas a esta función:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Método para el registro en la aplicación, pasando como parámetro el email y contraseña indicados por el usuario.</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>Dirección de correo electrónico identificativo del usuario </td></tr>
+    <tr><td class="paramname">password</td><td>Contraseña </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>texto que indica si el registro se ha realizado correctamente o no </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00053">53</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00077">77</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas para esta función:</div>
 <div class="dyncontent">
@@ -641,8 +761,15 @@ Gráfico de llamadas a esta función:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Método para proceder a la venta de un jugador, al precio indicado por el usuario </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">precio</td><td>Precio de venta del jugador </td></tr>
+    <tr><td class="paramname">jugadorVenta</td><td>Jugador que se desea poner a la venta </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00169">169</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="cls_controller_8java_source.html#l00221">221</a> del archivo <a class="el" href="cls_controller_8java_source.html">clsController.java</a>.</p>
 <div class="dynheader">
 Gráfico de llamadas para esta función:</div>
 <div class="dyncontent">
@@ -665,7 +792,7 @@ Gráfico de llamadas a esta función:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_biwanger.html">Biwanger</a></li><li class="navelem"><a class="el" href="namespace_biwanger_1_1controladores.html">controladores</a></li><li class="navelem"><a class="el" href="class_biwanger_1_1controladores_1_1cls_controller.html">clsController</a></li>
-    <li class="footer">Generado el Lunes, 6 de Enero de 2020 12:46:47 para BiwangerFantasy Cliente por
+    <li class="footer">Generado el Miércoles, 15 de Enero de 2020 17:15:51 para BiwangerFantasy Cliente por
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
   </ul>
