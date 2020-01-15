@@ -17,11 +17,11 @@ import Biwanger.objetosDominio.clsJugador;
 public class frmAnadirPuntos extends JFrame implements ActionListener {
 	private int altura = 800;
 	private int anchura = 1066;
-	private JPanel pPrincipal, pBotonera, pLista, pContenido, pPuntos, pTexto;
-	private JLabel lblNewLabel, lblPuntos;
+	private JPanel pPrincipal, pBotonera, pLista, pContenido, pPuntos;
+	private JLabel lblNewLabel, lblPuntos, lblAsistencias, lblGoles, lblPartidos, lblTA, lblTR;
 	private JButton btnPuntos, btnVolver;
 	private JScrollPane scroll;
-	private JTextField tfPuntos;
+	private JTextField tfPuntos, tfAsistencias, tfGoles, tfPartidos, tfTA, tfTR;
 	private JList listaJugadores;
 
 	private ArrayList<clsJugador> jugadores;
@@ -29,6 +29,11 @@ public class frmAnadirPuntos extends JFrame implements ActionListener {
 
 	private clsController controller;
 	private int puntos;
+	private int asistencias;
+	private int goles;
+	private int partidos;
+	private int TA;
+	private int TR;
 	private clsJugador jugadorPuntos;
 
 	private JFrame panelAdmin;
@@ -56,6 +61,9 @@ public class frmAnadirPuntos extends JFrame implements ActionListener {
 		pBotonera = new JPanel();
 		pPrincipal.add(pBotonera, BorderLayout.NORTH);
 		pBotonera.setLayout(new BorderLayout(0, 0));
+
+		pPuntos = new JPanel();
+		pPuntos.setLayout(null);
 
 		btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(this);
@@ -91,47 +99,97 @@ public class frmAnadirPuntos extends JFrame implements ActionListener {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		pLista.add(lblNewLabel, BorderLayout.NORTH);
 
-		pPuntos = new JPanel();
-		pContenido.add(pPuntos);
-		GridBagLayout gbl_pVenta = new GridBagLayout();
-		gbl_pVenta.columnWidths = new int[]{533, 0};
-		gbl_pVenta.rowHeights = new int[]{777, 0};
-		gbl_pVenta.columnWeights = new double[]{0.0, Double.MIN_VALUE};
-		gbl_pVenta.rowWeights = new double[]{0.0, Double.MIN_VALUE};
-		pPuntos.setLayout(gbl_pVenta);
-		pPuntos.setBorder(new EmptyBorder(0, 50, 0, 50));
+		//Label Puntos
+		lblPuntos = new JLabel ("Puntos a añadir: ");
+		lblPuntos.setBounds(28, 67, 136, 28);
+		lblPuntos.setForeground(Color.white);
+		pPuntos.add(lblPuntos);
 
-		pTexto = new JPanel();
-		GridBagConstraints gbc_pTexto = new GridBagConstraints();
-		gbc_pTexto.fill = GridBagConstraints.HORIZONTAL;
-		gbc_pTexto.gridx = 0;
-		gbc_pTexto.gridy = 0;
-		pPuntos.add(pTexto, gbc_pTexto);
-		lblPuntos = new JLabel("Puntos a añadir:");
-		pTexto.add(lblPuntos);
-		JLabel lblTarjetas = new JLabel("Tarjetas amarillas a añadir:");
-		pTexto.add(lblTarjetas);
+		//TextField Puntos
+		tfPuntos = new JTextField("0");
+		tfPuntos.setLocation(168, 64);
+		tfPuntos.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		tfPuntos.setSize(136, 31);
+		pPuntos.add(tfPuntos);
 
-		tfPuntos = new JTextField();
-		tfPuntos.addActionListener(this);
-		tfPuntos.setActionCommand("Puntos");
-		pTexto.add(tfPuntos);
-		tfPuntos.setColumns(10);
+		//Label asis
+		lblAsistencias = new JLabel ("Asistencias a añadir: ");
+		lblAsistencias.setBounds(28, 103, 170, 28);
+		lblAsistencias.setForeground(Color.white);
+		pPuntos.add(lblAsistencias);
 
-		JTextField tfTarjetas = new JTextField();
-		pTexto.add(tfTarjetas);
-		tfTarjetas.setColumns(10);
+		//TextField Asis
+		tfAsistencias = new JTextField("0");
+		tfAsistencias.setLocation(178, 100);
+		tfAsistencias.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		tfAsistencias.setSize(125, 31);
+		pPuntos.add(tfAsistencias);
 
-		btnPuntos = new JButton("Añadir puntos");
+		//Label Goles
+		lblGoles = new JLabel ("Goles a añadir: ");
+		lblGoles.setBounds(28, 139, 170, 28);
+		lblGoles.setForeground(Color.white);
+		pPuntos.add(lblGoles);
+
+		//TextField Goles
+		tfGoles = new JTextField("0");
+		tfGoles.setLocation(141, 136);
+		tfGoles.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		tfGoles.setSize(163, 31);
+		pPuntos.add(tfGoles);
+
+		//Label Partidos
+		lblPartidos = new JLabel ("Partidos a añadir: ");
+		lblPartidos.setBounds(28, 173, 170, 28);
+		lblPartidos.setForeground(Color.white);
+		pPuntos.add(lblPartidos);
+
+		//TextField Partidos
+		tfPartidos = new JTextField("0");
+		tfPartidos.setLocation(168, 170);
+		tfPartidos.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		tfPartidos.setSize(136, 31);
+		pPuntos.add(tfPartidos);
+
+		//Label TA
+		lblTA = new JLabel ("Tarj. amarillas a añadir: ");
+		lblTA.setBounds(28, 211, 175, 28);
+		lblTA.setForeground(Color.white);
+		pPuntos.add(lblTA);
+
+		//TextField TA
+		tfTA = new JTextField("0");
+		tfTA.setLocation(215, 208);
+		tfTA.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		tfTA.setSize(85, 31);
+		pPuntos.add(tfTA);
+
+		//Label TR
+		lblTR = new JLabel ("Tarj. rojas a añadir: ");
+		lblTR.setBounds(28, 251, 175, 28);
+		lblTR.setForeground(Color.white);
+		pPuntos.add(lblTR);
+
+		//TextField TR
+		tfTR = new JTextField("0");
+		tfTR.setLocation(215, 248);
+		tfTR.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		tfTR.setSize(85, 31);
+		pPuntos.add(tfTR);
+
+		btnPuntos = new JButton("Añadir");
+		btnPuntos.setBounds(107, 322, 125, 28);
 		btnPuntos.addActionListener(this);
 		btnPuntos.setActionCommand("AÑADIR");
-		pTexto.add(btnPuntos);
+		pPuntos.add(btnPuntos);
+
+		pContenido.add(pPuntos);
 
 		pBotonera.setOpaque(false);
 		pContenido.setOpaque(false);
 		pLista.setOpaque(false);
 		pPuntos.setOpaque(false);
-		pTexto.setBackground(Color.white);
+
 	}
 
 	@Override
@@ -139,10 +197,10 @@ public class frmAnadirPuntos extends JFrame implements ActionListener {
 		switch(e.getActionCommand())
 		{
 			case "AÑADIR":
-				if((tfPuntos.getText().equals(""))||(!isNumeric(tfPuntos.getText())))
+				if((tfPuntos.getText().equals(""))||!isNumeric(tfPuntos.getText(),"PUNTOS") && (tfGoles.getText().equals(""))||!isNumeric(tfGoles.getText(), "GOLES") &&  (tfAsistencias.getText().equals(""))||!isNumeric(tfAsistencias.getText(), "ASIST") && (tfPartidos.getText().equals(""))||!isNumeric(tfPartidos.getText(), "PARTIDOS") && (tfTA.getText().equals(""))||!isNumeric(tfTA.getText(), "TA") && (tfTR.getText().equals(""))||!isNumeric(tfTR.getText(), "TR"))
 				{
 					JOptionPane.showMessageDialog(this,
-							"Inserta un valor correcto al puntuar",
+							"Inserta valores correctos",
 							"Valor erroneo",
 							JOptionPane.WARNING_MESSAGE);
 				}
@@ -157,7 +215,7 @@ public class frmAnadirPuntos extends JFrame implements ActionListener {
 				{
 					int index = listaJugadores.getSelectedIndex();
 					clsJugador jugador = jugadores.get(index);
-					controller.anadirPuntos(jugador, puntos);
+					controller.anadirPuntos(jugador, puntos, asistencias, goles, partidos, TA, TR);
 
 					JOptionPane.showMessageDialog(this,
 							"Puntos añadidos con éxito",
@@ -180,13 +238,41 @@ public class frmAnadirPuntos extends JFrame implements ActionListener {
 	/**
 	 * Realiza el parseo de String a Integer
 	 * @param texto Recibe un String con los puntos
+	 * @param cambio define qué se parsea
 	 * @return Devuelve un true en caso de que sea Integer, false en caso contrario
 	 */
-	public boolean isNumeric(String texto)
+	public boolean isNumeric(String texto, String cambio)
 	{
 		try {
-			puntos = Integer.parseInt(texto);
-			return true;
+			switch(cambio)
+			{
+				case "PUNTOS":
+					puntos = Integer.parseInt(texto);
+					return true;
+
+				case "ASIST":
+					asistencias = Integer.parseInt(texto);
+					return true;
+
+				case "GOLES":
+					goles = Integer.parseInt(texto);
+					return true;
+
+				case "PARTIDOS":
+					partidos = Integer.parseInt(texto);
+					return true;
+
+				case "TA":
+					TA = Integer.parseInt(texto);
+					return true;
+
+				case "TR":
+					TR = Integer.parseInt(texto);
+					return true;
+
+				default:
+					return false;
+			}
 		}
 		catch( NumberFormatException e1 ) {
 			return false;
