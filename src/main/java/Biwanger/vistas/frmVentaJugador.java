@@ -17,7 +17,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
- * Ventana que premite poner un jugador en venta
+ * @brief Ventana que premite poner un jugador en venta
  */
 public class frmVentaJugador extends JFrame implements ActionListener, ListSelectionListener
 {

@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 /**
- *  Ventana que permite consultar los datos de los jugadores del usuario. Datos de los jugadores que se pueden consultar:
+ * @brief  Ventana que permite consultar los datos de los jugadores del usuario. Datos de los jugadores que se pueden consultar:
  *  - Nombre
  *  - Posición
  *  - Equipo

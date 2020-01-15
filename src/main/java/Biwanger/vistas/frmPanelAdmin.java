@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Ventana principal del administrador. Le permite acceder a sus funcionalidades:
+ * @brief Ventana principal del administrador. Le permite acceder a sus funcionalidades:
  * - Premiar a los tres usuarios con mayor puntuación
  * - Introducir puntuación de jugadores
  * - Añadir nuevos jugadores en el sistema

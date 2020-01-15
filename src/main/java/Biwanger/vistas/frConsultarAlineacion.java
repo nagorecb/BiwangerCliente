@@ -17,7 +17,7 @@ import java.awt.GridLayout;
 import java.awt.Color;
 
 /**
- * Ventana que permite al usuario consultar la alineación de sus jugadores.
+ * @brief Ventana que permite al usuario consultar la alineación de sus jugadores.
  */
 public class frConsultarAlineacion extends JFrame implements ActionListener
 {	

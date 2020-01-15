@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
- * Ventana principal del usuario. Le permite acceder a su funcionalidad:
+ * @brief Ventana principal del usuario. Le permite acceder a su funcionalidad:
  * - Consultar la clasificación de sus jugadores
  * -
  */

@@ -19,7 +19,7 @@ import Biwanger.controladores.*;
 import java.awt.Font;
 
 /**
- * Ventana de registro. Permite registrarse al usuario.
+ * @brief Ventana de registro. Permite registrarse al usuario.
  */
 public class frmRegistro extends JFrame implements ActionListener
 {

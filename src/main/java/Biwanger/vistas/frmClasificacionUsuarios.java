@@ -10,7 +10,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
+/**
+ * @brief Ventana para mostrar los usuarios ordenados por puntos
+ */
 public class frmClasificacionUsuarios extends JFrame implements ActionListener
 {
     private JPanel pBotonera;
@@ -27,6 +29,11 @@ public class frmClasificacionUsuarios extends JFrame implements ActionListener
     private JFrame panelUsuario;
     private ArrayList<clsUsuario> lUsuarios;
 
+    /**
+     * Constructor de la ventana
+     * @param frame Recibe la ventana principal del que se le ha llamado
+     * @param controller Recibe el controlador para añadir la funcionalidad
+     */
     public frmClasificacionUsuarios(JFrame frame, clsController controller)
     {
         this.controller = controller;

@@ -19,7 +19,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
- * Ventana que permite pujar al usuario
+ * @brief Ventana que permite pujar al usuario
  */
 public class frmPujar extends JFrame implements ActionListener, ListSelectionListener
 {

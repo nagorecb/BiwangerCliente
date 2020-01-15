@@ -11,7 +11,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
+/**
+ * @brief Ventana para mostrar los jugadores de la plantilla del usuario ordenados por puntos
+ */
 public class frmClasificacionEquipo extends JFrame implements ActionListener
 {
     private JPanel pBotonera;
@@ -27,7 +29,11 @@ public class frmClasificacionEquipo extends JFrame implements ActionListener
 
     private JFrame panelUsuario;
     private ArrayList<clsJugador> lJugadores;
-
+    /**
+     * Constructor de la ventana
+     * @param frame Recibe la ventana principal del que se le ha llamado
+     * @param controller Recibe el controlador para añadir la funcionalidad
+     */
     public frmClasificacionEquipo(JFrame frame, clsController controller, clsUsuario usuario)
     {
         this.controller = controller;

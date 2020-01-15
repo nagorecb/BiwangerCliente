@@ -5,7 +5,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
- * Panel con una imagen de fondo
+ * @brief Panel con una imagen de fondo
  */
 public class PanelConFondo extends JPanel 
 {

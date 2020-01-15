@@ -12,7 +12,7 @@ import Biwanger.controladores.clsController;
 import Biwanger.objetosDominio.clsJugador;
 
 /**
- * Ventana que permite al administrador añadir puntuación a los jugadores.
+ * @brief Ventana que permite al administrador añadir puntuación a los jugadores.
  */
 public class frmAnadirPuntos extends JFrame implements ActionListener {
 	private int altura = 800;

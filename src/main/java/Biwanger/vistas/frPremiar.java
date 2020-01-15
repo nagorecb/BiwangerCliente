@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 /**
- * Ventana que permite premiar a los tres usuarios con mayor puntuación.
+ * @brief Ventana que permite premiar a los tres usuarios con mayor puntuación.
  */
 public class frPremiar extends JFrame implements ActionListener
 {

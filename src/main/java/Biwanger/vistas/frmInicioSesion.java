@@ -22,7 +22,7 @@ import Biwanger.objetosDominio.clsUsuario;
 import java.awt.Font;
 
 /**
- * Ventana que permite a los usuario y al administrador iniciar sesión en el sistema.
+ * @brief Ventana que permite a los usuario y al administrador iniciar sesión en el sistema.
  * Permite también acceder a la ventana de registro.
  */
 public class frmInicioSesion extends JFrame implements ActionListener

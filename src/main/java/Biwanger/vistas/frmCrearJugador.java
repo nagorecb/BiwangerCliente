@@ -13,7 +13,7 @@ import Biwanger.controladores.clsController;
 import Biwanger.objetosDominio.clsJugador;
 
 /**
- * Ventana que permite al administrador añadir nuevos jugadores en el sistema.
+ * @brief Ventana que permite al administrador añadir nuevos jugadores en el sistema.
  */
 public class frmCrearJugador extends JFrame implements ActionListener {
 

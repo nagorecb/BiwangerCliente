@@ -19,7 +19,7 @@ import java.awt.GridLayout;
 import java.awt.Color;
 
 /**
- * Ventana que permite al usuario modificar la alineación de sus jugadores.
+ * @brief Ventana que permite al usuario modificar la alineación de sus jugadores.
  */
 public class frModificarAlineacion extends JFrame implements ActionListener
 {	
